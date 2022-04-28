@@ -12,9 +12,7 @@ const Login = () => {
           <button>Login</button>
         </div>
       </div>
-      <div>
-        <h2>Login</h2>
-      </div>
+      <div className="color2"></div>
     </div>
   );
 };
