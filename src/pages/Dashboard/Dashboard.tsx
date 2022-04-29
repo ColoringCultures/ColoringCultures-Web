@@ -56,7 +56,7 @@ const Dashboard = () => {
                 alt=""
               />
               <NavLink className="navlink" to="/Dashboard/Subscription">
-                Subsciption
+                Subscription
               </NavLink>
             </div>
             <div className="link">
