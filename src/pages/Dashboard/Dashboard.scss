@@ -17,11 +17,12 @@ body {
         width: 20%;
         background-color: white;
         border: 1px solid white;
-        border-radius: 10%;
-        padding-top: 10px;
+        border-radius: 40px 40px 40px 40px;
+        margin-top: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 10px;
 
         .admin-details {
             margin-top: 10px;
