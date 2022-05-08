@@ -2,7 +2,6 @@ import React from 'react';
 import './Login.scss';
 
 const Login = () => {
-  console.log('Login');
   return (
     <div className="root">
       <div className="color1">
