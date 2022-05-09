@@ -9,7 +9,10 @@ const UserFeedback = () => {
         {Mock.map((item, index) => {
           return (
             <div key={index}>
-              <h1>{item.name}</h1>
+              <div>
+                <img src={require('../../assets/images/user.png')} alt="user" />
+                <h1>{item.name}</h1>
+              </div>
               <p>{item.feedback}</p>
             </div>
           );
