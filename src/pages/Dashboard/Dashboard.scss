@@ -70,6 +70,12 @@ body {
                     font-size: 16px;
                 }
 
+                .active {
+                    color: black;
+                    text-decoration: underline;
+                    font-style: italic;
+                } 
+
                 p {
                     color: #FF0000;
                     font-size: 16px;
