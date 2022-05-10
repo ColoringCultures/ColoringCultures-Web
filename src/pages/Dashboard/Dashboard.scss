@@ -14,7 +14,7 @@ body {
 
     .navbar {
         margin-left: 26px;
-        width: 20%;
+        width: 15%;
         background-color: white;
         border: 1px solid white;
         border-radius: 40px 40px 40px 40px;
@@ -23,6 +23,7 @@ body {
         flex-direction: column;
         align-items: center;
         margin-bottom: 10px;
+        height: 40%;
 
         .admin-details {
             margin-top: 10px;
