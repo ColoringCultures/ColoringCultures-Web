@@ -1,14 +1,15 @@
 .feedback-root {
     width: 95%;
-    margin-left: 20px;
     margin-top: 10px;
     background-color: white;
     border: 1px solid white;
     border-radius: 40px 40px 40px 40px;
+    
         
     .card-root {
         display: flex;
         flex-wrap: wrap;
+        // overflow-y:scroll
     }
 }
 
