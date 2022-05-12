@@ -1,70 +1,66 @@
 .root {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
 .color1 {
-    margin-left: 60px;
-    width: 50%;
+  margin-left: 60px;
+  width: 50%;
 
-    h1{
-        margin-top: 57px;
-        font-size: 35px;
-        font-weight: bold;
+  h1 {
+    margin-top: 57px;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  p {
+    font-style: italic;
+    font-size: 18px;
+    color: #7e3910;
+  }
+
+  .color-flex {
+    display: flex;
+    flex-direction: column;
+    margin-top: 115px;
+
+    input {
+      width: 328px;
+      height: 48px;
+      border-radius: 40px;
+      margin-bottom: 10px;
+      border: 1px #707070 solid;
+      background-color: #f2f4f8;
+      margin-top: 16px;
+
+      &::placeholder {
+        padding-left: 10px;
+      }
+
+      &:focus {
+        padding-left: 10px;
+      }
     }
-
-    p {
-        font-style: italic;
-        font-size: 18px;
-        color: #7E3910;
+    button {
+      width: 328px;
+      height: 48px;
+      border-radius: 40px;
+      background-color: #7e3910;
+      color: white;
+      border: 1px solid #707070;
+      margin-top: 25px;
     }
-
-    .color-flex {
-        display: flex;
-        flex-direction: column;
-        margin-top: 115px;
-
-        
-        input {
-            width: 328px;
-            height: 48px;
-            border-radius: 40px;
-            margin-bottom: 10px;
-            border: 1px #707070 solid;
-            background-color: #F2F4F8;
-            margin-top: 16px;
-
-            &::placeholder {
-                padding-left: 10px;
-            }
-
-            &:focus {
-                padding-left: 10px;
-            }
-
-        }
-        button {
-            width: 328px;
-            height: 48px;
-            border-radius: 40px;  
-            background-color: #7E3910;
-            color: white;
-            border: 1px solid #707070; 
-            margin-top: 25px;
-        }
-    }
-    
-
+  }
 }
 
 .color2 {
- img {
-     margin-top: 245px;
-     display: block;
-     margin-left: auto;
-     margin-right: auto;
- }   
+  img {
+    margin-top: 175px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
- width: 50%;
- height: 100vh;
+  width: 50%;
+  height: 100vh;
 }
