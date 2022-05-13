@@ -4,7 +4,6 @@ import { NavLink, Outlet, useLocation } from 'react-router-dom';
 
 const Dashboard = () => {
   const location = useLocation();
-  console.log(location);
 
   return (
     <div className="dashboard-root">

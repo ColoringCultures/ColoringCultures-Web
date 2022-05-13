@@ -1,98 +1,90 @@
 body {
-    background-color: #F0F3F8;
+  background-color: #f0f3f8;
 }
 
 .menu {
-    font-size: 16px;
-    font-weight: 400px;
-    margin-bottom: 40px;
+  font-size: 16px;
+  font-weight: 400px;
+  margin-bottom: 40px;
 }
 
 .dashboard-root {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 
-    .navbar-root {
-        width: 18%;
-        min-width: 18%;
-        margin-left: 26px;
-        margin-right: 30px;
-        height: 40%;
+  .navbar-root {
+    width: 18%;
+    min-width: 18%;
+    margin-left: 26px;
+    margin-right: 30px;
+    height: 40%;
 
-        .navbar {
-            background-color: white;
-            background-size: 100%;
-            border: 1px solid white;
-            border-radius: 40px 40px 40px 40px;
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 10px;
-    
-            .admin-details {
-                margin-top: 10px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-    
-                img {
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
-                }
-    
-                h1 {
-                    font-size: 14px;
-                    font-weight: 400px;
-                }
-    
-                p {
-                    font-size: 14px;
-                    font-weight: 400px;
-                    color: #B0B3D1;
-                    margin-top: -10px;
-                }
-    
-                
-            }
-    
-            .links {
-                display: flex;
-                flex-direction: column;
-    
-                .link {
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 20px;
-    
-                    img {
-                        margin-right: 20px;
-                    }
-    
-                    .navlink {
-                        text-decoration: none;
-                        color: #B0B3D1;
-                        font-size: 16px;
-                    }
-    
-                    .active {
-                        color: black;
-                        text-decoration: underline;
-                        font-style: italic;
-                    } 
-    
-                    p {
-                        color: #FF0000;
-                        font-size: 16px;
-                    }
-                }
-            }
-    
-            
+    .navbar {
+      background-color: white;
+      background-size: 100%;
+      border: 1px solid white;
+      border-radius: 40px 40px 40px 40px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .admin-details {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
         }
 
-    }
+        h1 {
+          font-size: 14px;
+          font-weight: 400px;
+        }
 
-   
+        p {
+          font-size: 14px;
+          font-weight: 400px;
+          color: #b0b3d1;
+          margin-top: -10px;
+        }
+      }
+
+      .links {
+        display: flex;
+        flex-direction: column;
+
+        .link {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+
+          img {
+            margin-right: 20px;
+          }
+
+          .navlink {
+            text-decoration: none;
+            color: #b0b3d1;
+            font-size: 16px;
+          }
+
+          .active {
+            color: #7e3910;
+            font-style: italic;
+          }
+
+          p {
+            color: #ff0000;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
 }
