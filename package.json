@@ -1,6 +1,7 @@
 {
   "name": "coloring-cultures",
   "version": "0.1.0",
+  "proxy": "https://colorculture.herokuapp.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -42,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "http-proxy-middleware": "^2.0.6"
   }
 }

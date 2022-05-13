@@ -1,21 +1,27 @@
 .feedback-root {
-    width: 95%;
-    margin-top: 10px;
-    background-color: white;
-    border: 1px solid white;
-    border-radius: 40px 40px 40px 40px;
-    
-        
-    .card-root {
-        display: flex;
-        flex-wrap: wrap;
-        // overflow-y:scroll
+  width: 95%;
+  margin-top: 10px;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 40px 40px 40px 40px;
+
+  .feed {
+    margin-top: 15px;
+    h1 {
+      margin-left: 50px;
     }
+  }
+
+  .card-root {
+    display: flex;
+    flex-wrap: wrap;
+    // overflow-y:scroll
+  }
 }
 
 .user-border {
-  border: 1px solid #B0B3D1;
-  background-color: #F0F3F8;
+  border: 1px solid #b0b3d1;
+  background-color: #f0f3f8;
   border: 1px solid white;
   border-radius: 40px 40px 40px 40px;
   padding: 10px;
@@ -24,18 +30,30 @@
   margin-left: 55px;
 
   .image-username {
-      display: flex;
-      align-items: center;
+    display: flex;
+    align-items: center;
 
-      h1 {
-          font-size: 16px;
-      }
+    h1 {
+      font-size: 16px;
+    }
   }
 
   p {
-      font-size: 12px;
-      line-height: 18px;
+    font-size: 12px;
+    line-height: 18px;
   }
+}
 
-  
+.submit-button {
+  width: 328px;
+  height: 48px;
+  border-radius: 40px;
+  background-color: #7e3910;
+  color: white;
+  border: 1px solid #707070;
+  margin-top: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }

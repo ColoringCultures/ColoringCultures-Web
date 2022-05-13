@@ -22,9 +22,12 @@ const Login = () => {
     const { data } = await axios.post(
       'https://colorculture.herokuapp.com/auth/login/',
       {
-        username,
-        email,
-        password,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        username: username,
+        email: email,
+        password: password,
       }
       // { withCredentials: true }
     );

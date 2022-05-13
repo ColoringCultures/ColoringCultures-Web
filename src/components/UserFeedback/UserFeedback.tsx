@@ -21,8 +21,8 @@ const UserFeedback = () => {
   };
   return (
     <div className="feedback-root">
-      <div>
-        <div>Feedbacks</div>
+      <div className='feed'>
+        <h1>Feedbacks</h1>
         <div className="card-root">
           {list.map((item, index) => (
             <div key={index} className="user-border">
@@ -35,7 +35,7 @@ const UserFeedback = () => {
             </div>
           ))}
         </div>
-        {showMore && <button onClick={loadMore}> Load More </button>}
+        {showMore && <button onClick={loadMore} className='submit-button'> Load More </button>}
       </div>
     </div>
   );
