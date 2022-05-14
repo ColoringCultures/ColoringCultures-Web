@@ -1,9 +1,36 @@
-import React from 'react'
+import React from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+import './Achievements.scss';
 
 const Achievements = () => {
   return (
-    <div>Achievements</div>
-  )
-}
+    <div>
+      <div className="root-achievement">
+        <h1>Achievements</h1>
+        <div className="achievement-header">
+          <NavLink className="Achievement-link" to="/Dashboard/Achievements">
+            All
+          </NavLink>
+          <NavLink
+            className="Achievement-link"
+            to="/Dashboard/Achievements/Create"
+          >
+            + Create Achievement
+          </NavLink>
+          <NavLink
+            className="Achievement-link"
+            to="/Dashboard/Achievements/Edit"
+          >
+            Edit Achievement
+          </NavLink>
+        </div>
+        <hr />
+        <div>
+          <Outlet />
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Achievements
+export default Achievements;
