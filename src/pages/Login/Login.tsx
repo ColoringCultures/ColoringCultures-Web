@@ -29,7 +29,7 @@ const Login = () => {
         email: email,
         password: password,
       }
-      // { withCredentials: true }
+      // lwithCredentials: true 
     );
     console.log(data);
 
