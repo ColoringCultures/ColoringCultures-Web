@@ -19,19 +19,17 @@ const Login = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    const { data } = await axios.post(
+
+    const response = await axios.post(
       'https://colorculture.herokuapp.com/auth/login/',
       {
-        headers: {
-          'Content-Type': 'application/json',
-        },
         username: username,
         email: email,
         password: password,
       }
-      // withCredentials: true 
+      // withCredentials: true
     );
-    console.log(data);
+    console.log(response);
 
     // axios.defaults.headers.common['Authorization'] = `Bearer ${data['data']}`;
   };
