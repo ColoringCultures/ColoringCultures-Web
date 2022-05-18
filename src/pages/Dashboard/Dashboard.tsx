@@ -1,7 +1,7 @@
 import React from 'react';
 import './Dashboard.scss';
 import { Outlet, useLocation } from 'react-router-dom';
-import NavLink from './Navlink';
+import NavLink from '../../Navlink';
 
 const Dashboard = () => {
   const location = useLocation();
