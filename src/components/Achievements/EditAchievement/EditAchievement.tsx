@@ -1,5 +1,5 @@
 import React from 'react';
-//
+import './EditAchievement.scss';
 
 const EditAchievement = () => {
   return (
@@ -44,7 +44,8 @@ const EditAchievement = () => {
               <input type={'text'} placeholder="Enter a number" />
             </div>
           </div>
-          <button className="create-button">Create Now</button>
+          <button className="create-button">Save Changes</button>
+          <button className="delete-button">Delete achievement</button>
         </form>
       </div>
     </div>
