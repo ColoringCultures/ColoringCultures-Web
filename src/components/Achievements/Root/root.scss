@@ -1,0 +1,54 @@
+.root-root {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 30px;
+  margin-top: 30.4px;
+}
+
+.ach-root {
+  display: flex;
+  border: 1px solid #b0b3d1;
+  border-radius: 20px 20px 20px 20px;
+  width: 345px;
+  height: 140px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+
+  img {
+    margin: 14px;
+  }
+}
+
+.ach-root2 {
+  margin-left: 14px;
+  .titleXimage {
+    .item-title {
+      font-size: 14px;
+      font-weight: bold;
+      width: 145px;
+      height: 41px;
+    }
+  }
+  .item-desc {
+    font-size: 10px;
+    line-height: 16px;
+    color: #707070;
+    margin-top: -12px;
+    width: 153px;
+    height: 31px;
+  }
+
+  .points-root {
+    margin-top: -9px;
+    border: 1px solid #f7f7f7;
+    background-color: #f7f7f7;
+    border-radius: 15px;
+    width: 170px;
+    height: 45px;
+
+    .item-points {
+      text-align: center;
+      color: #707070;
+    }
+  }
+}
