@@ -19,10 +19,14 @@ const Login = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-
     const response = await axios.post(
       'https://colorculture.herokuapp.com/auth/login/',
       {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'Acess-Control-Allow-Origin': true,
+        },
         username: username,
         email: email,
         password: password,
