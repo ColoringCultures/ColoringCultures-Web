@@ -1,7 +1,7 @@
 import React from 'react';
 import './Dashboard.scss';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
-//
+import { Outlet, useLocation } from 'react-router-dom';
+import NavLink from './Navlink';
 
 const Dashboard = () => {
   const location = useLocation();
@@ -27,7 +27,13 @@ const Dashboard = () => {
                 ) : (
                   <img src={require('../../assets/Path 2.png')} alt="" />
                 )}
-                <NavLink className="navlink" to="/Dashboard/">
+                <NavLink
+                  inactiveClassName="navlink"
+                  to="/Dashboard/"
+                  exact={false}
+                  className="navlink"
+                  activeClassName="active"
+                >
                   Dashboard
                 </NavLink>
               </div>
@@ -37,7 +43,13 @@ const Dashboard = () => {
                 ) : (
                   <img src={require('../../assets/Union 2.png')} alt="" />
                 )}
-                <NavLink className="navlink" to="/Dashboard/Images">
+                <NavLink
+                  inactiveClassName="navlink"
+                  to="/Dashboard/Images"
+                  exact={false}
+                  className="navlink"
+                  activeClassName="active"
+                >
                   Images
                 </NavLink>
               </div>
@@ -50,7 +62,13 @@ const Dashboard = () => {
                 ) : (
                   <img src={require('../../assets/Path 19.png')} alt="" />
                 )}
-                <NavLink className="navlink" to="/Dashboard/Statistics">
+                <NavLink
+                  inactiveClassName="navlink"
+                  to="/Dashboard/Statistics"
+                  exact={false}
+                  className="navlink"
+                  activeClassName="active"
+                >
                   Statistics
                 </NavLink>
               </div>
@@ -63,7 +81,13 @@ const Dashboard = () => {
                 ) : (
                   <img src={require('../../assets/Path 8.png')} alt="" />
                 )}
-                <NavLink className="navlink" to="/Dashboard/Achievements">
+                <NavLink
+                  inactiveClassName="navlink"
+                  to="/Dashboard/Achievements"
+                  exact={false}
+                  className="navlink"
+                  activeClassName="active"
+                >
                   Achievements
                 </NavLink>
               </div>
@@ -76,7 +100,13 @@ const Dashboard = () => {
                 ) : (
                   <img src={require('../../assets/Path 6.png')} alt="" />
                 )}
-                <NavLink className="navlink" to="/Dashboard/UserFeedback">
+                <NavLink
+                  inactiveClassName="navlink"
+                  to="/Dashboard/UserFeedback"
+                  exact={false}
+                  className="navlink"
+                  activeClassName="active"
+                >
                   Users Feedback
                 </NavLink>
               </div>
@@ -86,7 +116,13 @@ const Dashboard = () => {
                 ) : (
                   <img src={require('../../assets/Union 1.png')} alt="" />
                 )}
-                <NavLink className="navlink" to="/Dashboard/Ads">
+                <NavLink
+                  inactiveClassName="navlink"
+                  to="/Dashboard/Ads"
+                  exact={false}
+                  className="navlink"
+                  activeClassName="active"
+                >
                   Ads
                 </NavLink>
               </div>
@@ -102,7 +138,13 @@ const Dashboard = () => {
                     alt=""
                   />
                 )}
-                <NavLink className="navlink" to="/Dashboard/Subscription">
+                <NavLink
+                  inactiveClassName="navlink"
+                  to="/Dashboard/Subscription"
+                  exact={false}
+                  className="navlink"
+                  activeClassName="active"
+                >
                   Subscription
                 </NavLink>
               </div>
@@ -118,7 +160,13 @@ const Dashboard = () => {
                     alt=""
                   />
                 )}
-                <NavLink className="navlink" to="/Dashboard/Revenue">
+                <NavLink
+                  inactiveClassName="navlink"
+                  to="/Dashboard/Revenue"
+                  exact={false}
+                  className="navlink"
+                  activeClassName="active"
+                >
                   Revenue
                 </NavLink>
               </div>
