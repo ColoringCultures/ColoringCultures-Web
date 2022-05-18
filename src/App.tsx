@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useRoutes } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Home from './components/root/home';
@@ -14,36 +14,59 @@ import Root from './components/Achievements/Root/Root';
 import EditAchievement from './components/Achievements/EditAchievement/EditAchievement';
 import CreateAchievement from './components/Achievements/CreateAchievement/CreateAchievements';
 
+export const routes = [
+  {
+    path: '/',
+    element: <Login />,
+  },
+  {
+    path: '/Dashboard',
+    element: <Dashboard />,
+    children: [
+      {
+        path: 'Home',
+        element: <Home />,
+      },
+      {
+        path: 'Images',
+        element: <Images />,
+      },
+      {
+        path: 'Statistics',
+        element: <Statistics />,
+      },
+      {
+        path: 'Achievements',
+        element: <Achievements />,
+        children: [
+          { path: '', element: <Root /> },
+          { path: 'Achievements/Create', element: <CreateAchievement /> },
+          { path: 'Achievements/Edit', element: <EditAchievement /> },
+        ],
+      },
+      {
+        path: 'UserFeedback',
+        element: <UserFeedback />,
+      },
+      {
+        path: 'Ads',
+        element: <Ads />,
+      },
+      {
+        path: 'Subscription',
+        element: <Subscription />,
+      },
+      {
+        path: 'Revenue',
+        element: <Revenue />,
+      },
+    ],
+  },
+];
+
 function App() {
-  return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/Dashboard" element={<Dashboard />}>
-            <Route path="/Dashboard" element={<Home />} />
-            <Route path="/Dashboard/Images" element={<Images />} />
-            <Route path="/Dashboard/Statistics" element={<Statistics />} />
-            <Route path="/Dashboard/Achievements" element={<Achievements />}>
-              <Route path="/Dashboard/Achievements" element={<Root />} />
-              <Route
-                path="/Dashboard/Achievements/Edit"
-                element={<EditAchievement />}
-              />
-              <Route
-                path="/Dashboard/Achievements/Create"
-                element={<CreateAchievement />}
-              />
-            </Route>
-            <Route path="/Dashboard/UserFeedback" element={<UserFeedback />} />
-            <Route path="/Dashboard/Ads" element={<Ads />} />
-            <Route path="/Dashboard/Subscription" element={<Subscription />} />
-            <Route path="/Dashboard/Revenue" element={<Revenue />} />
-          </Route>
-        </Routes>
-      </Router>
-    </div>
-  );
+  let element = useRoutes(routes);
+  return element;
 }
 
 export default App;

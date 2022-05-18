@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import './Achievements.scss';
+import NavLink from '../../Navlink';
 
 const Achievements = () => {
   return (
@@ -8,18 +9,30 @@ const Achievements = () => {
       <div className="root-achievement">
         <h1>Achievements</h1>
         <div className="achievement-header">
-          <NavLink className="Achievement-link" to="/Dashboard/Achievements">
+          <NavLink
+            className="Achievement-link"
+            to="/Dashboard/Achievements"
+            exact={true}
+            activeClassName="active"
+            inactiveClassName="Achievement-Link"
+          >
             All
           </NavLink>
           <NavLink
             className="Achievement-link"
-            to="/Dashboard/Achievements/Create"
+            to="Achievements/Create"
+            exact={false}
+            activeClassName="active"
+            inactiveClassName="Achievement-Link"
           >
             + Create Achievement
           </NavLink>
           <NavLink
             className="Achievement-link"
-            to="/Dashboard/Achievements/Edit"
+            to="Achievements/Edit"
+            exact={false}
+            activeClassName="active"
+            inactiveClassName="Achievement-Link"
           >
             Edit Achievement
           </NavLink>
