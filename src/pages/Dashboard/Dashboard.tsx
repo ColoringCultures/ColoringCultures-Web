@@ -60,6 +60,16 @@ const Dashboard = () => {
                     src={require('../../assets/active achievements.png')}
                     alt=""
                   />
+                ) : location.pathname === '/Dashboard/Achievements/Edit' ? (
+                  <img
+                    src={require('../../assets/active achievements.png')}
+                    alt=""
+                  />
+                ) : location.pathname === '/Dashboard/Achievements/Create' ? (
+                  <img
+                    src={require('../../assets/active achievements.png')}
+                    alt=""
+                  />
                 ) : (
                   <img src={require('../../assets/Path 8.png')} alt="" />
                 )}
