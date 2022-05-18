@@ -13,13 +13,13 @@ const Achievements = () => {
           </NavLink>
           <NavLink
             className="Achievement-link"
-            to="/Dashboard/Achievements/Create"
+            to="Achievements/Create"
           >
             + Create Achievement
           </NavLink>
           <NavLink
             className="Achievement-link"
-            to="/Dashboard/Achievements/Edit"
+            to="Achievements/Edit"
           >
             Edit Achievement
           </NavLink>
