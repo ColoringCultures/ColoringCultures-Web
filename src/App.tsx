@@ -17,6 +17,7 @@ import RootAds from './components/Ads/rootAds/RootAds';
 import AddAds from './components/Ads/EditAds/AddAds';
 import EditAds from './components/Ads/AddAds/EditAds';
 
+
 export const routes = [
   {
     path: '/',
@@ -59,56 +60,6 @@ export const routes = [
           { path: 'AddAds', element: <AddAds /> },
           { path: 'EditAds', element: <EditAds /> },
         ],
-      },
-      {
-        path: 'Subscription',
-        element: <Subscription />,
-      },
-      {
-        path: 'Revenue',
-        element: <Revenue />,
-      },
-    ],
-  },
-];
-
-export const routes = [
-  {
-    path: '/',
-    element: <Login />,
-  },
-  {
-    path: '/Dashboard',
-    element: <Dashboard />,
-    children: [
-      {
-        path: 'Home',
-        element: <Home />,
-      },
-      {
-        path: 'Images',
-        element: <Images />,
-      },
-      {
-        path: 'Statistics',
-        element: <Statistics />,
-      },
-      {
-        path: 'Achievements',
-        element: <Achievements />,
-        children: [
-          { path: '', element: <Root /> },
-          { path: 'Achievements/Create', element: <CreateAchievement /> },
-          { path: 'Achievements/Edit', element: <EditAchievement /> },
-        ],
-      },
-      {
-        path: 'UserFeedback',
-        element: <UserFeedback />,
-      },
-      {
-        path: 'Ads',
-        element: <Ads />,
       },
       {
         path: 'Subscription',
