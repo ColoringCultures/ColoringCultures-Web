@@ -1,0 +1,42 @@
+.root-Ads {
+    width: 95%;
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 40px 40px 40px 40px;
+    width: 1107px;
+    height: 839px;
+    margin-bottom: 15px;
+  
+    hr {
+      background-color: #b0b3d1;
+      margin-left: 35px;
+      margin-right: 35px;
+    }
+  
+    .Ads-header {
+      display: flex;
+      margin-left: 35px;
+      border-bottom: 1px #b0b3d1 solid;
+      margin-right: 35px;
+    }
+  
+    h1 {
+      margin-left: 35px;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+  
+    .Ads-link {
+      text-decoration: none;
+      color: #b0b3d1;
+      font-size: 16px;
+      margin-right: 51px;
+    }
+  
+    .active {
+      border-bottom: 3px solid #7e3910;
+      color: #7e3910;
+    }
+  }
+  
