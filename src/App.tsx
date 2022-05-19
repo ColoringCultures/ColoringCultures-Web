@@ -13,6 +13,9 @@ import Achievements from './components/Achievements/Achievements';
 import Root from './components/Achievements/Root/Root';
 import EditAchievement from './components/Achievements/EditAchievement/EditAchievement';
 import CreateAchievement from './components/Achievements/CreateAchievement/CreateAchievements';
+import RootAds from './components/Ads/rootAds/RootAds';
+import AddAds from './components/Ads/EditAds/AddAds';
+import EditAds from './components/Ads/AddAds/EditAds';
 
 export const routes = [
   {
@@ -40,8 +43,8 @@ export const routes = [
         element: <Achievements />,
         children: [
           { path: '', element: <Root /> },
-          { path: 'Achievements/Create', element: <CreateAchievement /> },
-          { path: 'Achievements/Edit', element: <EditAchievement /> },
+          { path: 'Create', element: <CreateAchievement /> },
+          { path: 'Edit', element: <EditAchievement /> },
         ],
       },
       {
@@ -51,6 +54,11 @@ export const routes = [
       {
         path: 'Ads',
         element: <Ads />,
+        children: [
+          { path: '', element: <RootAds /> },
+          { path: 'AddAds', element: <AddAds /> },
+          { path: 'EditAds', element: <EditAds /> },
+        ],
       },
       {
         path: 'Subscription',

@@ -123,6 +123,10 @@ const Dashboard = () => {
               <div className="link">
                 {location.pathname === '/Dashboard/Ads' ? (
                   <img src={require('../../assets/active Ads.png')} alt="" />
+                ) : location.pathname === '/Dashboard/Ads/EditAds' ? (
+                  <img src={require('../../assets/active Ads.png')} alt="" />
+                ) : location.pathname === '/Dashboard/Ads/AddAds' ? (
+                  <img src={require('../../assets/active Ads.png')} alt="" />
                 ) : (
                   <img src={require('../../assets/Union 1.png')} alt="" />
                 )}
