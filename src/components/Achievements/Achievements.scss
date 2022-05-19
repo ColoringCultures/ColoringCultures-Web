@@ -17,6 +17,8 @@
   .achievement-header {
     display: flex;
     margin-left: 35px;
+    border-bottom: 1px #b0b3d1 solid;
+    margin-right: 35px;
   }
 
   h1 {
@@ -32,8 +34,9 @@
     margin-right: 51px;
   }
 
-    // .active {
-    //   border-bottom: 2px solid #b0b3d1;
-      
-    // }
+
+  .active {
+    border-bottom: 3px solid #7e3910;
+    color: #7e3910;
+  }
 }

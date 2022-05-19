@@ -20,7 +20,8 @@ const Achievements = () => {
           </NavLink>
           <NavLink
             className="Achievement-link"
-            to="Achievements/Create"
+
+            to="Create"
             exact={false}
             activeClassName="active"
             inactiveClassName="Achievement-Link"
@@ -29,7 +30,7 @@ const Achievements = () => {
           </NavLink>
           <NavLink
             className="Achievement-link"
-            to="Achievements/Edit"
+            to="Edit"
             exact={false}
             activeClassName="active"
             inactiveClassName="Achievement-Link"
@@ -37,7 +38,7 @@ const Achievements = () => {
             Edit Achievement
           </NavLink>
         </div>
-        <hr />
+        {/* <hr /> */}
         <div>
           <Outlet />
         </div>
