@@ -72,56 +72,6 @@ export const routes = [
   },
 ];
 
-export const routes = [
-  {
-    path: '/',
-    element: <Login />,
-  },
-  {
-    path: '/Dashboard',
-    element: <Dashboard />,
-    children: [
-      {
-        path: 'Home',
-        element: <Home />,
-      },
-      {
-        path: 'Images',
-        element: <Images />,
-      },
-      {
-        path: 'Statistics',
-        element: <Statistics />,
-      },
-      {
-        path: 'Achievements',
-        element: <Achievements />,
-        children: [
-          { path: '', element: <Root /> },
-          { path: 'Achievements/Create', element: <CreateAchievement /> },
-          { path: 'Achievements/Edit', element: <EditAchievement /> },
-        ],
-      },
-      {
-        path: 'UserFeedback',
-        element: <UserFeedback />,
-      },
-      {
-        path: 'Ads',
-        element: <Ads />,
-      },
-      {
-        path: 'Subscription',
-        element: <Subscription />,
-      },
-      {
-        path: 'Revenue',
-        element: <Revenue />,
-      },
-    ],
-  },
-];
-
 function App() {
   let element = useRoutes(routes);
   return element;
