@@ -7,7 +7,7 @@ const Ads = () => {
   return (
     <div>
       <div className="root-Ads">
-        <h1>Adss</h1>
+        <h1>Ads</h1>
         <div className="Ads-header">
           <NavLink
             className="Ads-link"
