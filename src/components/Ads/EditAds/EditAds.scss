@@ -1,0 +1,75 @@
+.root-edit {
+  display: flex;
+  margin-top: 30.4px;
+  margin-left: 31px;
+
+  input {
+    border-radius: 5px;
+    width: 500px;
+    height: 48px;
+    background-color: #f0f3f8;
+    border: none;
+    margin-top: 12px;
+    margin-bottom: 35px;
+
+    &::placeholder {
+      padding-left: 10px;
+      color: #b0b3d1;
+      font-size: 16px;
+    }
+
+    &:focus {
+      padding-left: 10px;
+    }
+  }
+}
+
+.save-button {
+  width: 254px;
+  height: 49px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #7e3910;
+  color: white;
+  border: 1px solid #707070;
+  cursor: pointer;
+  margin-right: 25px;
+}
+
+.delete-ad {
+  width: 254px;
+  height: 49px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #ff0000;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  margin-left: 25px;
+}
+
+.file-edit {
+  .file-label-2 {
+    color: #b0b3d1;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 500px;
+    height: 48px;
+    background-color: #f0f3f8;
+    border: none;
+    margin-top: 12px;
+    margin-bottom: 35px;
+    input[type='file'] {
+      display: none;
+    }
+  }
+}
+
+.button-root {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+}
