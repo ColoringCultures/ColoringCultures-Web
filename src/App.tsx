@@ -16,6 +16,9 @@ import CreateAchievement from './components/Achievements/CreateAchievement/Creat
 import RootAds from './components/Ads/rootAds/RootAds';
 import AddAds from './components/Ads/AddAds/AddAds';
 import EditAds from './components/Ads/EditAds/EditAds';
+import Plans from './components/Subscription/root/Plans';
+import EditPlans from './components/Subscription/EditPlans/EditPlans';
+import AddPlans from './components/Subscription/AddPlans/AddPlans';
 
 export const routes = [
   {
@@ -63,6 +66,11 @@ export const routes = [
       {
         path: 'Subscription',
         element: <Subscription />,
+        children: [
+          { path: '', element: <Plans /> },
+          { path: 'EditPlans', element: <EditPlans /> },
+          { path: 'AddPlans', element: <AddPlans /> },
+        ],
       },
       {
         path: 'Revenue',
