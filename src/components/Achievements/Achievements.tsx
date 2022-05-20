@@ -38,7 +38,6 @@ const Achievements = () => {
             Edit Achievement
           </NavLink>
         </div>
-        {/* <hr /> */}
         <div>
           <Outlet />
         </div>
