@@ -25,40 +25,48 @@
     margin-top: 115px;
 
     input {
-      width: 328px;
-      height: 48px;
+      width: 528px;
+      height: 68px;
       border-radius: 40px;
       margin-bottom: 10px;
       border: 1px #707070 solid;
       background-color: #f2f4f8;
       margin-top: 16px;
+      padding-left: 30px;
+      font-size: 16px;
 
       &::placeholder {
         padding-left: 10px;
+        font-size: 16px;
       }
 
       &:focus {
-        padding-left: 10px;
+        padding-left: 30px;
+        font-size: 16px;
       }
     }
     button {
       width: 328px;
-      height: 48px;
+      height: 68px;
       border-radius: 40px;
       background-color: #7e3910;
       color: white;
       border: 1px solid #707070;
       margin-top: 25px;
+      cursor: pointer;
+      margin-left: 124px;
+      font-size: 16px;
     }
   }
 }
 
 .color2 {
   img {
-    margin-top: 175px;
+    margin-top: 32%;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-right: 17%;
   }
 
   width: 50%;

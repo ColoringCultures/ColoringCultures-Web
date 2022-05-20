@@ -1,4 +1,3 @@
-
 .root-create {
   margin-left: 35px;
 
@@ -18,6 +17,7 @@
       background-color: #f0f3f8;
       border: none;
       margin-top: 12px;
+      border-radius: 5px;
 
       &::placeholder {
         padding-left: 10px;
@@ -39,6 +39,7 @@
         background-color: #f0f3f8;
         border: none;
         margin-left: 15px;
+        border-radius: 5px;
 
         &::placeholder {
           padding-left: 10px;
