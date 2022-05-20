@@ -146,6 +146,17 @@ const Dashboard = () => {
                     src={require('../../assets/active subscription.png')}
                     alt=""
                   />
+                ) : location.pathname ===
+                  '/Dashboard/Subscription/EditPlans' ? (
+                  <img
+                    src={require('../../assets/active subscription.png')}
+                    alt=""
+                  />
+                ) : location.pathname === '/Dashboard/Subscription/AddPlans' ? (
+                  <img
+                    src={require('../../assets/active subscription.png')}
+                    alt=""
+                  />
                 ) : (
                   <img
                     src={require('../../assets/Icon feather-package.png')}
