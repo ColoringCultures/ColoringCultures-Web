@@ -14,9 +14,8 @@ import Root from './components/Achievements/Root/Root';
 import EditAchievement from './components/Achievements/EditAchievement/EditAchievement';
 import CreateAchievement from './components/Achievements/CreateAchievement/CreateAchievements';
 import RootAds from './components/Ads/rootAds/RootAds';
-import AddAds from './components/Ads/EditAds/AddAds';
-import EditAds from './components/Ads/AddAds/EditAds';
-
+import AddAds from './components/Ads/AddAds/AddAds';
+import EditAds from './components/Ads/EditAds/EditAds';
 
 export const routes = [
   {
