@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import { useRoutes } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -81,7 +82,11 @@ export const routes = [
 ];
 
 function App() {
+  const [token, setToken] = useState('');
   let element = useRoutes(routes);
+  if (!token) {
+    return <Login setToken={setToken} token={token} />;
+  }
   return element;
 }
 

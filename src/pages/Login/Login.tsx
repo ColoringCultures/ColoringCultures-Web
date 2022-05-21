@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Login.scss';
 import axios from 'axios';
 
-const Login = () => {
+const Login = (setToken: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
@@ -22,19 +22,13 @@ const Login = () => {
     const response = await axios.post(
       'https://colorculture.herokuapp.com/auth/login/',
       {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'Acess-Control-Allow-Origin': true,
-        },
-        username: username,
-        email: email,
-        password: password,
+        username,
+        email,
+        password,
       }
       // withCredentials: true
     );
-    console.log(response);
-
+    setToken(response.data.token);
     // axios.defaults.headers.common['Authorization'] = `Bearer ${data['data']}`;
   };
 
