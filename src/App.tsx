@@ -20,6 +20,8 @@ import EditAds from './components/Ads/EditAds/EditAds';
 import Plans from './components/Subscription/root/Plans';
 import EditPlans from './components/Subscription/EditPlans/EditPlans';
 import AddPlans from './components/Subscription/AddPlans/AddPlans';
+import './UserContext';
+import { UserContext } from './UserContext';
 
 export const routes = [
   {
@@ -87,7 +89,11 @@ function App() {
   if (!token) {
     return <Login setToken={setToken} token={token} />;
   }
-  return element;
+  return (
+    <UserContext.Provider value={[token, setToken]}>
+      {element}
+    </UserContext.Provider>
+  );
 }
 
 export default App;
