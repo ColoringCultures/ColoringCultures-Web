@@ -29,6 +29,7 @@ const Login = (setToken: any) => {
       // withCredentials: true
     );
     setToken(response.data.token);
+    console.log(response.data.token);
     // axios.defaults.headers.common['Authorization'] = `Bearer ${data['data']}`;
   };
 
