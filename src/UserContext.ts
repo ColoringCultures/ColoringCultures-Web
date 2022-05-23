@@ -1,3 +1,10 @@
 import { createContext } from 'react';
 
-export const UserContext = createContext([{}, () => {}]);
+interface UserContextType {
+  user: string;
+  setUser: (user: string) => void;
+  token: string;
+  setToken: (token: string) => void;
+}
+
+export const UserContext = createContext({} as UserContextType);
