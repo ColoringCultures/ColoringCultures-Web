@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.scss';
 import axios from 'axios';
+import { UserContext } from '../../UserContext';
 
-const Login = (setToken: any) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const { setToken } = useContext(UserContext);
 
   const handleUsername = (e: any) => {
     setUsername(e.target.value);
@@ -19,7 +21,7 @@ const Login = (setToken: any) => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    const response = await axios.post(
+    const { data } = await axios.post(
       'https://colorculture.herokuapp.com/auth/login/',
       {
         username,
@@ -28,8 +30,8 @@ const Login = (setToken: any) => {
       }
       // withCredentials: true
     );
-    setToken(response.data.token);
-    console.log(response.data.token);
+    setToken(data.data.key);
+
     // axios.defaults.headers.common['Authorization'] = `Bearer ${data['data']}`;
   };
 
