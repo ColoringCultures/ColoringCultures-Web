@@ -4,7 +4,7 @@ import {
   matchRoutes,
   useResolvedPath,
 } from 'react-router-dom';
-import { routes } from './App';
+import { routes } from './Routes.tsx';
 
 export default function NavLink({
   to,
