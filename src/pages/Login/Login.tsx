@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import './Login.scss';
 import axios from 'axios';
 import { UserContext } from '../../UserContext';
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -21,7 +22,7 @@ const Login = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    const { data } = await axios.post(
+    const response = await axios.post(
       'https://colorculture.herokuapp.com/auth/login/',
       {
         username,
@@ -30,7 +31,10 @@ const Login = () => {
       }
       // withCredentials: true
     );
-    setToken(data.data.key);
+    setToken(response.data.data.key);
+    if (response.status === 200) {
+      <Navigate  to="/Dashboard" replace />;
+    }
 
     // axios.defaults.headers.common['Authorization'] = `Bearer ${data['data']}`;
   };
