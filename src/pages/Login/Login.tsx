@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import './Login.scss';
 import axios from 'axios';
 import { UserContext } from '../../UserContext';
@@ -8,7 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-  const { setToken } = useContext(UserContext);
+  const { setToken, setUser, user } = useContext(UserContext);
 
   const handleUsername = (e: any) => {
     setUsername(e.target.value);
@@ -32,12 +32,12 @@ const Login = () => {
       // withCredentials: true
     );
     setToken(response.data.data.key);
-    if (response.status === 200) {
-      <Navigate  to="/Dashboard" replace />;
-    }
-
-    // axios.defaults.headers.common['Authorization'] = `Bearer ${data['data']}`;
+    setUser('true');
   };
+
+  if (user === 'true') {
+    return <Navigate to="/Dashboard" replace />;
+  }
 
   return (
     <div className="root">

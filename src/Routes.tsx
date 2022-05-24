@@ -18,6 +18,7 @@ import EditAds from './components/Ads/EditAds/EditAds';
 import Plans from './components/Subscription/root/Plans';
 import EditPlans from './components/Subscription/EditPlans/EditPlans';
 import AddPlans from './components/Subscription/AddPlans/AddPlans';
+import ProtectedRoutes from './ProtectedRoutes';
 
 export const routes = [
   {
@@ -25,55 +26,60 @@ export const routes = [
     element: <Login />,
   },
   {
-    path: '/Dashboard',
-    element: <Dashboard />,
+    element: <ProtectedRoutes />,
     children: [
       {
-        path: 'Home',
-        element: <Home />,
-      },
-      {
-        path: 'Images',
-        element: <Images />,
-      },
-      {
-        path: 'Statistics',
-        element: <Statistics />,
-      },
-      {
-        path: 'Achievements',
-        element: <Achievements />,
+        path: '/Dashboard',
+        element: <Dashboard />,
         children: [
-          { path: '', element: <Root /> },
-          { path: 'Create', element: <CreateAchievement /> },
-          { path: 'Edit', element: <EditAchievement /> },
+          {
+            path: 'Home',
+            element: <Home />,
+          },
+          {
+            path: 'Images',
+            element: <Images />,
+          },
+          {
+            path: 'Statistics',
+            element: <Statistics />,
+          },
+          {
+            path: 'Achievements',
+            element: <Achievements />,
+            children: [
+              { path: '', element: <Root /> },
+              { path: 'Create', element: <CreateAchievement /> },
+              { path: 'Edit', element: <EditAchievement /> },
+            ],
+          },
+          {
+            path: 'UserFeedback',
+            element: <UserFeedback />,
+          },
+          {
+            path: 'Ads',
+            element: <Ads />,
+            children: [
+              { path: '', element: <RootAds /> },
+              { path: 'AddAds', element: <AddAds /> },
+              { path: 'EditAds', element: <EditAds /> },
+            ],
+          },
+          {
+            path: 'Subscription',
+            element: <Subscription />,
+            children: [
+              { path: '', element: <Plans /> },
+              { path: 'EditPlans', element: <EditPlans /> },
+              { path: 'AddPlans', element: <AddPlans /> },
+            ],
+          },
+          {
+            path: 'Revenue',
+            element: <Revenue />,
+          },
         ],
-      },
-      {
-        path: 'UserFeedback',
-        element: <UserFeedback />,
-      },
-      {
-        path: 'Ads',
-        element: <Ads />,
-        children: [
-          { path: '', element: <RootAds /> },
-          { path: 'AddAds', element: <AddAds /> },
-          { path: 'EditAds', element: <EditAds /> },
-        ],
-      },
-      {
-        path: 'Subscription',
-        element: <Subscription />,
-        children: [
-          { path: '', element: <Plans /> },
-          { path: 'EditPlans', element: <EditPlans /> },
-          { path: 'AddPlans', element: <AddPlans /> },
-        ],
-      },
-      {
-        path: 'Revenue',
-        element: <Revenue />,
       },
     ],
   },
