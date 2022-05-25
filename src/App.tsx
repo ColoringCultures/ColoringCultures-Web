@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './Routes';
 import { UserContext } from './UserContext';
 import useSessionStorage from './useSessionStorage';
-//
+
 function App() {
   const [token, setToken] = useSessionStorage('', '');
   const [user, setUser] = useSessionStorage('false', '');
