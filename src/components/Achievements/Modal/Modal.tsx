@@ -31,7 +31,6 @@ const Modal = ({ setOpenModal }: any) => {
         </div>
       </div>
     </div>
-    // document.getElementById('portal') as HTMLElement
   );
 };
 
