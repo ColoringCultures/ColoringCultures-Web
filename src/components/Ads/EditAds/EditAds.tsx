@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './EditAds.scss';
+import Modal from '../Modal/Modal';
 
 const EditAds = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <div>
       <div className="root-edit">
@@ -40,8 +42,16 @@ const EditAds = () => {
       </div>
       <div className="button-root">
         <button className="save-button">Save Changes</button>
-        <button className="delete-ad">Delete Ad</button>
+        <button
+          className="delete-ad"
+          onClick={() => {
+            setModalOpen(true);
+          }}
+        >
+          Delete Ad
+        </button>
       </div>
+      {modalOpen && <Modal setOpenModal={setModalOpen} Modal={modalOpen} />}
     </div>
   );
 };

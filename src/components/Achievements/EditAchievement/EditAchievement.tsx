@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './EditAchievement.scss';
+import Modal from '../Modal/Modal';
 
 const EditAchievement = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <div className="root-create">
       <div>
@@ -44,9 +46,17 @@ const EditAchievement = () => {
               <input type={'text'} placeholder="Enter a number" />
             </div>
           </div>
-          <button className="create-button">Save Changes</button>
-          <button className="delete-button">Delete achievement</button>
         </form>
+        <button className="create-button">Save Changes</button>
+        <button
+          className="delete-button"
+          onClick={() => {
+            setModalOpen(true);
+          }}
+        >
+          Delete achievement
+        </button>
+        {modalOpen && <Modal setOpenModal={setModalOpen} Modal={modalOpen} />}
       </div>
     </div>
   );
