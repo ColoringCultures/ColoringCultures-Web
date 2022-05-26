@@ -15,7 +15,7 @@ const Modal = ({ setOpenModal }: any) => {
         </div>
         <div className="modal-content">
           <div className="modal-header">
-            <h1>Are you sure you want to delete this subcription?</h1>
+            <h1>Are you sure you want to delete this achievement?</h1>
           </div>
           <div className="modal-buttons">
             <button className="Yes-button">Yes</button>
