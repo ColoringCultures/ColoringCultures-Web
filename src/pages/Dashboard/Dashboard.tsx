@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Dashboard.scss';
 import { Outlet, useLocation } from 'react-router-dom';
 import NavLink from '../../Navlink';
+import Modal from './Modal/Modal';
 
 const Dashboard = () => {
   const location = useLocation();
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="dashboard-root">
@@ -195,14 +197,24 @@ const Dashboard = () => {
                   Revenue
                 </NavLink>
               </div>
-              <div className="link">
-                <img src={require('../../assets/Path 29.png')} alt="" />
+              <div
+                className="link"
+                onClick={() => {
+                  setModalOpen(true);
+                }}
+              >
+                <img
+                  className="signout-icon"
+                  src={require('../../assets/Path 29.png')}
+                  alt=""
+                />
                 <p>Sign Out</p>
               </div>
             </div>
             <div></div>
           </div>
         </div>
+        {modalOpen && <Modal setOpenModal={setModalOpen} />}
       </div>
       <div>
         <Outlet />
