@@ -3,7 +3,7 @@ import './Dashboard.scss';
 import { Outlet, useLocation } from 'react-router-dom';
 import NavLink from '../../Navlink';
 import Modal from './Modal/Modal';
-//
+
 const Dashboard = () => {
   const location = useLocation();
   const [modalOpen, setModalOpen] = useState(false);
