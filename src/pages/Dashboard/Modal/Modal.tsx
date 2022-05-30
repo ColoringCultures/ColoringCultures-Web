@@ -1,7 +1,7 @@
 import './Modal.scss';
 import { UserContext } from '../../../UserContext';
 import { useContext } from 'react';
-//
+
 const Modal = ({ setOpenModal }: any) => {
   const { setToken, setUser } = useContext(UserContext);
   return (
