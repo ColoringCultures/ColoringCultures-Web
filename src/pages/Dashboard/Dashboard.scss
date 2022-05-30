@@ -6,6 +6,7 @@ body {
   font-size: 16px;
   font-weight: 400px;
   margin-bottom: 40px;
+  padding-left: 33px;
 }
 
 .dashboard-root {
@@ -28,7 +29,7 @@ body {
       margin-top: 10px;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      // align-items: center;
       margin-bottom: 10px;
       width: 100%;
 
@@ -61,32 +62,43 @@ body {
         display: flex;
         flex-direction: column;
 
-        .link {
+        .navlink {
+          text-decoration: none;
           display: flex;
+          color: #b0b3d1;
           align-items: center;
-          margin-bottom: 20px;
-          cursor: pointer;
+          padding-left: 33px;
+          height: 50px;
 
           img {
             margin-right: 20px;
           }
+        }
 
-          .navlink {
-            text-decoration: none;
-            color: #b0b3d1;
-            font-size: 16px;
-          }
+        .active {
+          color: #7e3910;
+          background-color: #7e381020;
+          border-left: 8px solid #7e3910;
+        }
 
-          .active {
-            color: #7e3910;
-          }
-
-          p {
-            color: #ff0000;
-            font-size: 16px;
-          }
+        p {
+          color: #ff0000;
+          font-size: 16px;
         }
       }
     }
+  }
+}
+
+.link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding-left: 33px;
+  height: 50px;
+  cursor: pointer;
+
+  img {
+    margin-right: 20px;
   }
 }

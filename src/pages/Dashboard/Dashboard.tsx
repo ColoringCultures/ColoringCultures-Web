@@ -20,15 +20,7 @@ const Dashboard = () => {
           <div>
             <h1 className="menu">Menu</h1>
             <div className="links">
-              <div className="link">
-                {location.pathname === '/Dashboard/' ? (
-                  <img
-                    src={require('../../assets/active dashboard.png')}
-                    alt=""
-                  />
-                ) : (
-                  <img src={require('../../assets/Path 2.png')} alt="" />
-                )}
+              <div>
                 <NavLink
                   inactiveClassName="navlink"
                   to="/Dashboard/"
@@ -36,15 +28,18 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
+                  {location.pathname === '/Dashboard/' ? (
+                    <img
+                      src={require('../../assets/active dashboard.png')}
+                      alt=""
+                    />
+                  ) : (
+                    <img src={require('../../assets/Path 2.png')} alt="" />
+                  )}
                   Dashboard
                 </NavLink>
               </div>
-              <div className="link">
-                {location.pathname === '/Dashboard/Images' ? (
-                  <img src={require('../../assets/active images.png')} alt="" />
-                ) : (
-                  <img src={require('../../assets/Union 2.png')} alt="" />
-                )}
+              <div>
                 <NavLink
                   inactiveClassName="navlink"
                   to="/Dashboard/Images"
@@ -52,18 +47,18 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
+                  {location.pathname === '/Dashboard/Images' ? (
+                    <img
+                      src={require('../../assets/active images.png')}
+                      alt=""
+                    />
+                  ) : (
+                    <img src={require('../../assets/Union 2.png')} alt="" />
+                  )}
                   Images
                 </NavLink>
               </div>
-              <div className="link">
-                {location.pathname === '/Dashboard/Statistics' ? (
-                  <img
-                    src={require('../../assets/active statistics.png')}
-                    alt=""
-                  />
-                ) : (
-                  <img src={require('../../assets/Path 19.png')} alt="" />
-                )}
+              <div>
                 <NavLink
                   inactiveClassName="navlink"
                   to="/Dashboard/Statistics"
@@ -71,28 +66,18 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
+                  {location.pathname === '/Dashboard/Statistics' ? (
+                    <img
+                      src={require('../../assets/active statistics.png')}
+                      alt=""
+                    />
+                  ) : (
+                    <img src={require('../../assets/Path 19.png')} alt="" />
+                  )}
                   Statistics
                 </NavLink>
               </div>
-              <div className="link">
-                {location.pathname === '/Dashboard/Achievements' ? (
-                  <img
-                    src={require('../../assets/active achievements.png')}
-                    alt=""
-                  />
-                ) : location.pathname === '/Dashboard/Achievements/Edit' ? (
-                  <img
-                    src={require('../../assets/active achievements.png')}
-                    alt=""
-                  />
-                ) : location.pathname === '/Dashboard/Achievements/Create' ? (
-                  <img
-                    src={require('../../assets/active achievements.png')}
-                    alt=""
-                  />
-                ) : (
-                  <img src={require('../../assets/Path 8.png')} alt="" />
-                )}
+              <div>
                 <NavLink
                   inactiveClassName="navlink"
                   to="/Dashboard/Achievements"
@@ -100,18 +85,28 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
+                  {location.pathname === '/Dashboard/Achievements' ? (
+                    <img
+                      src={require('../../assets/active achievements.png')}
+                      alt=""
+                    />
+                  ) : location.pathname === '/Dashboard/Achievements/Edit' ? (
+                    <img
+                      src={require('../../assets/active achievements.png')}
+                      alt=""
+                    />
+                  ) : location.pathname === '/Dashboard/Achievements/Create' ? (
+                    <img
+                      src={require('../../assets/active achievements.png')}
+                      alt=""
+                    />
+                  ) : (
+                    <img src={require('../../assets/Path 8.png')} alt="" />
+                  )}
                   Achievements
                 </NavLink>
               </div>
-              <div className="link">
-                {location.pathname === '/Dashboard/UserFeedback' ? (
-                  <img
-                    src={require('../../assets/active Feedback.png')}
-                    alt=""
-                  />
-                ) : (
-                  <img src={require('../../assets/Path 6.png')} alt="" />
-                )}
+              <div>
                 <NavLink
                   inactiveClassName="navlink"
                   to="/Dashboard/UserFeedback"
@@ -119,19 +114,18 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
+                  {location.pathname === '/Dashboard/UserFeedback' ? (
+                    <img
+                      src={require('../../assets/active Feedback.png')}
+                      alt=""
+                    />
+                  ) : (
+                    <img src={require('../../assets/Path 6.png')} alt="" />
+                  )}
                   Users Feedback
                 </NavLink>
               </div>
-              <div className="link">
-                {location.pathname === '/Dashboard/Ads' ? (
-                  <img src={require('../../assets/active Ads.png')} alt="" />
-                ) : location.pathname === '/Dashboard/Ads/EditAds' ? (
-                  <img src={require('../../assets/active Ads.png')} alt="" />
-                ) : location.pathname === '/Dashboard/Ads/AddAds' ? (
-                  <img src={require('../../assets/active Ads.png')} alt="" />
-                ) : (
-                  <img src={require('../../assets/Union 1.png')} alt="" />
-                )}
+              <div>
                 <NavLink
                   inactiveClassName="navlink"
                   to="/Dashboard/Ads"
@@ -139,32 +133,19 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
+                  {location.pathname === '/Dashboard/Ads' ? (
+                    <img src={require('../../assets/active Ads.png')} alt="" />
+                  ) : location.pathname === '/Dashboard/Ads/EditAds' ? (
+                    <img src={require('../../assets/active Ads.png')} alt="" />
+                  ) : location.pathname === '/Dashboard/Ads/AddAds' ? (
+                    <img src={require('../../assets/active Ads.png')} alt="" />
+                  ) : (
+                    <img src={require('../../assets/Union 1.png')} alt="" />
+                  )}
                   Ads
                 </NavLink>
               </div>
-              <div className="link">
-                {location.pathname === '/Dashboard/Subscription' ? (
-                  <img
-                    src={require('../../assets/active subscription.png')}
-                    alt=""
-                  />
-                ) : location.pathname ===
-                  '/Dashboard/Subscription/EditPlans' ? (
-                  <img
-                    src={require('../../assets/active subscription.png')}
-                    alt=""
-                  />
-                ) : location.pathname === '/Dashboard/Subscription/AddPlans' ? (
-                  <img
-                    src={require('../../assets/active subscription.png')}
-                    alt=""
-                  />
-                ) : (
-                  <img
-                    src={require('../../assets/Icon feather-package.png')}
-                    alt=""
-                  />
-                )}
+              <div>
                 <NavLink
                   inactiveClassName="navlink"
                   to="/Dashboard/Subscription"
@@ -172,21 +153,33 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
+                  {location.pathname === '/Dashboard/Subscription' ? (
+                    <img
+                      src={require('../../assets/active subscription.png')}
+                      alt=""
+                    />
+                  ) : location.pathname ===
+                    '/Dashboard/Subscription/EditPlans' ? (
+                    <img
+                      src={require('../../assets/active subscription.png')}
+                      alt=""
+                    />
+                  ) : location.pathname ===
+                    '/Dashboard/Subscription/AddPlans' ? (
+                    <img
+                      src={require('../../assets/active subscription.png')}
+                      alt=""
+                    />
+                  ) : (
+                    <img
+                      src={require('../../assets/Icon feather-package.png')}
+                      alt=""
+                    />
+                  )}
                   Subscription
                 </NavLink>
               </div>
-              <div className="link">
-                {location.pathname === '/Dashboard/Revenue' ? (
-                  <img
-                    src={require('../../assets/active subscription.png')}
-                    alt=""
-                  />
-                ) : (
-                  <img
-                    src={require('../../assets/Icon feather-package.png')}
-                    alt=""
-                  />
-                )}
+              <div>
                 <NavLink
                   inactiveClassName="navlink"
                   to="/Dashboard/Revenue"
@@ -194,6 +187,17 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
+                  {location.pathname === '/Dashboard/Revenue' ? (
+                    <img
+                      src={require('../../assets/active subscription.png')}
+                      alt=""
+                    />
+                  ) : (
+                    <img
+                      src={require('../../assets/Icon feather-package.png')}
+                      alt=""
+                    />
+                  )}
                   Revenue
                 </NavLink>
               </div>
