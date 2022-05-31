@@ -5,10 +5,11 @@ import { UserContext } from '../../UserContext';
 import { Navigate } from 'react-router-dom';
 
 const Login = () => {
+  const [error, setError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-  const { setToken, setUser, user } = useContext(UserContext);
+  const { setToken, setUser, user, token } = useContext(UserContext);
 
   const handleUsername = (e: any) => {
     setUsername(e.target.value);
@@ -31,8 +32,14 @@ const Login = () => {
       }
       // withCredentials: true
     );
+    console.log(response);
+    if (response.data.status_code === 400) {
+      setError('Wrong username, email or password');
+    }
     setToken(response.data.data.key);
-    setUser('true');
+    if (token) {
+      setUser('true');
+    }
   };
 
   if (user === 'true') {
@@ -42,31 +49,36 @@ const Login = () => {
   return (
     <>
       {user === 'false' ? (
-        <div className="root">
-          <div className="color1">
-            <h1>Login to your Account</h1>
-            <p>Welcome Boss, kindly input your details</p>
-            <form className="color-flex">
-              <input
-                type="text"
-                placeholder="Username"
-                onChange={handleUsername}
-              />
-              <input
-                type="email"
-                placeholder="Email Address"
-                onChange={handleEmail}
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                onChange={handlePassword}
-              />
-              <button onClick={handleSubmit}>Login</button>
-            </form>
-          </div>
-          <div className="color2">
-            <img src={require('../../assets/logo.png')} alt="" />
+        <div className="main-root">
+          <div className="root">
+            <div className="color1">
+              <h1>Login to your Account</h1>
+              <p>Welcome Boss, kindly input your details</p>
+              <form className="color-flex">
+                <input
+                  type="text"
+                  placeholder="Username"
+                  onChange={handleUsername}
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  onChange={handleEmail}
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  onChange={handlePassword}
+                />
+                <p className="error-message">{error}</p>
+                <button type="submit" onClick={handleSubmit}>
+                  Login
+                </button>
+              </form>
+            </div>
+            <div className="color2">
+              <img src={require('../../assets/logo.png')} alt="" />
+            </div>
           </div>
         </div>
       ) : (

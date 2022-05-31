@@ -1,3 +1,8 @@
+.main-root {
+  display: flex;
+  width: 100%;
+}
+
 .root {
   width: 100%;
   display: flex;
@@ -5,8 +10,10 @@
 
 .color1 {
   margin-left: 60px;
-  width: 50%;
-
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   h1 {
     margin-top: 57px;
     font-size: 35px;
@@ -61,14 +68,15 @@
 }
 
 .color2 {
-  img {
-    margin-top: 32%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-right: 17%;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  margin-top: 10%;
+}
 
-  width: 50%;
-  height: 100vh;
+.error-message {
+  color: red !important;
+  font-size: 16px;
+  margin-left: 15%;
 }

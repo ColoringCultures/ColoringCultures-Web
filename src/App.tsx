@@ -7,7 +7,6 @@ import useSessionStorage from './useSessionStorage';
 function App() {
   const [token, setToken] = useSessionStorage('', '');
   const [user, setUser] = useSessionStorage('false', '');
-  console.log(token);
 
   return (
     <Router>
