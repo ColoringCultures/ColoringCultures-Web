@@ -31,7 +31,7 @@ const AddAds = () => {
             <label>
               Choose the Ad file
               <label className="file-label">
-                Choose  a file
+                <span>Choose a file</span>
                 <input type={'file'} placeholder="Choose a file" />
               </label>
             </label>
