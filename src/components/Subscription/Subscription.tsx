@@ -7,7 +7,7 @@ const Subscription = () => {
   return (
     <div>
       <div className="root-achievement">
-        <h1>Subscription</h1>
+        <h1>Subscription Plans</h1>
         <div className="achievement-header">
           <NavLink
             className="Achievement-link"
@@ -16,7 +16,7 @@ const Subscription = () => {
             activeClassName="active"
             inactiveClassName="Achievement-Link"
           >
-            All
+            Plans
           </NavLink>
           <NavLink
             className="Achievement-link"

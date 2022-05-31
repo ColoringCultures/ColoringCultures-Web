@@ -40,6 +40,11 @@
 
 .file-upload {
   .file-label {
+    img {
+      display: flex;
+      width: 20px;
+      height: 20px;
+    }
     color: #b0b3d1;
     font-size: 16px;
     text-align: center;
