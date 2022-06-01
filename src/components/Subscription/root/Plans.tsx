@@ -1,11 +1,29 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import './Plans.scss';
 import { Mock } from '../mockdata';
 
+const LENGTH = Mock.length;
+const LIMIT = 3;
+
+
 const Plans = () => {
+  const [showMore, setShowMore] = useState(true);
+  let listed = Mock.slice(0, LIMIT);
+  const [list, setList] = useState(listed);
+  const [index, setIndex] = useState(LIMIT);
+
+  const loadMore = () => {
+    const newIndex = index + LIMIT;
+    const newShowMore = newIndex < LENGTH - 1;
+    const newList = list.concat(Mock.slice(index, newIndex));
+    setIndex(newIndex);
+    setList(newList);
+    setShowMore(newShowMore);
+  };
   return (
     <div className="sub-root">
-      {Mock.map((data, index) => {
+      {list.map((data, index) => {
         return (
           <div key={index} className="plan-root">
             <div className="plan-header">
@@ -59,6 +77,12 @@ const Plans = () => {
           </div>
         );
       })}
+      {showMore && (
+        <button onClick={loadMore} className="sub-loadmore-button">
+          {' '}
+          Load More{' '}
+        </button>
+      )}
     </div>
   );
 };

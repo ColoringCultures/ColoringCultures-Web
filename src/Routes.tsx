@@ -19,6 +19,10 @@ import Plans from './components/Subscription/root/Plans';
 import EditPlans from './components/Subscription/EditPlans/EditPlans';
 import AddPlans from './components/Subscription/AddPlans/AddPlans';
 import ProtectedRoutes from './ProtectedRoutes';
+import BugReport from './components/UserFeedback/BugReport/BugReport';
+import FeatureRequests from './components/UserFeedback/FeatureRequests/FeatureRequests';
+import Praise from './components/UserFeedback/Praise/Praise';
+import Suggestions from './components/UserFeedback/Suggestions/Suggestions';
 
 export const routes = [
   {
@@ -56,6 +60,12 @@ export const routes = [
           {
             path: 'UserFeedback',
             element: <UserFeedback />,
+            children: [
+              { path: '', element: <BugReport /> },
+              { path: 'FeatureRequests', element: <FeatureRequests /> },
+              { path: 'Praise', element: <Praise /> },
+              { path: 'Suggestions', element: <Suggestions /> },
+            ],
           },
           {
             path: 'Ads',

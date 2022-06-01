@@ -1,41 +1,54 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import NavLink from '../../Navlink';
 import './UserFeedback.scss';
-import { Mock } from './mockData';
-
-const LENGTH = Mock.length;
-const LIMIT = 6;
 
 const UserFeedback = () => {
-  const [showMore, setShowMore] = useState(true);
-  let listed = Mock.slice(0, LIMIT);
-  const [list, setList] = useState(listed);
-  const [index, setIndex] = useState(LIMIT);
-
-  const loadMore = () => {
-    const newIndex = index + LIMIT;
-    const newShowMore = newIndex < LENGTH - 1;
-    const newList = list.concat(Mock.slice(index, newIndex));
-    setIndex(newIndex);
-    setList(newList);
-    setShowMore(newShowMore);
-  };
   return (
-    <div className="feedback-root">
-      <div className='feed'>
+    <div>
+      <div className="root-Feedback">
         <h1>Feedbacks</h1>
-        <div className="card-root">
-          {list.map((item, index) => (
-            <div key={index} className="user-border">
-              <div className="image-username">
-                <img src={require('../../assets/download (1).png')} alt="" />
-                <h1>{item.name}</h1>
-              </div>
-              <hr />
-              <p>{item.feedback}</p>
-            </div>
-          ))}
+        <div className="Feedback-header">
+          <NavLink
+            className="Feedback-link"
+            to="/Dashboard/UserFeedback"
+            exact={true}
+            activeClassName="active"
+            inactiveClassName="Feedback-Link"
+          >
+            Bug Report
+          </NavLink>
+          <NavLink
+            className="Feedback-link"
+            to="FeatureRequests"
+            exact={false}
+            activeClassName="active"
+            inactiveClassName="Feedback-Link"
+          >
+            Feature Requests
+          </NavLink>
+          <NavLink
+            className="Feedback-link"
+            to="Praise"
+            exact={false}
+            activeClassName="active"
+            inactiveClassName="Feedback-Link"
+          >
+            Praise
+          </NavLink>
+          <NavLink
+            className="Feedback-link"
+            to="Suggestions"
+            exact={false}
+            activeClassName="active"
+            inactiveClassName="Feedback-Link"
+          >
+            Suggestions
+          </NavLink>
         </div>
-        {showMore && <button onClick={loadMore} className='submit-button'> Load More </button>}
+        <div>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

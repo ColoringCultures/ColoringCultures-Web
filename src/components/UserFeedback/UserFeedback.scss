@@ -1,62 +1,42 @@
-.feedback-root {
+.root-Feedback {
   width: 95%;
   margin-top: 10px;
   background-color: white;
   border: 1px solid white;
   border-radius: 40px 40px 40px 40px;
+  width: 1107px;
+  height: 839px;
+  margin-bottom: 15px;
   height: 727px;
 
-  .feed {
-    margin-top: 15px;
-    h1 {
-      margin-left: 50px;
-    }
+  hr {
+    background-color: #b0b3d1;
+    margin-left: 35px;
+    margin-right: 35px;
   }
 
-  .card-root {
+  .Feedback-header {
     display: flex;
-    flex-wrap: wrap;
-    overflow-y: scroll;
-    width: 100%;
-    height: 650px;
-  }
-}
-
-.user-border {
-  border: 1px solid #b0b3d1;
-  background-color: #f0f3f8;
-  border: 1px solid white;
-  border-radius: 40px 40px 40px 40px;
-  padding: 10px;
-  margin-bottom: 20px;
-  width: 230px;
-  margin-left: 55px;
-
-  .image-username {
-    display: flex;
-    align-items: center;
-
-    h1 {
-      font-size: 16px;
-    }
+    margin-left: 35px;
+    border-bottom: 1px #b0b3d1 solid;
+    margin-right: 35px;
   }
 
-  p {
-    font-size: 12px;
-    line-height: 18px;
+  h1 {
+    margin-left: 35px;
+    font-size: 20px;
+    margin-top: 25px;
   }
-}
 
-.submit-button {
-  width: 328px;
-  height: 48px;
-  border-radius: 40px;
-  background-color: #7e3910;
-  color: white;
-  border: 1px solid #707070;
-  margin-top: 25px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
+  .Feedback-link {
+    text-decoration: none;
+    color: #b0b3d1;
+    font-size: 16px;
+    margin-right: 51px;
+  }
+
+  .active {
+    border-bottom: 3px solid #7e3910;
+    color: #7e3910;
+  }
 }
