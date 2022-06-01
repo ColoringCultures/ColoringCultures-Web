@@ -119,6 +119,23 @@ const Dashboard = () => {
                       src={require('../../assets/active Feedback.png')}
                       alt=""
                     />
+                  ) : location.pathname ===
+                    '/Dashboard/UserFeedback/FeatureRequests' ? (
+                    <img
+                      src={require('../../assets/active Feedback.png')}
+                      alt=""
+                    />
+                  ) : location.pathname === '/Dashboard/UserFeedback/Praise' ? (
+                    <img
+                      src={require('../../assets/active Feedback.png')}
+                      alt=""
+                    />
+                  ) : location.pathname ===
+                    '/Dashboard/UserFeedback/Suggestions' ? (
+                    <img
+                      src={require('../../assets/active Feedback.png')}
+                      alt=""
+                    />
                   ) : (
                     <img src={require('../../assets/Path 6.png')} alt="" />
                   )}
