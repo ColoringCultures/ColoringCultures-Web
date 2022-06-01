@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 34px;
+  height: 600px;
+  overflow-y: scroll;
 }
 
 .plan-root {
@@ -14,6 +15,7 @@
   border: 1px solid #707070;
   box-shadow: 0 4px 17px #b0b3d1;
   border-radius: 30px;
+  margin-top: 34px;
 
   .plan-header {
     display: flex;
@@ -73,4 +75,19 @@
       cursor: pointer;
     }
   }
+}
+
+.sub-loadmore-button {
+  width: 328px;
+  height: 48px;
+  border-radius: 40px;
+  background-color: #7e3910;
+  color: white;
+  border: 1px solid #707070;
+  margin-top: 75px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
