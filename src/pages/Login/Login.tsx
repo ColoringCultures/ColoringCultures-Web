@@ -49,35 +49,38 @@ const Login = () => {
   return (
     <>
       {user === 'false' ? (
-        <div className="main-root">
-          <div className="root">
-            <div className="color1">
-              <h1>Login to your Account</h1>
-              <p>Welcome Boss, kindly input your details</p>
-              <form className="color-flex">
-                <input
-                  type="text"
-                  placeholder="Username"
-                  onChange={handleUsername}
-                />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  onChange={handleEmail}
-                />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  onChange={handlePassword}
-                />
-                <p className="error-message">{error}</p>
-                <button type="submit" onClick={handleSubmit}>
-                  Login
-                </button>
-              </form>
-            </div>
-            <div className="color2">
-              <img src={require('../../assets/logo.png')} alt="" />
+        <div className="mainer-root">
+          <div className="main-root">
+            <div className="login-border">
+              <div className="root">
+                <div className="color1">
+                  <h1>Login to your Account</h1>
+                  <form className="color-flex">
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      onChange={handleUsername}
+                    />
+                    <input
+                      type="email"
+                      placeholder="Email Address"
+                      onChange={handleEmail}
+                    />
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      onChange={handlePassword}
+                    />
+                    <p className="error-message">{error}</p>
+                    <button type="submit" onClick={handleSubmit}>
+                      Login
+                    </button>
+                  </form>
+                </div>
+                <div className="color2">
+                  <img src={require('../../assets/logo.png')} alt="" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
