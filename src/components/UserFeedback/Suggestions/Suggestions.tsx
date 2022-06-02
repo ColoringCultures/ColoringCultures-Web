@@ -3,7 +3,7 @@ import './Suggestions.scss';
 import { Mock } from '../mockData';
 
 const LENGTH = Mock.length;
-const LIMIT = 4;
+const LIMIT = 6;
 
 const Suggestions = () => {
   const [showMore, setShowMore] = useState(true);
