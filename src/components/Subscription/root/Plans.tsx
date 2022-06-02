@@ -1,11 +1,9 @@
-
 import React, { useState } from 'react';
 import './Plans.scss';
 import { Mock } from '../mockdata';
 
 const LENGTH = Mock.length;
 const LIMIT = 3;
-
 
 const Plans = () => {
   const [showMore, setShowMore] = useState(true);
