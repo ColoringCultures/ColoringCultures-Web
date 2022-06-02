@@ -3,7 +3,7 @@ import './BugReport.scss';
 import { Mock } from '../mockData';
 
 const LENGTH = Mock.length;
-const LIMIT = 4;
+const LIMIT = 6;
 
 const BugReport = () => {
   const [showMore, setShowMore] = useState(true);
