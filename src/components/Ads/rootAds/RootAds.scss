@@ -1,0 +1,46 @@
+.ads-border {
+  background-color: #f5f7f9;
+  width: 240px;
+  height: 300px;
+  border-radius: 29px;
+  margin-top: 13px;
+  margin-right: 40px;
+  margin-left: 40px;
+  box-shadow: 2px 3px 3px #b0b3d1;
+
+  .ads-edit-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    img {
+      cursor: pointer;
+      border-radius: 29px;
+    }
+  }
+}
+
+.rootads-root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 670px;
+  overflow-y: scroll;
+}
+
+.ads-loadmore-button {
+  width: 328px;
+  height: 48px;
+  border-radius: 40px;
+  background-color: #7e3910;
+  color: white;
+  border: 1px solid #707070;
+  margin-top: 260px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
