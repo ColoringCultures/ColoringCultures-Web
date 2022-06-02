@@ -3,7 +3,7 @@ import { mockdata } from './mockdata';
 import './root.scss';
 
 const LENGTH = mockdata.length;
-const LIMIT = 6;
+const LIMIT = 9;
 
 const Root = () => {
   const [showMore, setShowMore] = useState(true);

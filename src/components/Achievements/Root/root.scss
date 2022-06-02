@@ -1,11 +1,9 @@
 .root-root {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  margin-left: 30px;
   margin-top: 30.4px;
-  margin-right: 30px;
-  height: 520px;
+  height: 500px;
   overflow-y: scroll;
 }
 
@@ -13,11 +11,11 @@
   display: flex;
   border: 1px solid #b0b3d1;
   border-radius: 20px 20px 20px 20px;
-  width: 345px;
+  width: 335px;
   height: 140px;
-  margin-right: 50px;
-  margin-left: 50px;
-  margin-bottom: 30px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 10px;
 
   img {
     margin: 14px;
@@ -25,7 +23,6 @@
 }
 
 .ach-root2 {
-  margin-left: 14px;
   .titleXimage {
     display: flex;
     img {
@@ -34,28 +31,32 @@
       cursor: pointer;
     }
     .item-title {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: bold;
-      width: 135px;
-      height: 41px;
+      width: 125px;
+      height: 0px;
     }
   }
   .item-desc {
     font-size: 10px;
-    line-height: 16px;
     color: #707070;
-    margin-top: -12px;
     width: 153px;
     height: 31px;
   }
 
   .points-root {
-    margin-top: -9px;
     border: 1px solid #f7f7f7;
     background-color: #f7f7f7;
     border-radius: 15px;
-    width: 170px;
-    height: 45px;
+    width: 160px;
+    height: 40px;
+    margin-top: -5px;
+
+    p {
+      text-align: center;
+      margin-top: 10px;
+    }
+    // margin-right: 10px;
 
     .item-points {
       text-align: center;
