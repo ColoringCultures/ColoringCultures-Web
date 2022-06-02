@@ -3,7 +3,7 @@ import { Mock } from '../mockdata';
 import './RootAds.scss';
 
 const LENGTH = Mock.length;
-const LIMIT = 3;
+const LIMIT = 6;
 
 const RootAds = () => {
   const [showMore, setShowMore] = useState(true);
