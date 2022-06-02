@@ -3,7 +3,7 @@ import './FeatureRequests.scss'
 import { Mock } from '../mockData';
 
 const LENGTH = Mock.length;
-const LIMIT = 4;
+const LIMIT = 6;
 
 const FeatureRequests = () => {
   const [showMore, setShowMore] = useState(true);
