@@ -6,8 +6,8 @@ body {
   font-family: 'Poppins';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  max-width: 100%;
+  /* width: 100%;
+  max-width: 100%; */
   /* overflow-x: hidden; */
 }
 
