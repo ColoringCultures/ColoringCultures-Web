@@ -1,5 +1,6 @@
 body {
   background-color: #f0f3f8;
+  width: 100vw;
 }
 
 .menu {
@@ -33,7 +34,6 @@ body {
       width: 100%;
       min-width: 100%;
       max-width: 100%;
-
 
       .admin-details {
         margin-top: 10px;
@@ -71,7 +71,6 @@ body {
           align-items: center;
           padding-left: 33px;
           height: 50px;
-
 
           img {
             margin-right: 20px;
