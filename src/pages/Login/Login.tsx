@@ -5,6 +5,7 @@ import { UserContext } from '../../UserContext';
 import { Navigate } from 'react-router-dom';
 
 const Login = () => {
+  const [login, setLogin] = useState(false);
   const [error, setError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,7 +33,6 @@ const Login = () => {
       }
       // withCredentials: true
     );
-    console.log(response);
     if (response.data.status_code === 400) {
       setError('Wrong username, email or password');
     }
@@ -40,9 +40,12 @@ const Login = () => {
     if (token) {
       setUser('true');
     }
+    if (token) {
+      setLogin(true);
+    }
   };
 
-  if (user === 'true') {
+  if (login === true) {
     return <Navigate to="/Dashboard" replace />;
   }
 
