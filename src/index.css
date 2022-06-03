@@ -8,7 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   scrollbar-gutter: stable both-edges;
   transform-origin: top left;
-  transform: scale(80%);
+  transform: scale(75%);
   overflow-x: hidden;
 }
 
