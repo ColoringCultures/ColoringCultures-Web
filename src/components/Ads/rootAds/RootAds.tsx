@@ -10,6 +10,7 @@ const RootAds = () => {
   let listed = Mock.slice(0, LIMIT);
   const [list, setList] = useState(listed);
   const [index, setIndex] = useState(LIMIT);
+  const [scroll, setScroll] = useState(false);
 
   const loadMore = () => {
     const newIndex = index + LIMIT;
@@ -18,9 +19,10 @@ const RootAds = () => {
     setIndex(newIndex);
     setList(newList);
     setShowMore(newShowMore);
+    setScroll(true);
   };
   return (
-    <div className="rootads-root">
+    <div className={scroll ? 'rootads-root' : 'adsroot-root'}>
       {list.map((data, index) => {
         return (
           <div key={index} className="ads-border">

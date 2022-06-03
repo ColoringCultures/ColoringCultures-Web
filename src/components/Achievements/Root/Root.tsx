@@ -10,6 +10,7 @@ const Root = () => {
   let listed = mockdata.slice(0, LIMIT);
   const [list, setList] = useState(listed);
   const [index, setIndex] = useState(LIMIT);
+  const [scroll, setScroll] = useState(false);
 
   const loadMore = () => {
     const newIndex = index + LIMIT;
@@ -18,10 +19,11 @@ const Root = () => {
     setIndex(newIndex);
     setList(newList);
     setShowMore(newShowMore);
+    setScroll(true);
   };
   return (
     <>
-      <div className="root-root">
+      <div className={scroll ? 'root-root' : 'scroll-root-root '}>
         {list.map((item, index) => {
           return (
             <div className="ach-root" key={index}>

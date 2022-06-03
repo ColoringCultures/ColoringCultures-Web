@@ -2,8 +2,15 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  height: 600px;
+  height: 620px;
   overflow-y: scroll;
+}
+
+.scroll-sub-root {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 620px;
 }
 
 .plan-root {

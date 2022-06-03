@@ -6,33 +6,33 @@ import NavLink from '../../Navlink';
 const Subscription = () => {
   return (
     <div>
-      <div className="root-achievement">
+      <div className="root-subscription">
         <h1>Subscription Plans</h1>
-        <div className="achievement-header">
+        <div className="subscription-header">
           <NavLink
-            className="Achievement-link"
+            className="subscription-link"
             to="/Dashboard/Subscription"
             exact={true}
             activeClassName="active"
-            inactiveClassName="Achievement-Link"
+            inactiveClassName="subscription-Link"
           >
             Plans
           </NavLink>
           <NavLink
-            className="Achievement-link"
+            className="subscription-link"
             to="AddPlans"
             exact={false}
             activeClassName="active"
-            inactiveClassName="Achievement-Link"
+            inactiveClassName="subscription-Link"
           >
             + Add Plans
           </NavLink>
           <NavLink
-            className="Achievement-link"
+            className="subscription-link"
             to="EditPlans"
             exact={false}
             activeClassName="active"
-            inactiveClassName="Achievement-Link"
+            inactiveClassName="subscription-Link"
           >
             Edit Plans
           </NavLink>

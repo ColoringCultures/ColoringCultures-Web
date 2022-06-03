@@ -29,7 +29,14 @@
   height: 710px;
   overflow-y: scroll;
   overflow-x: none;
+}
 
+.adsroot-root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 710px;
+  overflow-x: none;
 }
 
 .ads-loadmore-button {

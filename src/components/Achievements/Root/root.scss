@@ -7,6 +7,14 @@
   overflow-y: scroll;
 }
 
+.scroll-root-root {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30.4px;
+  height: 500px;
+}
+
 .ach-root {
   display: flex;
   border: 1px solid #b0b3d1;
