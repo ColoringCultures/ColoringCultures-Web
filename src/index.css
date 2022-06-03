@@ -7,9 +7,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scrollbar-gutter: stable both-edges;
-  transform-origin: top left;
+  /* transform-origin: top left;
   transform: scale(79%);
-  overflow-x: hidden;
+  overflow-x: hidden; */
 }
 
 code {
