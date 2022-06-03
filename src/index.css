@@ -7,10 +7,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scrollbar-gutter: stable both-edges;
-  width: 150%;
-  height: 150%;
   transform-origin: top left;
-  transform: scale(10%);
+  transform: scale(95%);
 }
 
 code {
