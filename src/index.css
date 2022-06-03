@@ -5,9 +5,8 @@ body {
   font-family: 'Poppins';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* width: 100vw; */
-  /* width: fit-content; */
-  overflow-x: hidden;
+  max-width: 100%;
+  /* overflow-x: hidden; */
 }
 
 code {
