@@ -8,7 +8,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   scrollbar-gutter: stable both-edges;
   width: 150%;
+  height: 150%;
   max-width: 150%;
+  transform-origin: top left;
+  transform: scale(50%);
 }
 
 code {
