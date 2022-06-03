@@ -1,13 +1,13 @@
 .root-achievement {
-  width: 95%;
   margin-top: 10px;
   background-color: white;
   border: 1px solid white;
   border-radius: 40px 40px 40px 40px;
   width: 1107px;
-  height: 839px;
+  max-width: 1107px;
   margin-bottom: 15px;
   height: 727px;
+  max-height: 727px;
 
   hr {
     background-color: #b0b3d1;
@@ -34,7 +34,6 @@
     font-size: 16px;
     margin-right: 51px;
   }
-
 
   .active {
     border-bottom: 3px solid #7e3910;
