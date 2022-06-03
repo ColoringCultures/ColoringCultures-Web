@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import './FeatureRequests.scss'
+import React, { useState } from 'react';
+import './FeatureRequests.scss';
 import { Mock } from '../mockData';
 
 const LENGTH = Mock.length;
@@ -10,6 +10,7 @@ const FeatureRequests = () => {
   let listed = Mock.slice(0, LIMIT);
   const [list, setList] = useState(listed);
   const [index, setIndex] = useState(LIMIT);
+  const [scroll, setScroll] = useState(false);
 
   const loadMore = () => {
     const newIndex = index + LIMIT;
@@ -18,10 +19,11 @@ const FeatureRequests = () => {
     setIndex(newIndex);
     setList(newList);
     setShowMore(newShowMore);
+    setScroll(true);
   };
   return (
     <div className="feed-root">
-      <div className="card-root">
+      <div className={scroll ? "card-root" : 'scroll-card-roll'}>
         {list.map((item, index) => (
           <div key={index} className="user-border">
             <div className="image-username">
@@ -42,4 +44,4 @@ const FeatureRequests = () => {
   );
 };
 
-export default FeatureRequests
+export default FeatureRequests;

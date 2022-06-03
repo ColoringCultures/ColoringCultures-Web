@@ -9,6 +9,16 @@
     margin-right: 50px;
     justify-content: space-between;
   }
+
+  .scroll-card-root {
+    display: flex;
+    flex-wrap: wrap;
+    height: 520px;
+    margin-left: 50px;
+    margin-top: 30.4px;
+    margin-right: 50px;
+    justify-content: space-between;
+  }
 }
 
 .user-border {
@@ -20,7 +30,6 @@
   margin-bottom: 10px;
   width: 300px;
   height: 200px;
-
 
   .image-username {
     display: flex;

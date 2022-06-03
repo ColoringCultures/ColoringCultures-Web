@@ -1,14 +1,22 @@
-.feed-root {
-  .card-root {
-    display: flex;
-    flex-wrap: wrap;
-    overflow-y: scroll;
-    height: 500px;
-    margin-left: 50px;
-    margin-top: 30.4px;
-    margin-right: 50px;
-    justify-content: space-between;
-  }
+.card-root {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  height: 500px;
+  margin-left: 50px;
+  margin-top: 30.4px;
+  margin-right: 50px;
+  justify-content: space-between;
+}
+
+.scroll-card-roll {
+  display: flex;
+  flex-wrap: wrap;
+  height: 500px;
+  margin-left: 50px;
+  margin-top: 30.4px;
+  margin-right: 50px;
+  justify-content: space-between;
 }
 
 .user-border {

@@ -10,6 +10,7 @@ const Suggestions = () => {
   let listed = Mock.slice(0, LIMIT);
   const [list, setList] = useState(listed);
   const [index, setIndex] = useState(LIMIT);
+  const [scroll, setScroll] = useState(false);
 
   const loadMore = () => {
     const newIndex = index + LIMIT;
@@ -18,10 +19,11 @@ const Suggestions = () => {
     setIndex(newIndex);
     setList(newList);
     setShowMore(newShowMore);
+    setScroll(true);
   };
   return (
     <div className="feed-root">
-      <div className="card-root">
+      <div className={scroll ? 'card-root' : 'scroll-card-root'}>
         {list.map((item, index) => (
           <div key={index} className="user-border">
             <div className="image-username">
