@@ -9,6 +9,7 @@ body {
   scrollbar-gutter: stable both-edges;
   transform-origin: top left;
   transform: scale(93%);
+  overflow-x: hidden;
 }
 
 code {
