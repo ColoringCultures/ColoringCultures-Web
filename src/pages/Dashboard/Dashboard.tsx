@@ -237,7 +237,7 @@ const Dashboard = () => {
         </div>
         {modalOpen && <Modal setOpenModal={setModalOpen} />}
       </div>
-      <div className='outlet-style'>
+      <div>
         <Outlet />
       </div>
     </div>
