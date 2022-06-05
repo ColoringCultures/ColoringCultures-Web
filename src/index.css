@@ -1,17 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
+
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
   font-family: 'Poppins';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scrollbar-gutter: stable both-edges;
   scrollbar-width: thin;
-  /* transform-origin: top left;
-  transform: scale(79%);
-  overflow-x: hidden; */
 }
 
 code {
