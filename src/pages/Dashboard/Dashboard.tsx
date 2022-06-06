@@ -17,7 +17,7 @@ const Dashboard = () => {
             <h1>Omodu Uche</h1>
             <p>Admin</p>
           </div>
-          <div>
+          <div className="menu-wrapper">
             <h1 className="menu">Menu</h1>
             <div className="links">
               <div>
@@ -218,6 +218,7 @@ const Dashboard = () => {
                   Revenue
                 </NavLink>
               </div>
+            </div>
               <div
                 className="link"
                 onClick={() => {
@@ -231,8 +232,7 @@ const Dashboard = () => {
                 />
                 <p>Sign Out</p>
               </div>
-            </div>
-            <div></div>
+            {/* <div></div> */}
           </div>
         </div>
         {modalOpen && <Modal setOpenModal={setModalOpen} />}
