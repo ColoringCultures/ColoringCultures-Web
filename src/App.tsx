@@ -5,8 +5,8 @@ import { UserContext } from './UserContext';
 import useSessionStorage from './useSessionStorage';
 
 function App() {
-  const [token, setToken] = useSessionStorage('', '');
-  const [user, setUser] = useSessionStorage('false', '');
+  const [token, setToken] = useSessionStorage('token', '');
+  const [user, setUser] = useSessionStorage('user', 'false');
 
   return (
     <Router>
