@@ -23,20 +23,32 @@
 }
 
 .rootads-root {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 710px;
   overflow-y: scroll;
-  overflow-x: none;
+  margin-top: 10.4px;
+  justify-content: space-between;
+  min-height: 700px;
+  max-height: 700px;
+  height: fit-content;
+  align-self: center;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  grid-auto-rows: 1fr;
+  gap: 10px 10px;
 }
 
 .adsroot-root {
-  display: flex;
-  flex-wrap: wrap;
+  margin-top: 10.4px;
+  justify-content: space-between;
+  min-height: 700px;
+  max-height: 100%;
+  height: fit-content;
+  align-self: center;
+  display: grid;
   justify-content: center;
-  height: 710px;
-  overflow-x: none;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  grid-auto-rows: 1fr;
+  gap: 10px 10px;
 }
 
 .ads-loadmore-button {
@@ -46,10 +58,13 @@
   background-color: #7e3910;
   color: white;
   border: 1px solid #707070;
-  margin-top: 33px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 10px;
   margin-bottom: 20px;
   cursor: pointer;
+}
+
+.button-ad-div {
+  display: flex;
+  margin-top: 10px;
+  margin-left: calc(50% - 140px);
 }

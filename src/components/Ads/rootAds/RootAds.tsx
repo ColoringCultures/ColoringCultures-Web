@@ -22,25 +22,29 @@ const RootAds = () => {
     setScroll(true);
   };
   return (
-    <div className={scroll ? 'rootads-root' : 'adsroot-root'}>
-      {list.map((data, index) => {
-        return (
-          <div key={index} className="ads-border">
-            <img src={require('../../../assets/adsss.png')} alt="" />
-            <div className="ads-edit-title">
-              <div>{data.title}</div>
-              <div>
-                <img src={require('../../../assets/adEdit.png')} alt="" />
+    <div>
+      <div className={scroll ? 'rootads-root' : 'adsroot-root'}>
+        {list.map((data, index) => {
+          return (
+            <div key={index} className="ads-border">
+              <img src={require('../../../assets/adsss.png')} alt="" />
+              <div className="ads-edit-title">
+                <div>{data.title}</div>
+                <div>
+                  <img src={require('../../../assets/adEdit.png')} alt="" />
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
       {showMore && (
-        <button onClick={loadMore} className="ads-loadmore-button">
-          {' '}
-          Load More{' '}
-        </button>
+        <div className='button-ad-div'>
+          <button onClick={loadMore} className="ads-loadmore-button">
+            {' '}
+            Load More{' '}
+          </button>
+        </div>
       )}
     </div>
   );
