@@ -22,8 +22,8 @@ const Praise = () => {
     setScroll(true);
   };
   return (
-    <div className="feed-root">
-      <div className={scroll ? 'card-root' : 'scroll-card-roll'}>
+    <div>
+      <div className={scroll ? 'card-root' : 'scroll-card-root'}>
         {list.map((item, index) => (
           <div key={index} className="user-border">
             <div className="image-username">

@@ -22,7 +22,7 @@ const Suggestions = () => {
     setScroll(true);
   };
   return (
-    <div className="feed-root">
+    <div>
       <div className={scroll ? 'card-root' : 'scroll-card-root'}>
         {list.map((item, index) => (
           <div key={index} className="user-border">
