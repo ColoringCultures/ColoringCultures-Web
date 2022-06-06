@@ -5,7 +5,7 @@ import NavLink from '../../Navlink';
 
 const Achievements = () => {
   return (
-    <div>
+    // <div>
       <div className="root-achievement">
         <h1>Achievements</h1>
         <div className="achievement-header">
@@ -42,7 +42,7 @@ const Achievements = () => {
           <Outlet />
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
