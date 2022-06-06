@@ -27,12 +27,12 @@ const Root = () => {
         {list.map((item, index) => {
           return (
             <div className="ach-root" key={index}>
-              <div>
+              {/* <div> */}
                 <img
                   src={require('../../../assets/smartphone-addiction-line-icon-vector-37660174.png')}
                   alt=""
                 />
-              </div>
+              {/* </div> */}
               <div className="ach-root2">
                 <div className="titleXimage">
                   <p className="item-title">{item.title}</p>

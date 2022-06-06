@@ -1,38 +1,61 @@
 .root-root {
-  display: flex;
+  align-self: center;
+  display: grid;
   justify-content: center;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(335px, 350px));
+  width: 100%;
+  margin: 0;
+  grid-auto-rows: 1fr;
+  gap: 10px 10px;
   margin-top: 30.4px;
+  min-height: 500px;
   max-height: 500px;
+  height: fit-content;
   overflow-y: scroll;
 }
 
 .scroll-root-root {
-  display: flex;
+  align-self: center;
+  display: grid;
   justify-content: center;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(335px, 350px));
+  width: 100%;
+  margin: 0;
+  grid-auto-rows: 1fr;
+  gap: 10px 10px;
+  // flex-wrap: wrap;
   margin-top: 30.4px;
-  height: 500px;
+  min-height: 500px;
+  height: fit-content;
 }
 
 .ach-root {
   display: flex;
+  // flex: 100%;
+  align-items: center;
   border: 1px solid #b0b3d1;
-  border-radius: 20px 20px 20px 20px;
-  max-width: 335px;
-  height: 140px;
-  margin-right: 5px;
-  margin-left: 5px;
-  margin-bottom: 10px;
+  border-radius: 20px;
+  // width: 30%;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  gap: 10px;
 
-  img {
-    margin: 14px;
+  > img {
+    flex: 1;
+    // width: 100%;xs
+    // height: 100%;
   }
 }
 
 .ach-root2 {
+  flex: 1.5;
   .titleXimage {
+    height: fit-content;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
     img {
       height: 16px;
       width: 16px;
@@ -41,8 +64,10 @@
     .item-title {
       font-size: 12px;
       font-weight: bold;
-      width: 125px;
-      height: 0px;
+      // width: 125px;
+      // width: calc(100% - 15px);
+
+      // height: 0px;
     }
   }
   .item-desc {
@@ -56,7 +81,7 @@
     border: 1px solid #f7f7f7;
     background-color: #f7f7f7;
     border-radius: 15px;
-    width: 160px;
+    width: 100%;
     height: 40px;
     margin-top: -5px;
 
@@ -67,6 +92,7 @@
     // margin-right: 10px;
 
     .item-points {
+      width: 100%;
       text-align: center;
       color: #707070;
     }
