@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import './Login.scss';
 import axios from 'axios';
 import { UserContext } from '../../UserContext';
@@ -11,7 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const { setToken, setUser, user, token } = useContext(UserContext);
-
+const [ loading, setLoading] = useState(false)
   const handleUsername = (e: any) => {
     setUsername(e.target.value);
   };
@@ -23,7 +23,9 @@ const Login = () => {
   };
 
   const handleSubmit = async (e: any) => {
+    console.log('login clicked')
     e.preventDefault();
+    setLoading(true)
     const response = await axios.post(
       'https://colorculture.herokuapp.com/auth/login/',
       {
@@ -43,11 +45,15 @@ const Login = () => {
     if (token) {
       setLogin(true);
     }
+    setLoading(false)
+    console.log('done logging in')
   };
 
-  if (login === true) {
-    return <Navigate to="/Dashboard" replace />;
-  }
+  useEffect(() => {
+    if (login === true) {
+      <Navigate to="/Dashboard" replace />;
+    }
+  }, [login])
 
   return (
     <>
@@ -75,8 +81,8 @@ const Login = () => {
                       onChange={handlePassword}
                     />
                     <p className="error-message">{error}</p>
-                    <button type="submit" onClick={handleSubmit}>
-                      Login
+                    <button type="submit"  disabled={loading}onClick={handleSubmit}>
+                      {loading ? "Logging in" : "Login"}
                     </button>
                   </form>
                 </div>
