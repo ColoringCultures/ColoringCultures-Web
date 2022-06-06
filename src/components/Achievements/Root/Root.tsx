@@ -3,7 +3,7 @@ import { mockdata } from './mockdata';
 import './root.scss';
 
 const LENGTH = mockdata.length;
-const LIMIT = 9;
+const LIMIT = 6;
 
 const Root = () => {
   const [showMore, setShowMore] = useState(true);
@@ -28,10 +28,10 @@ const Root = () => {
           return (
             <div className="ach-root" key={index}>
               {/* <div> */}
-                <img
-                  src={require('../../../assets/smartphone-addiction-line-icon-vector-37660174.png')}
-                  alt=""
-                />
+              <img
+                src={require('../../../assets/smartphone-addiction-line-icon-vector-37660174.png')}
+                alt=""
+              />
               {/* </div> */}
               <div className="ach-root2">
                 <div className="titleXimage">
