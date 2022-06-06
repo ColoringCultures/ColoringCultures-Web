@@ -23,7 +23,6 @@ const [ loading, setLoading] = useState(false)
   };
 
   const handleSubmit = async (e: any) => {
-    console.log('login clicked')
     e.preventDefault();
     setLoading(true)
     const response = await axios.post(
@@ -46,7 +45,6 @@ const [ loading, setLoading] = useState(false)
       setLogin(true);
     }
     setLoading(false)
-    console.log('done logging in')
   };
 
   useEffect(() => {
