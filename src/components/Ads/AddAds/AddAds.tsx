@@ -45,7 +45,7 @@ const AddAds = () => {
               <p>{errors.time_feed?.message}</p>
             </div>
           </div>
-          <div>
+          <div className='ads-div-2'>
             <div className='ads-label'>
               <label>People to be reached</label>
               <input

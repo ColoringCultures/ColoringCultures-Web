@@ -1,11 +1,13 @@
 .root-ad {
   display: flex;
+  justify-content: space-between;
   margin-top: 30.4px;
   margin-left: 31px;
 
   input {
     border-radius: 5px;
-    width: 500px;
+    width: calc(100vw - 880px);
+    max-width: 490px;
     height: 48px;
     background-color: #f0f3f8;
     border: none;
@@ -37,6 +39,7 @@
   border: 1px solid #707070;
   margin-top: 45px;
   cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .file-upload {
@@ -54,7 +57,8 @@
     justify-content: center;
     cursor: pointer;
     border-radius: 5px;
-    width: 500px;
+    width: calc(100vw - 880px);
+    max-width: 450px;
     height: 48px;
     background-color: #f0f3f8;
     border: none;
@@ -68,4 +72,11 @@
 
 .ads-label {
   padding-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ads-div-2{
+  margin-left: 10px;
+  margin-right: 10px;
 }

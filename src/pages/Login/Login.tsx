@@ -11,7 +11,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const { setToken, setUser, user, token } = useContext(UserContext);
-const [ loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+
   const handleUsername = (e: any) => {
     setUsername(e.target.value);
   };
@@ -24,7 +25,7 @@ const [ loading, setLoading] = useState(false)
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
     const response = await axios.post(
       'https://colorculture.herokuapp.com/auth/login/',
       {
@@ -44,14 +45,14 @@ const [ loading, setLoading] = useState(false)
     if (token) {
       setLogin(true);
     }
-    setLoading(false)
+    setLoading(false);
   };
 
   useEffect(() => {
     if (login === true) {
       <Navigate to="/Dashboard" replace />;
     }
-  }, [login])
+  }, [login]);
 
   return (
     <>
@@ -79,8 +80,12 @@ const [ loading, setLoading] = useState(false)
                       onChange={handlePassword}
                     />
                     <p className="error-message">{error}</p>
-                    <button type="submit"  disabled={loading}onClick={handleSubmit}>
-                      {loading ? "Logging in" : "Login"}
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      onClick={handleSubmit}
+                    >
+                      {loading ? 'Logging in' : 'Login'}
                     </button>
                   </form>
                 </div>
