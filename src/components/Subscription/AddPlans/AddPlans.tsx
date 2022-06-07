@@ -27,7 +27,6 @@ const AddPlans = () => {
   const [unlimtedColors, setUnlimtedColors] = useState(false);
   const [unlimtedArts, setUnlimtedArts] = useState(false);
   const [unlimtedHints, setUnlimtedHints] = useState(false);
-  console.log(numOfArts);
 
   return (
     <div>
@@ -64,6 +63,7 @@ const AddPlans = () => {
             <input
               type="text"
               placeholder={unlimtedColors ? 'Unlimited' : 'Eg. 200'}
+              value={unlimtedColors ? 'Unlimited' : artToBeColored}
               onChange={(e) => {
                 unlimtedColors
                   ? setArtToBeColored('Unlimited')
@@ -92,6 +92,7 @@ const AddPlans = () => {
             <input
               type="text"
               placeholder={unlimtedArts ? 'Unlimited' : 'Eg. 200'}
+              value={unlimtedArts ? 'Unlimited' : numOfArts}
               onChange={(e) => {
                 unlimtedArts
                   ? setNumOfArts('Unlimited')
@@ -133,6 +134,7 @@ const AddPlans = () => {
             <input
               type="text"
               placeholder={unlimtedHints ? 'Unlimited' : 'Eg. 400'}
+              value={unlimtedHints ? 'Unlimited' : numOfHint}
               onChange={(e) => {
                 unlimtedHints
                   ? setNumOfHint('Unlimited')
