@@ -1,28 +1,40 @@
 .sub-root {
-  display: flex;
+  margin-top: 10.4px;
+  justify-content: space-between;
+  min-height: 500px;
+  height: fit-content;
+  align-self: center;
+  display: grid;
   justify-content: center;
-  flex-wrap: wrap;
-  height: 620px;
+  grid-template-columns: repeat(auto-fit, minmax(325px, 325px));
+  grid-auto-rows: 1fr;
+  gap: 20px 20px;
+  max-height: 620px;
   overflow-y: scroll;
 }
 
 .scroll-sub-root {
-  display: flex;
+  margin-top: 10.4px;
+  justify-content: space-between;
+  min-height: 500px;
+  max-height: 100%;
+  height: fit-content;
+  align-self: center;
+  display: grid;
   justify-content: center;
-  flex-wrap: wrap;
-  height: 620px;
+  grid-template-columns: repeat(auto-fit, minmax(325px, 325px));
+  grid-auto-rows: 1fr;
+  gap: 10px 10px;
 }
 
 .plan-root {
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 325px;
+  width: calc(100vw - 1000px);
+  max-width: 325px;
   height: 442px;
   background-color: #ffffff;
   border: none;
   box-shadow: 0 4px 17px #b0b3d1;
   border-radius: 30px;
-  margin-top: 34px;
 
   .plan-header {
     display: flex;
@@ -57,6 +69,8 @@
   }
   .details-root {
     margin-left: 34px;
+    display: flex;
+    flex-direction: column;
     .flex-details {
       display: flex;
       align-items: center;

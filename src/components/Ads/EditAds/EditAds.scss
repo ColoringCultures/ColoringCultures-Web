@@ -1,11 +1,13 @@
 .root-edit {
   display: flex;
+  justify-content: space-between;
   margin-top: 30.4px;
   margin-left: 31px;
 
   input {
     border-radius: 5px;
-    width: 500px;
+    width: calc(100vw - 880px);
+    max-width: 490px;
     height: 48px;
     background-color: #f0f3f8;
     border: none;
@@ -38,7 +40,7 @@
 .delete-ad {
   width: 254px;
   height: 49px;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px;
   background-color: #ff0000;
   color: white;
   border: 1px solid white;
@@ -56,7 +58,7 @@
     justify-content: center;
     cursor: pointer;
     border-radius: 5px;
-    width: 500px;
+    width: calc(100vw - 880px);
     height: 48px;
     background-color: #f0f3f8;
     border: none;
@@ -70,6 +72,7 @@
 
 .button-root {
   margin-top: 10%;
+  margin-bottom: 69px;
   display: flex;
   justify-content: center;
 }
