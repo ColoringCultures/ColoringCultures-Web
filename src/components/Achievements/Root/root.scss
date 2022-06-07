@@ -2,7 +2,7 @@
   align-self: center;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(335px, 350px));
+  grid-template-columns: repeat(auto-fit, minmax(305px, 305px));
   width: 100%;
   grid-auto-rows: 1fr;
   gap: 10px 10px;
@@ -17,7 +17,7 @@
   align-self: center;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(335px, 350px));
+  grid-template-columns: repeat(auto-fit, minmax(305px, 305px));
   width: 100%;
   grid-auto-rows: 1fr;
   gap: 10px 10px;
@@ -55,21 +55,18 @@
       height: 16px;
       width: 16px;
       cursor: pointer;
+      margin-right: 5px;
     }
     .item-title {
       font-size: 12px;
       font-weight: bold;
-      // width: 125px;
-      // width: calc(100% - 15px);
-
-      // height: 0px;
     }
   }
   .item-desc {
     font-size: 10px;
     color: #707070;
     width: 153px;
-    height: 31px;
+    height: 28px;
   }
 
   .points-root {
