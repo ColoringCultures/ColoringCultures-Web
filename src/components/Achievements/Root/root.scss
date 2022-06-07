@@ -1,28 +1,28 @@
 .root-root {
-  align-self: center;
+  align-items: center;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(305px, 305px));
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 2rem;
   width: 100%;
   grid-auto-rows: 1fr;
   gap: 10px 10px;
   margin-top: 30.4px;
-  min-height: 500px;
   max-height: 500px;
   height: fit-content;
   overflow-y: scroll;
 }
 
 .scroll-root-root {
-  align-self: center;
+  align-items: center;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(305px, 305px));
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 2rem;
   width: 100%;
   grid-auto-rows: 1fr;
   gap: 10px 10px;
   margin-top: 30.4px;
-  min-height: 500px;
   max-height: 100%;
   height: fit-content;
 }
@@ -35,7 +35,7 @@
   width: 100%;
   height: 100%;
   max-height: 150px;
-  padding: 5px;
+  padding: 10px;
   gap: 10px;
 
   > img {
@@ -60,13 +60,12 @@
     .item-title {
       font-size: 12px;
       font-weight: bold;
+      margin: 0;
     }
   }
   .item-desc {
     font-size: 10px;
     color: #707070;
-    width: 153px;
-    height: 28px;
   }
 
   .points-root {

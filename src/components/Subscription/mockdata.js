@@ -1,19 +1,19 @@
 export const Mock = [
   {
     id: '1',
-    name: 'Standard',
-    artToBeColored: '200',
-    numOfArt: '200',
-    amount: '10',
+    name: 'Free',
+    artToBeColored: '20',
+    numOfArt: '20',
+    amount: '0',
     amountOfHint: '10',
   },
   {
     id: '2',
-    name: 'Medium',
+    name: 'Premium',
     artToBeColored: '200',
     numOfArt: '200',
     amount: '10',
-    amountOfHint: '10',
+    amountOfHint: '50',
   },
   {
     id: '3',
