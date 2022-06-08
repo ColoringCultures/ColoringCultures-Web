@@ -4,6 +4,11 @@
   margin-top: 30.4px;
   margin-left: 31px;
 
+  .column-edit-root {
+    display: flex;
+    flex-direction: column;
+  }
+
   input {
     border-radius: 5px;
     width: calc(100vw - 880px);
@@ -58,7 +63,7 @@
     justify-content: center;
     cursor: pointer;
     border-radius: 5px;
-    width: calc(100vw - 880px);
+    width: 450px;
     height: 48px;
     background-color: #f0f3f8;
     border: none;
@@ -75,4 +80,14 @@
   margin-bottom: 69px;
   display: flex;
   justify-content: center;
+}
+
+.edit-root-2 {
+  display: flex;
+  flex-direction: column;
+
+  .column-edit {
+    display: flex;
+    flex-direction: column;
+  }
 }

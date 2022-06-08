@@ -8,15 +8,15 @@ const EditAds = () => {
     <div>
       <div className="root-edit">
         <div>
-          <div>
+          <div className="column-edit-root">
             <label>Ad title</label>
             <input type="text" placeholder="Enter a title for the ad" />
           </div>
-          <div>
+          <div className="column-edit-root">
             <label>Link to be redirected to</label>
             <input type="text" placeholder="Enter a link or URL" />
           </div>
-          <div>
+          <div className="column-edit-root">
             <label>Watch time</label>
             <input
               type="text"
@@ -24,8 +24,8 @@ const EditAds = () => {
             />
           </div>
         </div>
-        <div>
-          <div>
+        <div className="edit-root-2">
+          <div className="column-edit">
             <label>People to be reached</label>
             <input type="text" placeholder="Enter a number" />
           </div>
