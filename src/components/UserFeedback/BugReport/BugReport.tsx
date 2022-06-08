@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './BugReport.scss';
+// import './BugReport.scss';
+import '../FeedbackCategories.scss'
 import { Mock } from '../mockData';
 
 const LENGTH = Mock.length;

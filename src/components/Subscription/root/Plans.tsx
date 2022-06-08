@@ -3,7 +3,7 @@ import './Plans.scss';
 import { Mock } from '../mockdata';
 
 const LENGTH = Mock.length;
-const LIMIT = 3;
+const LIMIT = 2;
 
 const Plans = () => {
   const [showMore, setShowMore] = useState(true);
@@ -55,14 +55,14 @@ const Plans = () => {
                     src={require('../../../assets/Icon ionic-md-checkmark.png')}
                     alt=""
                   />
-                  <p>{data.amountOfHint} free hint</p>
+                  <p>{data.amountOfHint} free hints</p>
                 </div>
                 <div className="flex-details">
                   <img
                     src={require('../../../assets/Icon ionic-md-checkmark.png')}
                     alt=""
                   />
-                  <p>No ads</p>
+                  <p>Remove ads</p>
                 </div>
                 <div className="flex-details">
                   <img
