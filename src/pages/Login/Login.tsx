@@ -33,7 +33,6 @@ const Login = () => {
         email,
         password,
       }
-      // withCredentials: true
     );
     if (response.data.status_code === 400) {
       setError('Wrong username, email or password');
