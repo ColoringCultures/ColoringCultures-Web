@@ -5,11 +5,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useContext, useState } from 'react';
 import axios from 'axios';
 import { UserContext } from '../../../UserContext';
+import Modal from './Modal/Modal';
 
 const AddAds = () => {
+  const [modalOpen, setModalOpen] = useState(true);
   const { token } = useContext(UserContext);
   const [image, setImage] = useState('');
-  const [file, setFile] = useState();
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -19,29 +21,33 @@ const AddAds = () => {
   });
 
   const displayImage = (e: any) => {
-    setFile(e.target.files[0]);
     const image = URL.createObjectURL(e.target.files[0]);
     setImage(image);
   };
 
   const onSubmit = async (data: any) => {
+    setLoading(true);
+    const formData = new FormData();
+    formData.append('title', data.title);
+    formData.append('redirect_url', data.redirect_url);
+    formData.append('time_feed', data.time_feed);
+    formData.append('ad_target', data.ad_target);
+    formData.append('file', data.file[0]);
+
     const response = await axios.post(
       'https://colorculture.herokuapp.com/advertisements/',
-      {
-        title: data.title,
-        file: file,
-        redirect_url: data.redirect_url,
-        time_feed: data.time_feed,
-        ad_target: data.ad_target,
-      },
+      formData,
       {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Token ${token}`,
         },
       }
     );
     console.log(response);
-    console.log(data.file[0]);
+    setLoading(false);
+    if (response.data.message === 'OK') {
+      setModalOpen(true);
+    }
   };
   return (
     <div>
@@ -114,9 +120,10 @@ const AddAds = () => {
           </div>
         </div>
         <button className="ad-button" type="submit">
-          Create Ad
+          {loading ? 'Creating' : 'Create Ad'}
         </button>
       </form>
+      {modalOpen && <Modal setOpenModal={setModalOpen} Modal={modalOpen} />}
     </div>
   );
 };
