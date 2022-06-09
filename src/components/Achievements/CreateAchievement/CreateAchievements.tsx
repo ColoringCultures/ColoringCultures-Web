@@ -1,6 +1,26 @@
+import { useState } from 'react';
 import './CreateAchievement.scss';
 
 const CreateAchievement = () => {
+  const [dMode, setdMode] = useState('');
+  const [lMode, setlMode] = useState('');
+  const [colored, setColored] = useState('');
+
+  const displaydMode = (e: any) => {
+    const image = URL.createObjectURL(e.target.files[0]);
+    setdMode(image);
+  };
+
+  const displaylMode = (e: any) => {
+    const image = URL.createObjectURL(e.target.files[0]);
+    setlMode(image);
+  };
+
+  const displayColored = (e: any) => {
+    const image = URL.createObjectURL(e.target.files[0]);
+    setColored(image);
+  };
+
   return (
     <div className="root-create">
       <form>
@@ -20,20 +40,71 @@ const CreateAchievement = () => {
             </div>
           </div>
           <div className="create-root-div2">
-            <div className='file-root'>
+            <div className="file-root">
               <label htmlFor=""> Upload initial and final images. (SVG)</label>
-              <div>
-                <div>
-                  <label>Dark-mode</label>
-                  <input type="file" />
+              <div className="major-files">
+                <div className="shade-mode">
+                  <label>
+                    Dark-mode
+                    <label className="file-label-create">
+                      <span>Choose a file</span>
+                      <input
+                        type={'file'}
+                        placeholder="Choose a file"
+                        accept=".svg"
+                        onInput={displaydMode}
+                      />
+                    </label>
+                  </label>
+                  {dMode && (
+                    <img
+                      style={{ width: '150px', height: ' 168px' }}
+                      src={dMode}
+                      alt=""
+                    />
+                  )}
                 </div>
-                <div>
-                  <label>Light-mode</label>
-                  <input type="file" />
+                <div className="shade-mode">
+                  <label>
+                    Light-mode
+                    <label className="file-label-create">
+                      <span>Choose a file</span>
+                      <input
+                        type={'file'}
+                        placeholder="Choose a file"
+                        accept=".svg"
+                        onInput={displaylMode}
+                      />
+                    </label>
+                  </label>
+                  {lMode && (
+                    <img
+                      style={{ width: '150px', height: ' 168px' }}
+                      src={lMode}
+                      alt=""
+                    />
+                  )}
                 </div>
-                <div>
-                  <label>Colored</label>
-                  <input type="file" />
+                <div className="shade-mode">
+                  <label>
+                    Colored
+                    <label className="file-label-create">
+                      <span>Choose a file</span>
+                      <input
+                        type={'file'}
+                        placeholder="Choose a file"
+                        accept=".svg"
+                        onInput={displayColored}
+                      />
+                    </label>
+                  </label>
+                  {colored && (
+                    <img
+                      style={{ width: '150px', height: '168px' }}
+                      src={colored}
+                      alt=""
+                    />
+                  )}
                 </div>
               </div>
             </div>

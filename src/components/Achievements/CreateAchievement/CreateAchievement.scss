@@ -65,6 +65,37 @@
     }
     .create-root-div2 {
       width: 50%;
+      .file-root {
+        width: 100%;
+        .major-files {
+          display: flex;
+          justify-content: space-between;
+          margin-right: 15px;
+          margin-top: 14px;
+          .shade-mode {
+            .file-label-create {
+              color: #b0b3d1;
+              font-size: 16px;
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              cursor: pointer;
+              border-radius: 5px;
+              width: 150px;
+              max-width: 450px;
+              height: 48px;
+              background-color: #f0f3f8;
+              border: none;
+              margin-top: 12px;
+              margin-bottom: 35px;
+              input[type='file'] {
+                display: none;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
