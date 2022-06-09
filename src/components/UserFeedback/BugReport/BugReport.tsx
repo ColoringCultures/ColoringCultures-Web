@@ -1,15 +1,39 @@
-import React, { useState } from 'react';
-// import './BugReport.scss';
-import '../FeedbackCategories.scss'
+import axios from 'axios';
+import React, { useEffect, useState, useContext } from 'react';
+import { UserContext } from '../../../UserContext';
+import '../FeedbackCategories.scss';
 import { Mock } from '../mockData';
 
-const LENGTH = Mock.length;
-const LIMIT = 6;
-
 const BugReport = () => {
+  const [data, setData] = useState<any[]>([]);
+  const { token } = useContext(UserContext);
+  const LIMIT = 6;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        'https://colorculture.herokuapp.com/feedbacks/list/',
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+      setData(response.data.data);
+    };
+    fetchData();
+  }, [token]);
+
+  const bugList = data.filter(
+    (item: any) => item.category.name === 'Bug reports'
+  );
+
+  const LENGTH = Mock.length;
   const [showMore, setShowMore] = useState(true);
   let listed = Mock.slice(0, LIMIT);
+
   const [list, setList] = useState(listed);
+
   const [index, setIndex] = useState(LIMIT);
   const [scroll, setScroll] = useState(false);
 
@@ -22,6 +46,7 @@ const BugReport = () => {
     setShowMore(newShowMore);
     setScroll(true);
   };
+
   return (
     <div>
       <div className={scroll ? 'card-root' : 'scroll-card-root'}>
