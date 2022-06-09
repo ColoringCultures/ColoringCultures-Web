@@ -19,7 +19,7 @@ const AddPlans = () => {
   };
 
   const [planName, setPlanName] = useState('');
-  const [artToBeColored, setArtToBeColored] = useState('200');
+  const [artToBeColored, setArtToBeColored] = useState('');
   const [numOfArts, setNumOfArts] = useState('');
   const [numOfHint, setNumOfHint] = useState('');
   const [amount, setAmount] = useState('');
