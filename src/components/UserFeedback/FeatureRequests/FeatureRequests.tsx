@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import './FeatureRequests.scss';
 import '../FeedbackCategories.scss'
 import { Mock } from '../mockData';
 
