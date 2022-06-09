@@ -1,6 +1,6 @@
 import './Modal.scss';
 
-const Modal = ({ setOpenModal }: any) => {
+const Modal = ({ setOpenModal, adsName }: any) => {
   return (
     <div className="modal-root">
       <div className="square-root">
@@ -15,7 +15,7 @@ const Modal = ({ setOpenModal }: any) => {
         </div>
         <div className="modal-content-ads">
           <div className="modal-header">
-            <h1>Advertisement has been added</h1>
+            <h1>{adsName} has been added</h1>
           </div>
         </div>
       </div>

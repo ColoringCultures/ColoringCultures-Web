@@ -8,10 +8,11 @@ import { UserContext } from '../../../UserContext';
 import Modal from './Modal/Modal';
 
 const AddAds = () => {
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
   const { token } = useContext(UserContext);
   const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [adsName, setAdsname] = useState('');
   const {
     register,
     handleSubmit,
@@ -27,6 +28,7 @@ const AddAds = () => {
 
   const onSubmit = async (data: any) => {
     setLoading(true);
+    setAdsname(data.title);
     const formData = new FormData();
     formData.append('title', data.title);
     formData.append('redirect_url', data.redirect_url);
@@ -123,7 +125,13 @@ const AddAds = () => {
           {loading ? 'Creating' : 'Create Ad'}
         </button>
       </form>
-      {modalOpen && <Modal setOpenModal={setModalOpen} Modal={modalOpen} />}
+      {modalOpen && (
+        <Modal
+          setOpenModal={setModalOpen}
+          Modal={modalOpen}
+          adsName={adsName}
+        />
+      )}
     </div>
   );
 };
