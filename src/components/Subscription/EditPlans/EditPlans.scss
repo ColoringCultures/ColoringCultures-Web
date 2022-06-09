@@ -2,10 +2,19 @@
   display: flex;
   margin-top: 30.4px;
   margin-left: 31px;
+  max-width: 100%;
+
+  .edit-div1 {
+    width: 50%;
+  }
+  .left-div-plan {
+    width: 50%;
+  }
 
   input[type='text'] {
     border-radius: 5px;
-    width: 500px;
+    width: calc(100vw - 880px);
+    max-width: 490px;
     height: 48px;
     background-color: #f0f3f8;
     border: none;
@@ -49,9 +58,9 @@
   }
 }
 
-.radio-plan {
+.radio-plan-edit {
+  width: 90%;
   label {
-    width: 500px;
     display: flex;
     justify-content: space-between;
   }
@@ -80,12 +89,9 @@
   }
 }
 
-.left-div-plan {
-  margin-right: 2%;
-}
-
 .ad-buttons {
   display: flex;
+  margin-bottom: 20px;
   justify-content: center;
   .create-ad-button {
     width: 254px;

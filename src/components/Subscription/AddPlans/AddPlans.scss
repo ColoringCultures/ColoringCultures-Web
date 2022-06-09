@@ -3,6 +3,11 @@
   justify-content: space-between;
   margin-top: 30.4px;
   margin-left: 31px;
+  max-width: 100%;
+
+  .right-ads-div {
+    width: 50%;
+  }
 
   input[type='text'] {
     border-radius: 5px;
@@ -62,10 +67,12 @@
   color: white;
   border: 1px solid #707070;
   margin-top: 45px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 
 .radio-plan {
+  width: 89%;
   label {
     display: flex;
     justify-content: space-between;
@@ -96,5 +103,5 @@
 }
 
 .left-div-plan {
-  margin-right: 2%;
+  width: 50%;
 }

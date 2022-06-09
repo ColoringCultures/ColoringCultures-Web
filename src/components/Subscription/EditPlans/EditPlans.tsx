@@ -7,7 +7,7 @@ const EditPlans = () => {
   return (
     <div>
       <div className="editplan-root">
-        <div>
+        <div className='edit-div1'>
           <div>
             <label>Plan Name</label>
             <input type="text" placeholder="Eg. basic" />
@@ -48,7 +48,7 @@ const EditPlans = () => {
           </div>
         </div>
         <div className="left-div-plan">
-          <div className="radio-plan">
+          <div className="radio-plan-edit">
             <label>
               Amount of hint
               <div className="radio-radio">

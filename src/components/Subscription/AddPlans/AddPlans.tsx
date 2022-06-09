@@ -31,7 +31,7 @@ const AddPlans = () => {
   return (
     <div>
       <div className="addplan-root">
-        <div>
+        <div className="right-ads-div">
           <div>
             <label>Plan Name</label>
             <input
