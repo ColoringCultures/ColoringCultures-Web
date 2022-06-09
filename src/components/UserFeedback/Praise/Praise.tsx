@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// import './Praise.scss';
-import '../FeedbackCategories.scss'
+import '../FeedbackCategories.scss';
 import { Mock } from '../mockData';
 
 const LENGTH = Mock.length;
@@ -10,6 +9,7 @@ const Praise = () => {
   const [showMore, setShowMore] = useState(true);
   let listed = Mock.slice(0, LIMIT);
   const [list, setList] = useState(listed);
+
   const [index, setIndex] = useState(LIMIT);
   const [scroll, setScroll] = useState(false);
 
