@@ -22,11 +22,12 @@ const BugReport = () => {
       setData(response.data.data);
     };
     fetchData();
-  }, [token]);
+    console.log(data);
+  }, [data, token]);
 
-  const bugList = data.filter(
-    (item: any) => item.category.name === 'Bug reports'
-  );
+  // const bugList = data.filter(
+  //   (item: any) => item.category.name === 'Bug reports'
+  // );
 
   const LENGTH = Mock.length;
   const [showMore, setShowMore] = useState(true);
