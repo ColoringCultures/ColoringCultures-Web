@@ -1,4 +1,5 @@
 .root-create {
+  margin-left: 35px;
   .create-root {
     width: 100%;
     display: flex;
@@ -98,4 +99,27 @@
       }
     }
   }
+}
+
+.create-button-ach {
+  width: 254px;
+  height: 49px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #7e3910;
+  color: white;
+  border: 1px solid #707070;
+  margin-top: 45px;
+  margin-right: 41px;
+  cursor: pointer;
+}
+
+.delete-button-ach {
+  width: 254px;
+  height: 49px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #ff0000;
+  color: white;
+  border: 1px solid #ffff;
+  margin-top: 45px;
+  cursor: pointer;
 }

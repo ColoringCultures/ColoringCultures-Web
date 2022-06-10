@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import './CreateAchievement.scss';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { schema } from '../achievementSchema';
+import { useForm } from 'react-hook-form';
 
 const CreateAchievement = () => {
   const [dMode, setdMode] = useState('');
@@ -21,22 +24,49 @@ const CreateAchievement = () => {
     setColored(image);
   };
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = async (data: any) => {
+    console.log(data);
+  };
+
   return (
     <div className="root-create">
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="create-root">
           <div className="create-root-div1">
             <div className="create-input-text">
               <label htmlFor="Achievement Name">Achievement Name</label>
-              <input type="text" placeholder="Enter a number here" />
+              <input
+                type="text"
+                placeholder="Enter a number here"
+                {...register('name')}
+              />
+              <p>{errors.name?.message}</p>
             </div>
             <div className="create-input-text">
               <label htmlFor="Description">Description</label>
-              <input type="text" placeholder="Enter text" />
+              <input
+                type="text"
+                placeholder="Enter text"
+                {...register('task')}
+              />
+              <p>{errors.task?.message}</p>
             </div>
             <div className="create-input-text-criteria">
               <label htmlFor="Criteria">Criteria</label>
-              <input type="text" placeholder="Enter a number" />
+              <input
+                type="text"
+                placeholder="Enter a number"
+                {...register('criteria')}
+              />
+              <p>{errors.criteria?.message}</p>
             </div>
           </div>
           <div className="create-root-div2">
@@ -53,6 +83,7 @@ const CreateAchievement = () => {
                         placeholder="Choose a file"
                         accept=".svg"
                         onInput={displaydMode}
+                        {...register('dark_icon_image')}
                       />
                     </label>
                   </label>
@@ -74,6 +105,7 @@ const CreateAchievement = () => {
                         placeholder="Choose a file"
                         accept=".svg"
                         onInput={displaylMode}
+                        {...register('icon_image')}
                       />
                     </label>
                   </label>
@@ -95,6 +127,8 @@ const CreateAchievement = () => {
                         placeholder="Choose a file"
                         accept=".svg"
                         onInput={displayColored}
+                        {...register('colored_icon_image')}
+                        required
                       />
                     </label>
                   </label>
@@ -109,6 +143,9 @@ const CreateAchievement = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <button className="create-button-ach">Create</button>
         </div>
       </form>
     </div>
