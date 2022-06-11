@@ -84,6 +84,7 @@ const CreateAchievement = () => {
                         accept=".svg"
                         onInput={displaydMode}
                         {...register('dark_icon_image')}
+                        required
                       />
                     </label>
                   </label>
@@ -106,6 +107,7 @@ const CreateAchievement = () => {
                         accept=".svg"
                         onInput={displaylMode}
                         {...register('icon_image')}
+                        required
                       />
                     </label>
                   </label>

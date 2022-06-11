@@ -23,6 +23,12 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
+  useEffect(() => {
+    if (login === true) {
+      <Navigate to="/Dashboard" replace />;
+    }
+  }, [login]);
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
@@ -34,6 +40,7 @@ const Login = () => {
         password,
       }
     );
+
     if (response.data.status_code === 400) {
       setError('Wrong username, email or password');
     }
@@ -46,12 +53,6 @@ const Login = () => {
     }
     setLoading(false);
   };
-
-  useEffect(() => {
-    if (login === true) {
-      <Navigate to="/Dashboard" replace />;
-    }
-  }, [login]);
 
   return (
     <>
