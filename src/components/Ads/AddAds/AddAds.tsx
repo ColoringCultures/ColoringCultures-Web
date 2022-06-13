@@ -82,7 +82,9 @@ const AddAds = () => {
                   placeholder="Enter a title for the ad"
                   {...register('title')}
                 />
-                <p className="error-message-ads">{errors.title?.message}</p>
+                {errors.title && (
+                  <p className="error-message-ads">{errors.title?.message}</p>
+                )}
               </div>
               <div className="ads-label">
                 <label>Link to be redirected to</label>
@@ -91,9 +93,11 @@ const AddAds = () => {
                   placeholder="Enter a link or URL"
                   {...register('redirect_url')}
                 />
-                <p className="error-message-ads">
-                  {errors.redirect_url?.message}
-                </p>
+                {errors.redirect_url && (
+                  <p className="error-message-ads">
+                    {errors.redirect_url?.message}
+                  </p>
+                )}
               </div>
               <div className="ads-label">
                 <label>Watch time</label>
@@ -102,7 +106,11 @@ const AddAds = () => {
                   placeholder="Enter the amount of watching minutes"
                   {...register('time_feed')}
                 />
-                <p className="error-message-ads">{errors.time_feed?.message}</p>
+                {errors.time_feed && (
+                  <p className="error-message-ads">
+                    {errors.time_feed?.message}
+                  </p>
+                )}
               </div>
             </div>
             <div className="ads-div-2">
@@ -113,7 +121,11 @@ const AddAds = () => {
                   placeholder="Enter a number"
                   {...register('ad_target')}
                 />
-                <p className="error-message-ads">{errors.ad_target?.message}</p>
+                {errors.ad_target && (
+                  <p className="error-message-ads">
+                    {errors.ad_target?.message}
+                  </p>
+                )}
               </div>
               <div className="file-upload">
                 <label>
@@ -129,7 +141,9 @@ const AddAds = () => {
                     />
                   </label>
                 </label>
-                <p className="error-message-ads">{errors.file?.message}</p>
+                {errors.file && (
+                  <p className="error-message-ads">{errors.file?.message}</p>
+                )}
                 {image && (
                   <img
                     style={{ width: '241px', height: ' 270px' }}

@@ -38,7 +38,7 @@
   margin-bottom: 10px;
   width: 100%;
   height: 100%;
-  min-height: 230px;
+  max-height: 270px;
 
   .image-username {
     display: flex;
@@ -72,4 +72,8 @@
   margin-right: auto;
   margin-bottom: 20px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #984514;
+  }
 }

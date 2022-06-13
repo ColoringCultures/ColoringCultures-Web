@@ -103,6 +103,10 @@
     margin-top: 45px;
     margin-right: 41px;
     cursor: pointer;
+
+    &:hover {
+      background-color: #984514;
+    }
   }
   .delete-ad-button {
     width: 254px;
