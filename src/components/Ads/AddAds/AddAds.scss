@@ -40,6 +40,10 @@
   margin-top: 45px;
   cursor: pointer;
   margin-bottom: 30px;
+
+  &:hover {
+    background-color: #984514;
+  }
 }
 
 .file-upload {
