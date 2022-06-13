@@ -48,7 +48,9 @@ const CreateAchievement = () => {
                 placeholder="Enter a number here"
                 {...register('name')}
               />
-              <p>{errors.name?.message}</p>
+              {errors.name && (
+                <p className="create-error-message">{errors.name?.message}</p>
+              )}
             </div>
             <div className="create-input-text">
               <label htmlFor="Description">Description</label>
@@ -57,7 +59,9 @@ const CreateAchievement = () => {
                 placeholder="Enter text"
                 {...register('task')}
               />
-              <p>{errors.task?.message}</p>
+              {errors.task && (
+                <p className="create-error-message">{errors.task?.message}</p>
+              )}
             </div>
             <div className="create-input-text-criteria">
               <label htmlFor="Criteria">Criteria</label>
@@ -66,7 +70,11 @@ const CreateAchievement = () => {
                 placeholder="Enter a number"
                 {...register('criteria')}
               />
-              <p>{errors.criteria?.message}</p>
+              {errors.criteria && (
+                <p className="create-error-message">
+                  {errors.criteria?.message}
+                </p>
+              )}
             </div>
           </div>
           <div className="create-root-div2">
@@ -84,9 +92,13 @@ const CreateAchievement = () => {
                         accept=".svg"
                         onInput={displaydMode}
                         {...register('dark_icon_image')}
-                        required
                       />
                     </label>
+                    {errors.dark_icon_image && (
+                      <p className="create-error-message">
+                        {errors.dark_icon_image?.message}
+                      </p>
+                    )}
                   </label>
                   {dMode && (
                     <img
@@ -107,9 +119,13 @@ const CreateAchievement = () => {
                         accept=".svg"
                         onInput={displaylMode}
                         {...register('icon_image')}
-                        required
                       />
                     </label>
+                    {errors.icon_image && (
+                      <p className="create-error-message">
+                        {errors.icon_image?.message}
+                      </p>
+                    )}
                   </label>
                   {lMode && (
                     <img
@@ -130,9 +146,13 @@ const CreateAchievement = () => {
                         accept=".svg"
                         onInput={displayColored}
                         {...register('colored_icon_image')}
-                        required
                       />
                     </label>
+                    {errors.colored_icon_image && (
+                      <p className="create-error-message">
+                        {errors.colored_icon_image?.message}
+                      </p>
+                    )}
                   </label>
                   {colored && (
                     <img
@@ -147,7 +167,9 @@ const CreateAchievement = () => {
           </div>
         </div>
         <div>
-          <button className="create-button-ach">Create</button>
+          <button className="create-button-ach" type="submit">
+            Create
+          </button>
         </div>
       </form>
     </div>

@@ -11,7 +11,7 @@
       .create-input-text {
         display: flex;
         flex-direction: column;
-        // margin-bottom: 32px;
+        margin-bottom: 32px;
 
         input {
           border-radius: 5px;
@@ -108,7 +108,7 @@
   background-color: #7e3910;
   color: white;
   border: 1px solid #707070;
-  margin-top: 45px;
+  margin-top: 15px;
   margin-right: 41px;
   cursor: pointer;
 }
@@ -120,6 +120,11 @@
   background-color: #ff0000;
   color: white;
   border: 1px solid #ffff;
-  margin-top: 45px;
+  margin-top: 15px;
   cursor: pointer;
+}
+
+.create-error-message {
+  color: red;
+  font-size: 14px;
 }
