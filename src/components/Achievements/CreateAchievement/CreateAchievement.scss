@@ -13,7 +13,6 @@
         flex-direction: column;
         margin-bottom: 32px;
 
-
         input {
           border-radius: 5px;
           width: calc(100vw - 880px);
@@ -112,6 +111,10 @@
   margin-top: 15px;
   margin-right: 41px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #984514;
+  }
 }
 
 .delete-button-ach {

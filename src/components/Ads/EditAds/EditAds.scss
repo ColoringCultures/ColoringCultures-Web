@@ -40,7 +40,12 @@
   border: 1px solid #707070;
   cursor: pointer;
   margin-right: 25px;
+
+  &:hover {
+    background-color: #984514;
+  }
 }
+// #984514;
 
 .delete-ad {
   width: 254px;
@@ -51,6 +56,10 @@
   border: 1px solid white;
   cursor: pointer;
   margin-left: 25px;
+
+  &:hover {
+    background-color: #984514;
+  }
 }
 
 .file-edit {
