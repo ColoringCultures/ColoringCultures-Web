@@ -122,6 +122,7 @@ const CreateAchievement = () => {
                 )}
               </div>
             </div>
+
             <div className="create-root-div2">
               <div className="file-root">
                 <label htmlFor="">
@@ -152,7 +153,7 @@ const CreateAchievement = () => {
                       <img
                         style={{ width: '150px', height: ' 168px' }}
                         src={dMode}
-                        alt=""
+                        alt=""      
                       />
                     )}
                   </div>
