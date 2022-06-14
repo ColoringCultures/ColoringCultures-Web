@@ -7,14 +7,14 @@ const EditPlans = () => {
   return (
     <div>
       <div className="editplan-root">
-        <div className='edit-div1'>
+        <div className="edit-div1">
           <div>
             <label>Plan Name</label>
             <input type="text" placeholder="Eg. basic" />
           </div>
           <div className="radio-plan">
-            <label>
-              Art to be coloured
+            <div className="label">
+              <label>Art to be coloured</label>
               <div className="radio-radio">
                 <input
                   type="checkbox"
@@ -24,12 +24,12 @@ const EditPlans = () => {
                 />{' '}
                 Unlimited
               </div>
-            </label>
+            </div>
             <input type="text" placeholder="200" />
           </div>
           <div className="radio-plan">
-            <label>
-              Number of Arts
+            <div className="label">
+              <label>Number of Arts</label>
               <div className="radio-radio">
                 <input
                   type="checkbox"
@@ -39,7 +39,7 @@ const EditPlans = () => {
                 />{' '}
                 Unlimited
               </div>
-            </label>
+            </div>
             <input type="text" placeholder="Enter number" />
           </div>
           <div className="radio-plan">
@@ -49,8 +49,8 @@ const EditPlans = () => {
         </div>
         <div className="left-div-plan">
           <div className="radio-plan-edit">
-            <label>
-              Amount of hint
+            <div className="label">
+              <label>Amount of hint</label>
               <div className="radio-radio">
                 <input
                   type="checkbox"
@@ -60,7 +60,7 @@ const EditPlans = () => {
                 />{' '}
                 Unlimited
               </div>
-            </label>
+            </div>
             <input type="text" placeholder="Amount of hints" />
           </div>
           <div className="upload-plans">

@@ -65,13 +65,10 @@ const CreateAchievement = () => {
     if (response.data.message === 'OK') {
       setModalOpen(true);
     }
-  };
-
-  useEffect(() => {
     reset({
       data: '',
     });
-  });
+  };
 
   useEffect(() => {
     if (modalOpen) {
