@@ -2,7 +2,7 @@ import * as yup from 'yup';
 
 export const schema = yup.object().shape({
   title: yup.string().required('Title is required'),
-  redirect_url: yup.string().required('Url is required'),
+  redirect_url: yup.string().required('URL is required'),
   time_feed: yup
     .number()
     .positive()
