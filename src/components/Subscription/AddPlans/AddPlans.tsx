@@ -1,21 +1,33 @@
-import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useContext, useEffect, useState } from 'react';
 import './AddPlans.scss';
+import { UserContext } from '../../../UserContext';
 
 const AddPlans = () => {
+  const { token } = useContext(UserContext);
+  const formData = new FormData();
+
   function imageUpload(event: any) {
-    const image = event.target.files[0];
-    setPlanAvatar(image);
+    formData.append('plan_avatar', event.target.files[0]);
   }
 
-  const createSubscription = () => {
-    console.log(
-      planName,
-      numOfArts,
-      artToBeColored,
-      planAvatar,
-      numOfHint,
-      amount
+  const createSubscription = async () => {
+    formData.append('plan_name', planName);
+    formData.append('art_to_be_colored', artToBeColored);
+    formData.append('number_of_arts', numOfArts);
+    formData.append('amount', amount);
+    formData.append('amount_of_hint', numOfHint);
+
+    const response = await axios.post(
+      'https://colorculture.herokuapp.com/subscriptions/',
+      formData,
+      {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      }
     );
+    console.log(response);
   };
 
   const displayImage = (e: any) => {
@@ -28,7 +40,6 @@ const AddPlans = () => {
   const [numOfArts, setNumOfArts] = useState('');
   const [numOfHint, setNumOfHint] = useState('');
   const [amount, setAmount] = useState('');
-  const [planAvatar, setPlanAvatar] = useState();
   const [unlimtedColors, setUnlimtedColors] = useState(false);
   const [unlimtedArts, setUnlimtedArts] = useState(false);
   const [unlimtedHints, setUnlimtedHints] = useState(false);
@@ -166,8 +177,8 @@ const AddPlans = () => {
                   <input
                     type={'file'}
                     placeholder="Choose a file"
-                    onChange={imageUpload}
                     onInput={displayImage}
+                    onChange={imageUpload}
                   />
                 </label>
               </label>
@@ -181,10 +192,10 @@ const AddPlans = () => {
             </div>
           </div>
         </div>
-        <button className="plan-button" onClick={createSubscription}>
-          Create Ad
-        </button>
       </form>
+      <button className="plan-button" onClick={createSubscription}>
+        Create Ad
+      </button>
     </div>
   );
 };
