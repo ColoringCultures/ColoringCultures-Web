@@ -62,7 +62,7 @@ const Suggestions = () => {
             <div key={index} className="user-border">
               <div className="image-username">
                 <img src={require('../../../assets/download (1).png')} alt="" />
-                <h1>User {item.id}</h1>
+                <h1>User #{item.id}</h1>
               </div>
               <p>{item.description}</p>
             </div>

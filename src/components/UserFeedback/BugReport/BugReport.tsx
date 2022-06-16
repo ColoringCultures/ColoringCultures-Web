@@ -9,6 +9,7 @@ const BugReport = () => {
   const { token } = useContext(UserContext);
   const [bugList, setBugList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  // const [isDisabled, setIsDisabled] = useState(false);
   const LIMIT = 6;
 
   useEffect(() => {
@@ -62,7 +63,7 @@ const BugReport = () => {
             <div key={index} className="user-border">
               <div className="image-username">
                 <img src={require('../../../assets/download (1).png')} alt="" />
-                <h1>User {item.id}</h1>
+                <h1>User #{item.id}</h1>
               </div>
               <p>{item.description}</p>
             </div>
@@ -71,11 +72,15 @@ const BugReport = () => {
       )}
       {showMore && (
         <div>
-          <button onClick={loadMore} className="submit-button">
+          <p style={{ marginLeft: '50px' }}>Total number is {LENGTH} </p>
+          <button
+            onClick={loadMore}
+            className="submit-button"
+            // disabled={isDisabled}
+          >
             {' '}
             Load More{' '}
           </button>
-          <p style={{ marginLeft: '50px' }}>Total number is {LENGTH} </p>
         </div>
       )}
     </div>
