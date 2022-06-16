@@ -35,6 +35,11 @@ const AddPlans = () => {
     setImage(image);
   };
 
+  const displayImage = (e: any) => {
+    const image = URL.createObjectURL(e.target.files[0]);
+    setImage(image);
+  };
+
   const [planName, setPlanName] = useState('');
   const [artToBeColored, setArtToBeColored] = useState('');
   const [numOfArts, setNumOfArts] = useState('');
@@ -179,6 +184,7 @@ const AddPlans = () => {
                     placeholder="Choose a file"
                     onInput={displayImage}
                     onChange={imageUpload}
+
                   />
                 </label>
               </label>
