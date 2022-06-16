@@ -9,6 +9,7 @@ const BugReport = () => {
   const { token } = useContext(UserContext);
   const [bugList, setBugList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDisabled, setIsDisabled] = useState(false);
   const LIMIT = 6;
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const BugReport = () => {
       setIsLoading(false);
     };
     fetchData();
-  }, [data, token]);
+  }, [token]);
 
   const LENGTH = bugList.length;
   const [showMore, setShowMore] = useState(true);
@@ -37,7 +38,7 @@ const BugReport = () => {
     );
     setBugList(datum);
     setList(datum.slice(0, LIMIT));
-  }, [data]);
+  }, [LENGTH, data]);
 
   const [index, setIndex] = useState(LIMIT);
   const [scroll, setScroll] = useState(false);
@@ -50,6 +51,9 @@ const BugReport = () => {
     setList(newList);
     setShowMore(newShowMore);
     setScroll(true);
+    if (LENGTH <= 6) {
+      setIsDisabled(true);
+    }
   };
 
   return (
@@ -62,7 +66,7 @@ const BugReport = () => {
             <div key={index} className="user-border">
               <div className="image-username">
                 <img src={require('../../../assets/download (1).png')} alt="" />
-                <h1>User {item.id}</h1>
+                <h1>User #{item.id}</h1>
               </div>
               <p>{item.description}</p>
             </div>
@@ -71,7 +75,11 @@ const BugReport = () => {
       )}
       {showMore && (
         <div>
-          <button onClick={loadMore} className="submit-button">
+          <button
+            onClick={loadMore}
+            className="submit-button"
+            disabled={isDisabled}
+          >
             {' '}
             Load More{' '}
           </button>

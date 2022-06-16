@@ -1,30 +1,15 @@
-import React, { useState } from 'react';
 import { mockdata } from './mockdata';
 import './root.scss';
 
-const LENGTH = mockdata.length;
 const LIMIT = 9;
 
 const Root = () => {
-  const [showMore, setShowMore] = useState(true);
   let listed = mockdata.slice(0, LIMIT);
-  const [list, setList] = useState(listed);
-  const [index, setIndex] = useState(LIMIT);
-  const [scroll, setScroll] = useState(false);
 
-  const loadMore = () => {
-    const newIndex = index + LIMIT;
-    const newShowMore = newIndex < LENGTH - 1;
-    const newList = list.concat(mockdata.slice(index, newIndex));
-    setIndex(newIndex);
-    setList(newList);
-    setShowMore(newShowMore);
-    setScroll(true);
-  };
   return (
     <>
-      <div className={scroll ? 'root-root' : 'scroll-root-root '}>
-        {list.map((item, index) => {
+      <div className={'scroll-root-root '}>
+        {listed.map((item, index) => {
           return (
             <div className="ach-root" key={index}>
               {/* <div> */}
@@ -46,12 +31,6 @@ const Root = () => {
           );
         })}
       </div>
-      {showMore && (
-        <button onClick={loadMore} className="achievement-button ">
-          {' '}
-          Load More{' '}
-        </button>
-      )}
     </>
   );
 };
