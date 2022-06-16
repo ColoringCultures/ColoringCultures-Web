@@ -56,6 +56,7 @@ const AddAds = () => {
     });
   };
 
+
   useEffect(() => {
     if (modalOpen) {
       setTimeout(() => {
