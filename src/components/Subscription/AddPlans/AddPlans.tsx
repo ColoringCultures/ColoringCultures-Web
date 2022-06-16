@@ -5,9 +5,11 @@ import { UserContext } from '../../../UserContext';
 import Loader from '../../../Loader/Loader';
 import Modal from './Modal/Modal';
 
+
 const AddPlans = () => {
   const { token } = useContext(UserContext);
   const formData = new FormData();
+
   const [isLoading, setLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -18,6 +20,7 @@ const AddPlans = () => {
   }
 
   const createSubscription = async () => {
+
     setLoading(true);
     formData.append('plan_name', planName);
     formData.append('art_to_be_colored', artToBeColored);
