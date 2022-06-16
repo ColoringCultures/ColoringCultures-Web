@@ -9,7 +9,7 @@ const BugReport = () => {
   const { token } = useContext(UserContext);
   const [bugList, setBugList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [isDisabled, setIsDisabled] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
   const LIMIT = 6;
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const BugReport = () => {
       setIsLoading(false);
     };
     fetchData();
-  }, [data, token]);
+  }, [token]);
 
   const LENGTH = bugList.length;
   const [showMore, setShowMore] = useState(true);
@@ -38,7 +38,7 @@ const BugReport = () => {
     );
     setBugList(datum);
     setList(datum.slice(0, LIMIT));
-  }, [data]);
+  }, [LENGTH, data]);
 
   const [index, setIndex] = useState(LIMIT);
   const [scroll, setScroll] = useState(false);
@@ -51,6 +51,9 @@ const BugReport = () => {
     setList(newList);
     setShowMore(newShowMore);
     setScroll(true);
+    if (LENGTH <= 6) {
+      setIsDisabled(true);
+    }
   };
 
   return (
@@ -72,15 +75,15 @@ const BugReport = () => {
       )}
       {showMore && (
         <div>
-          <p style={{ marginLeft: '50px' }}>Total number is {LENGTH} </p>
           <button
             onClick={loadMore}
             className="submit-button"
-            // disabled={isDisabled}
+            disabled={isDisabled}
           >
             {' '}
             Load More{' '}
           </button>
+          <p style={{ marginLeft: '50px' }}>Total number is {LENGTH} </p>
         </div>
       )}
     </div>

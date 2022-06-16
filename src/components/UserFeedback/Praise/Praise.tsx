@@ -25,7 +25,7 @@ const Praise = () => {
       setIsLoading(false);
     };
     fetchData();
-  }, [data, token]);
+  }, [token]);
 
   const LENGTH = bugList.length;
   const [showMore, setShowMore] = useState(true);
