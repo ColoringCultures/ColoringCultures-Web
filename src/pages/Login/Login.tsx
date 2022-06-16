@@ -2,7 +2,7 @@ import { useEffect, useContext, useState } from 'react';
 import './Login.scss';
 import axios from 'axios';
 import { UserContext } from '../../UserContext';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [login, setLogin] = useState(false);
@@ -12,6 +12,7 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const { setToken, setUser, user, token } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleUsername = (e: any) => {
     setUsername(e.target.value);
@@ -25,9 +26,18 @@ const Login = () => {
 
   useEffect(() => {
     if (login === true) {
-      <Navigate to="/Dashboard" replace />;
+      console.log('kkk');
+
+      navigate('/Dashboard');
     }
-  }, [login]);
+  }, [navigate, login]);
+
+  useEffect(() => {
+    if (token) {
+      setUser('true');
+      setLogin(true);
+    }
+  }, [setUser, token]);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -40,23 +50,16 @@ const Login = () => {
         password,
       }
     );
-
     if (response.data.status_code === 400) {
       setError('Wrong username, email or password');
     }
     setToken(response.data.data.key);
-    if (token) {
-      setUser('true');
-    }
-    if (token) {
-      setLogin(true);
-    }
     setLoading(false);
   };
 
   return (
     <>
-      {user === 'false' ? (
+      {user === 'false' && (
         <div className="mainer-root">
           <div className="main-root">
             <div className="login-border">
@@ -96,8 +99,6 @@ const Login = () => {
             </div>
           </div>
         </div>
-      ) : (
-        <Navigate to="/Dashboard" replace />
       )}
     </>
   );
