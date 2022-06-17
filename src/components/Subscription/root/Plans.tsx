@@ -1,89 +1,130 @@
-import React, { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './Plans.scss';
-import { Mock } from '../mockdata';
-
-const LENGTH = Mock.length;
-const LIMIT = 2;
+import { UserContext } from '../../../UserContext';
+import axios from 'axios';
+import Loader from '../../../Loader/Loader';
 
 const Plans = () => {
+  const [data, setData] = useState<any[]>([]);
+  const { token } = useContext(UserContext);
+  const [bugList, setBugList] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isDisabled, setIsDisabled] = useState(false);
+  const LIMIT = 2;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        'https://colorculture.herokuapp.com/subscriptions/fetch/',
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+      setData(response.data.data);
+      setIsLoading(false);
+    };
+    fetchData();
+  }, [token]);
+
+  const LENGTH = bugList.length;
   const [showMore, setShowMore] = useState(true);
-  let listed = Mock.slice(0, LIMIT);
-  const [list, setList] = useState(listed);
+  const [list, setList] = useState<any[]>([]);
+
+  useEffect(() => {
+    setBugList(data);
+    setList(data.slice(0, LIMIT));
+  }, [LENGTH, data]);
+
   const [index, setIndex] = useState(LIMIT);
   const [scroll, setScroll] = useState(false);
 
   const loadMore = () => {
     const newIndex = index + LIMIT;
     const newShowMore = newIndex < LENGTH - 1;
-    const newList = list.concat(Mock.slice(index, newIndex));
+    const newList = list.concat(bugList.slice(index, newIndex));
     setIndex(newIndex);
     setList(newList);
     setShowMore(newShowMore);
     setScroll(true);
+    if (LENGTH <= 6) {
+      setIsDisabled(true);
+    }
   };
   return (
     <div>
-      <div className={scroll ? 'sub-root' : 'scroll-sub-root'}>
-        {list.map((data, index) => {
-          return (
-            <div key={index} className="plan-root">
-              <div className="plan-header">
-                <div>
-                  <img
-                    src={require('../../../assets/Rectangle 121.png')}
-                    alt=""
-                  />
-                </div>
-                <div className="plan-header-details">
-                  <div className="details-name">{data.name}</div>
-                  <div className="details-amount">
-                    ${data.amount}
-                    <span>/month</span>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div>
+          <div className={scroll ? 'sub-root' : 'scroll-sub-root'}>
+            {list.map((data, index) => {
+              return (
+                <div key={index} className="plan-root">
+                  <div className="plan-header">
+                    <div>
+                      <img
+                        src={require('../../../assets/Rectangle 121.png')}
+                        alt=""
+                      />
+                    </div>
+                    <div className="plan-header-details">
+                      <div className="details-name">{data.plan_name}</div>
+                      <div className="details-amount">
+                        ${data.amount}
+                        <span>/month</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="details-root">
+                    <div className="flex-details">
+                      <img
+                        src={require('../../../assets/Icon ionic-md-checkmark.png')}
+                        alt=""
+                      />
+                      <p>{data.art_to_be_colored} arts to be Colored</p>
+                    </div>
+                    <div className="flex-details">
+                      <img
+                        src={require('../../../assets/Icon ionic-md-checkmark.png')}
+                        alt=""
+                      />
+                      <p>{data.amount_of_hint} free hints</p>
+                    </div>
+                    <div className="flex-details">
+                      <img
+                        src={require('../../../assets/Icon ionic-md-checkmark.png')}
+                        alt=""
+                      />
+                      <p>No ads</p>
+                    </div>
+                    <div className="flex-details">
+                      <img
+                        src={require('../../../assets/Icon ionic-md-checkmark.png')}
+                        alt=""
+                      />
+                      <p>Color pro Arts</p>
+                    </div>
+                  </div>
+                  <div className="button-plans">
+                    <button>Edit</button>
                   </div>
                 </div>
-              </div>
-              <div className="details-root">
-                <div className="flex-details">
-                  <img
-                    src={require('../../../assets/Icon ionic-md-checkmark.png')}
-                    alt=""
-                  />
-                  <p>Color up to {data.artToBeColored}</p>
-                </div>
-                <div className="flex-details">
-                  <img
-                    src={require('../../../assets/Icon ionic-md-checkmark.png')}
-                    alt=""
-                  />
-                  <p>{data.amountOfHint} free hints</p>
-                </div>
-                <div className="flex-details">
-                  <img
-                    src={require('../../../assets/Icon ionic-md-checkmark.png')}
-                    alt=""
-                  />
-                  <p>Remove ads</p>
-                </div>
-                <div className="flex-details">
-                  <img
-                    src={require('../../../assets/Icon ionic-md-checkmark.png')}
-                    alt=""
-                  />
-                  <p>Color pro Arts</p>
-                </div>
-              </div>
-              <div className="button-plans">
-                <button>Edit</button>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      {showMore && (
-        <button onClick={loadMore} className="sub-loadmore-button">
-          {' '}
-          Load More{' '}
-        </button>
+              );
+            })}
+          </div>
+          {showMore && (
+            <button
+              onClick={loadMore}
+              className="sub-loadmore-button"
+              disabled={isDisabled}
+            >
+              {' '}
+              Load More{' '}
+            </button>
+          )}
+        </div>
       )}
     </div>
   );
