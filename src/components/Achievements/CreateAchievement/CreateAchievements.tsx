@@ -91,6 +91,7 @@ const CreateAchievement = () => {
                 <input
                   type="text"
                   placeholder="Enter a number here"
+                  defaultValue={'test5'}
                   {...register('name')}
                 />
                 {errors.name && (
