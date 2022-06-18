@@ -62,7 +62,7 @@ const RootAds = () => {
             {list.map((data, index) => {
               return (
                 <div key={index} className="ads-border">
-                  <img className="ads-image" src={data.file} alt="" />
+                  <img src={require('../../../assets/adsss.png')} alt="" />
                   <div className="ads-edit-title">
                     <div>{data.title}</div>
                     <div>

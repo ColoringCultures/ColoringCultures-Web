@@ -23,6 +23,7 @@ import BugReport from './components/UserFeedback/BugReport/BugReport';
 import FeatureRequests from './components/UserFeedback/FeatureRequests/FeatureRequests';
 import Praise from './components/UserFeedback/Praise/Praise';
 import Suggestions from './components/UserFeedback/Suggestions/Suggestions';
+import EditEmpty from './components/Achievements/EditEmpty/EditEmpty';
 
 export const routes = [
   {
@@ -54,7 +55,8 @@ export const routes = [
             children: [
               { path: '', element: <Root /> },
               { path: 'Create', element: <CreateAchievement /> },
-              { path: 'Edit', element: <EditAchievement /> },
+              { path: 'Edit', element: <EditEmpty /> },
+              { path: 'Edit/:id', element: <EditAchievement /> },
             ],
           },
           {

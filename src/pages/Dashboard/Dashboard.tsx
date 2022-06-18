@@ -219,25 +219,25 @@ const Dashboard = () => {
                 </NavLink>
               </div>
             </div>
-              <div
-                className="link"
-                onClick={() => {
-                  setModalOpen(true);
-                }}
-              >
-                <img
-                  className="signout-icon"
-                  src={require('../../assets/Path 29.png')}
-                  alt=""
-                />
-                <p>Sign Out</p>
-              </div>
+            <div
+              className="link"
+              onClick={() => {
+                setModalOpen(true);
+              }}
+            >
+              <img
+                className="signout-icon"
+                src={require('../../assets/Path 29.png')}
+                alt=""
+              />
+              <p>Sign Out</p>
+            </div>
             {/* <div></div> */}
           </div>
         </div>
         {modalOpen && <Modal setOpenModal={setModalOpen} />}
       </div>
-      <div>
+      <div className="outlet-div">
         <Outlet />
       </div>
     </div>

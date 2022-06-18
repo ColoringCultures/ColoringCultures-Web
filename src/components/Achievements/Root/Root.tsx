@@ -3,11 +3,13 @@ import { useContext, useEffect, useState } from 'react';
 import './root.scss';
 import { UserContext } from '../../../UserContext';
 import Loader from '../../../Loader/Loader';
+import { useNavigate } from 'react-router-dom';
 
 const Root = () => {
   const { token } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<any[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +23,6 @@ const Root = () => {
       );
       setData(response.data.data);
       setIsLoading(false);
-      console.log(response);
     };
     fetchData();
   }, [token]);
@@ -34,7 +35,13 @@ const Root = () => {
         <div className={'scroll-root-root '}>
           {data.map((item, index) => {
             return (
-              <div className="ach-root" key={index}>
+              <div
+                className="ach-root"
+                key={index}
+                onClick={() => {
+                  navigate(`Edit/${item.id}`);
+                }}
+              >
                 {/* <div> */}
                 <img src={item.icon_image} alt="" />
                 {/* </div> */}
