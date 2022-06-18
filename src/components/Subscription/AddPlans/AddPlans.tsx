@@ -203,6 +203,7 @@ const AddPlans = () => {
                       type={'file'}
                       placeholder="Choose a file"
                       accept=".svg"
+
                       onInput={displayImage}
                       onChange={imageUpload}
                     />
