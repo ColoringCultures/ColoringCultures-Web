@@ -270,7 +270,7 @@ const EditPlans = () => {
                 setModalOpen(true);
               }}
             >
-              Delete Ad
+              Delete Subscription
             </button>
           </div>
         </div>
