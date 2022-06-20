@@ -5,25 +5,21 @@ import { useParams } from 'react-router';
 import { UserContext } from '../../../UserContext';
 import Loader from '../../../Loader/Loader';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { schema } from '../achievementSchema';
+import { schema } from './EditSchema';
 import { useForm } from 'react-hook-form';
+import ConfirmModal from './Modal/ConfirmModal';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const EditAchievement = () => {
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [dMode, setdMode] = useState('');
   const [lMode, setlMode] = useState('');
   const [colored, setColored] = useState('');
   const { token } = useContext(UserContext);
   const [isLoading, setLoading] = useState(true);
-  // const [data, setData] = useState({
-  //   name: '',
-  //   task: '',
-  //   criteria: '',
-  //   icon_image: '',
-  //   colored_icon_image: '',
-  //   dark_icon_image: '',
-  // });
+  const [isDeleted, setDeleted] = useState(false);
 
   const { id } = useParams();
 
@@ -42,6 +38,13 @@ const EditAchievement = () => {
     setColored(image);
   };
 
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [criteria, setcriteria] = useState('');
+  const [darkMode, setDarkMode] = useState();
+  const [lightMode, setLightMode] = useState();
+  const [coloredMode, setColoredMode] = useState();
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
@@ -52,18 +55,13 @@ const EditAchievement = () => {
           },
         }
       );
-
-      // setData({
-      //   ...data,
-      //   name: response.data.data.name,
-      //   task: response.data.data.task,
-      //   criteria: response.data.data.criteria,
-      //   icon_image: response.data.data.icon_image,
-      //   colored_icon_image: response.data.data.colored_icon_image,
-      //   dark_icon_image: response.data.data.dark_icon_image,
-      // });
+      setName(response.data.data.name);
+      setDescription(response.data.data.task);
+      setcriteria(response.data.data.criteria);
+      setDarkMode(response.data.data.dark_icon_image);
+      setLightMode(response.data.data.icon_image);
+      setColoredMode(response.data.data.colored_icon_image);
       setLoading(false);
-      console.log(response);
     };
     fetchData();
   }, [id, token]);
@@ -105,6 +103,15 @@ const EditAchievement = () => {
     });
   };
 
+  useEffect(() => {
+    if (isDeleted) {
+      setTimeout(() => {
+        setDeleted(false);
+      }, 2000);
+      navigate('/Dashboard/Achievements');
+    }
+  });
+
   return (
     <div className="root-create">
       {isLoading ? (
@@ -117,7 +124,8 @@ const EditAchievement = () => {
                 <label htmlFor="Achievement Name">Achievement Name</label>
                 <input
                   type="text"
-                  placeholder="Enter a number here"
+                  placeholder="Enter a name here"
+                  defaultValue={name}
                   {...register('name')}
                 />
                 {errors.name && (
@@ -129,6 +137,7 @@ const EditAchievement = () => {
                 <input
                   type="text"
                   placeholder="Enter text"
+                  defaultValue={description}
                   {...register('task')}
                 />
                 {errors.task && (
@@ -140,6 +149,7 @@ const EditAchievement = () => {
                 <input
                   type="text"
                   placeholder="Enter a number"
+                  defaultValue={criteria}
                   {...register('criteria')}
                 />
                 {errors.criteria && (
@@ -169,17 +179,23 @@ const EditAchievement = () => {
                           {...register('dark_icon_image')}
                         />
                       </label>
-                      {errors.dark_icon_image && (
+                      {/* {errors.dark_icon_image && (
                         <p className="create-error-message">
                           {errors.dark_icon_image?.message}
                         </p>
-                      )}
+                      )} */}
                     </label>
-                    {dMode && (
+                    {dMode ? (
                       <img
                         style={{ width: '150px', height: ' 168px' }}
                         src={dMode}
-                        alt=""
+                        alt="Empty"
+                      />
+                    ) : (
+                      <img
+                        style={{ width: '150px', height: ' 168px' }}
+                        src={darkMode}
+                        alt="Empty"
                       />
                     )}
                   </div>
@@ -196,17 +212,23 @@ const EditAchievement = () => {
                           {...register('icon_image')}
                         />
                       </label>
-                      {errors.icon_image && (
+                      {/* {errors.icon_image && (
                         <p className="create-error-message">
                           {errors.icon_image?.message}
                         </p>
-                      )}
+                      )} */}
                     </label>
-                    {lMode && (
+                    {lMode ? (
                       <img
                         style={{ width: '150px', height: ' 168px' }}
                         src={lMode}
-                        alt=""
+                        alt="Empty"
+                      />
+                    ) : (
+                      <img
+                        style={{ width: '150px', height: ' 168px' }}
+                        src={lightMode}
+                        alt="Empty"
                       />
                     )}
                   </div>
@@ -223,17 +245,23 @@ const EditAchievement = () => {
                           {...register('colored_icon_image')}
                         />
                       </label>
-                      {errors.colored_icon_image && (
+                      {/* {errors.colored_icon_image && (
                         <p className="create-error-message">
                           {errors.colored_icon_image?.message}
                         </p>
-                      )}
+                      )} */}
                     </label>
-                    {colored && (
+                    {colored ? (
                       <img
                         style={{ width: '150px', height: '168px' }}
                         src={colored}
-                        alt=""
+                        alt="Empty"
+                      />
+                    ) : (
+                      <img
+                        style={{ width: '150px', height: '168px' }}
+                        src={coloredMode}
+                        alt="Empty"
                       />
                     )}
                   </div>
@@ -252,7 +280,16 @@ const EditAchievement = () => {
           </div>
         </form>
       )}
-      {modalOpen && <Modal setOpenModal={setModalOpen} Modal={modalOpen} />}
+      {modalOpen && (
+        <Modal setOpenModal={setModalOpen} id={id} setDeleted={setDeleted} />
+      )}
+      {isDeleted && (
+        <ConfirmModal
+          name={name}
+          setOpenModal={setModalOpen}
+          modalOpen={modalOpen}
+        />
+      )}
     </div>
   );
 };
