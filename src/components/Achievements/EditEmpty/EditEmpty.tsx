@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import './EditEmpty.scss';
 
 const EditEmpty = () => {
   return (
-    <div>EditEmpty</div>
-  )
-}
+    <div className="empty-edit">
+      <p>😊 PLEASE SELECT AN ACHIEVEMENT TO EDIT</p>
+    </div>
+  );
+};
 
-export default EditEmpty
+export default EditEmpty;
