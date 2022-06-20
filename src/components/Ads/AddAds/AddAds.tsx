@@ -7,8 +7,10 @@ import axios from 'axios';
 import { UserContext } from '../../../UserContext';
 import Modal from './Modal/Modal';
 import Loader from '../../../Loader/Loader';
+import { useNavigate } from 'react-router-dom';
 
 const AddAds = () => {
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const { token } = useContext(UserContext);
   const [image, setImage] = useState('');
@@ -56,11 +58,11 @@ const AddAds = () => {
     });
   };
 
-
   useEffect(() => {
     if (modalOpen) {
       setTimeout(() => {
         setModalOpen(false);
+        navigate('/Dashboard/Ads');
       }, 2000);
     }
   });

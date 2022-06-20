@@ -115,3 +115,34 @@
 .left-div-plan {
   width: 50%;
 }
+
+.ad-buttons {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+  .create-ad-button {
+    width: 254px;
+    height: 49px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #7e3910;
+    color: white;
+    border: 1px solid #707070;
+    margin-top: 45px;
+    margin-right: 41px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #984514;
+    }
+  }
+  .delete-ad-button {
+    width: 254px;
+    height: 49px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #ff0000;
+    color: white;
+    border: 1px solid #ffff;
+    margin-top: 45px;
+    cursor: pointer;
+  }
+}

@@ -1,6 +1,24 @@
 import './Modal.scss';
+import { UserContext } from '../../../UserContext';
+import { useContext } from 'react';
+import axios from 'axios';
 
-const Modal = ({ setOpenModal }: any) => {
+const Modal = ({ setOpenModal, id, setDeleted }: any) => {
+  const { token } = useContext(UserContext);
+
+  const deleteAds = async () => {
+    await axios.delete(
+      `https://colorculture.herokuapp.com/advertisements/${id}`,
+      {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      }
+    );
+    setDeleted(true);
+    setOpenModal(false);
+  };
+
   return (
     <div className="modal-root">
       <div className="square-root">
@@ -15,10 +33,12 @@ const Modal = ({ setOpenModal }: any) => {
         </div>
         <div className="modal-content">
           <div className="modal-header">
-            <h1>Are you sure you want to delete this add?</h1>
+            <h1>Are you sure you want to delete this Ad?</h1>
           </div>
           <div className="modal-buttons">
-            <button className="Yes-button">Yes</button>
+            <button className="Yes-button" onClick={deleteAds}>
+              Yes
+            </button>
             <button
               className="No-button"
               onClick={() => {
