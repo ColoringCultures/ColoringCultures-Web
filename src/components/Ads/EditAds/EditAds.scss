@@ -23,7 +23,7 @@
     padding-left: 10px;
 
     &::placeholder {
-      color: #AAAAB7;
+      color: #aaaab7;
       font-size: 13px;
     }
   }
@@ -54,10 +54,6 @@
   border: 1px solid white;
   cursor: pointer;
   margin-left: 25px;
-
-  &:hover {
-    background-color: #984514;
-  }
 }
 
 .file-edit {

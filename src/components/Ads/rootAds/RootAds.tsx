@@ -3,6 +3,7 @@ import './RootAds.scss';
 import { UserContext } from '../../../UserContext';
 import axios from 'axios';
 import Loader from '../../../Loader/Loader';
+import { useNavigate } from 'react-router-dom';
 
 const RootAds = () => {
   const [data, setData] = useState<any[]>([]);
@@ -10,6 +11,7 @@ const RootAds = () => {
   const [bugList, setBugList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
+  const navigate = useNavigate();
   const LIMIT = 6;
 
   useEffect(() => {
@@ -66,7 +68,13 @@ const RootAds = () => {
                   <div className="ads-edit-title">
                     <div>{data.title}</div>
                     <div>
-                      <img src={require('../../../assets/adEdit.png')} alt="" />
+                      <img
+                        src={require('../../../assets/adEdit.png')}
+                        alt=""
+                        onClick={() => {
+                          navigate(`EditAds/${data.id}`);
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
