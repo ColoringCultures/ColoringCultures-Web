@@ -1,32 +1,43 @@
 .mainer-root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  display: grid;
+  place-items: center;
+  position: fixed;
+  left: 0%;
+  right: 0%;
 }
 
 .main-root {
-  width: calc(100vw - 450px);
-  max-width: 890px;
+  margin: 2rem 0;
+  width: 70vw;
+
 }
 
 .login-border {
-  display: flex;
+  padding: 2rem;
   background-color: #ffffff;
   border-radius: 40px;
 }
 
+.login-border h1{
+  margin-left: 5.5rem;
+  font-weight: 700;
+}
+
+
 .root {
   width: 100%;
+  margin: 3rem 0;
   display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  overflow: hidden;
 }
 
 .color1 {
-  margin-left: 60px;
-  width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   h1 {
     margin-top: 57px;
     font-size: 35px;
@@ -35,48 +46,52 @@
 
   p {
     font-style: italic;
-    font-size: 18px;
-    color: #7e3910;
+    font-size: 12px;
+    margin: 0 0 0 10px;
+    color: red;
   }
 
   .color-flex {
     display: flex;
     flex-direction: column;
-    margin-top: 115px;
 
     input {
-      width: 328px;
-      height: 48px;
+      width: 300px;
+      padding: 0.8rem 1rem;
       border-radius: 40px;
       margin-bottom: 10px;
       border: none;
       background-color: #f2f4f8;
       margin-top: 16px;
-      padding-left: 30px;
-      font-size: 16px;
+      font-size: 14px;
+      font-family: 'poppins';
+      color: #1C2126;
+      outline: none;
 
       &::placeholder {
-        padding-left: 10px;
-        font-size: 16px;
+        font-size: 14px;
+        color: #AAAAB7;
+        font-family: 'poppins';
       }
 
       &:focus {
-        padding-left: 30px;
-        font-size: 16px;
+        font-size: 14px;
+        color: #1C2126;
+        font-family: 'poppins';
       }
     }
     button {
-      width: 328px;
-      height: 48px;
+      width: 300px;
+      padding: 0.8rem;
       border-radius: 40px;
       background-color: #7e3910;
       color: white;
       border: 1px solid #707070;
-      margin-top: 30px;
-      margin-bottom: 30px;
+      margin-top: 1rem;
+      // margin-bottom: 30px;
       cursor: pointer;
-      // margin-left: 124px;
-      font-size: 16px;
+      font-size: 14px;
+      font-family: 'poppins';
     }
   }
 }
@@ -85,16 +100,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45%;
-  margin-top: 10%;
   img {
-    width: 387.94px;
-    height: 336.23px;
+    width: 300px;
   }
 }
 
-.error-message {
-  color: red !important;
-  font-size: 16px;
-  margin-left: 10px;
-}
+// .error-message {
+//   color: red !important;
+// }
