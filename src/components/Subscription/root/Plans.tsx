@@ -3,8 +3,10 @@ import './Plans.scss';
 import { UserContext } from '../../../UserContext';
 import axios from 'axios';
 import Loader from '../../../Loader/Loader';
+import { useNavigate } from 'react-router-dom';
 
 const Plans = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState<any[]>([]);
   const { token } = useContext(UserContext);
   const [bugList, setBugList] = useState<any[]>([]);
@@ -108,7 +110,13 @@ const Plans = () => {
                     </div>
                   </div>
                   <div className="button-plans">
-                    <button>Edit</button>
+                    <button
+                      onClick={() => {
+                        navigate(`EditPlans/${data.id}`);
+                      }}
+                    >
+                      Edit
+                    </button>
                   </div>
                 </div>
               );

@@ -4,9 +4,10 @@ import './AddPlans.scss';
 import { UserContext } from '../../../UserContext';
 import Loader from '../../../Loader/Loader';
 import Modal from './Modal/Modal';
-
+import { useNavigate } from 'react-router-dom';
 
 const AddPlans = () => {
+  const navigate = useNavigate();
   const { token } = useContext(UserContext);
   const formData = new FormData();
 
@@ -20,7 +21,6 @@ const AddPlans = () => {
   }
 
   const createSubscription = async () => {
-
     setLoading(true);
     formData.append('plan_name', planName);
     formData.append('art_to_be_colored', artToBeColored);
@@ -63,6 +63,7 @@ const AddPlans = () => {
     if (modalOpen) {
       setTimeout(() => {
         setModalOpen(false);
+        navigate('/Dashboard/Subscripton');
       }, 2000);
     }
   });
@@ -203,7 +204,6 @@ const AddPlans = () => {
                       type={'file'}
                       placeholder="Choose a file"
                       accept=".svg"
-
                       onInput={displayImage}
                       onChange={imageUpload}
                     />

@@ -7,8 +7,10 @@ import axios from 'axios';
 import { UserContext } from '../../../UserContext';
 import Loader from '../../../Loader/Loader';
 import Modal from './Modal/Modal';
+import { useNavigate } from 'react-router-dom';
 
 const CreateAchievement = () => {
+  const navigate = useNavigate();
   const [dMode, setdMode] = useState('');
   const [lMode, setlMode] = useState('');
   const [colored, setColored] = useState('');
@@ -74,6 +76,7 @@ const CreateAchievement = () => {
     if (modalOpen) {
       setTimeout(() => {
         setModalOpen(false);
+        navigate('/Dashboard/Achievements');
       }, 2000);
     }
   });

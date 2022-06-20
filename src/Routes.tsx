@@ -25,6 +25,7 @@ import Praise from './components/UserFeedback/Praise/Praise';
 import Suggestions from './components/UserFeedback/Suggestions/Suggestions';
 import EditEmpty from './components/Achievements/EditEmpty/EditEmpty';
 import EmptyAds from './components/Ads/EmptyAds/EmptyAds';
+import EmptySubscription from './components/Subscription/EmptySubscription/EmptySubscription';
 
 export const routes = [
   {
@@ -85,8 +86,9 @@ export const routes = [
             element: <Subscription />,
             children: [
               { path: '', element: <Plans /> },
-              { path: 'EditPlans', element: <EditPlans /> },
               { path: 'AddPlans', element: <AddPlans /> },
+              { path: 'EditPlans', element: <EmptySubscription /> },
+              { path: 'EditPlans/:id', element: <EditPlans /> },
             ],
           },
           {

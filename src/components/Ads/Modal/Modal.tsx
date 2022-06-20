@@ -8,7 +8,7 @@ const Modal = ({ setOpenModal, id, setDeleted }: any) => {
 
   const deleteAds = async () => {
     await axios.delete(
-      `https://colorculture.herokuapp.com/advertisements/${id}`,
+      `https://colorculture.herokuapp.com/subscriptions/${id}`,
       {
         headers: {
           Authorization: `Token ${token}`,
