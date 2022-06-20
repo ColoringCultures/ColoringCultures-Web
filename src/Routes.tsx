@@ -24,6 +24,7 @@ import FeatureRequests from './components/UserFeedback/FeatureRequests/FeatureRe
 import Praise from './components/UserFeedback/Praise/Praise';
 import Suggestions from './components/UserFeedback/Suggestions/Suggestions';
 import EditEmpty from './components/Achievements/EditEmpty/EditEmpty';
+import EmptyAds from './components/Ads/EmptyAds/EmptyAds';
 
 export const routes = [
   {
@@ -75,7 +76,8 @@ export const routes = [
             children: [
               { path: '', element: <RootAds /> },
               { path: 'AddAds', element: <AddAds /> },
-              { path: 'EditAds', element: <EditAds /> },
+              { path: 'EditAds/:id', element: <EditAds /> },
+              { path: 'EditAds', element: <EmptyAds /> },
             ],
           },
           {
