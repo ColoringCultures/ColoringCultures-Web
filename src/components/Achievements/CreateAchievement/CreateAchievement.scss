@@ -3,10 +3,11 @@
   .create-root {
     width: 100%;
     display: flex;
+    justify-content: space-between;
     margin-top: 32px;
 
     .create-root-div1 {
-      width: 50%;
+      width: 42%;
 
       .create-input-text {
         display: flex;
@@ -26,14 +27,10 @@
           font-size: 14px;
 
           &::placeholder {
-            padding-left: 10px;
-            color: #b0b3d1;
-            font-size: 16px;
+            color: #AAAAB7;
+            font-size: 13px;
           }
-
-          &:focus {
-            padding-left: 10px;
-          }
+          
         }
       }
 
@@ -51,22 +48,21 @@
           border: none;
           margin-top: 12px;
           padding-left: 10px;
-          font-size: 14px;
+          font-size: 13px;
 
           &::placeholder {
-            padding-left: 10px;
-            color: #b0b3d1;
-            font-size: 16px;
+            color: #AAAAB7;
+            font-size: 13px;
           }
 
-          &:focus {
-            padding-left: 10px;
-          }
+          // &:focus {
+          //   padding-left: 10px;
+          // }
         }
       }
     }
     .create-root-div2 {
-      width: 50%;
+      width: 53%;
       .file-root {
         width: 100%;
         .major-files {
@@ -75,9 +71,10 @@
           margin-right: 15px;
           margin-top: 14px;
           .shade-mode {
+            // margin-left: .25rem;
             .file-label-create {
               color: #b0b3d1;
-              font-size: 16px;
+              font-size: 13px;
               text-align: center;
               display: flex;
               flex-direction: column;
@@ -112,6 +109,8 @@
   margin-top: 15px;
   margin-right: 41px;
   cursor: pointer;
+  font-family: 'poppins';
+  font-weight: 500;
 
   &:hover {
     background-color: #984514;

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap');
 
 *{
   box-sizing: border-box;
@@ -18,4 +18,18 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+p, label{
+  font-size: 14px;
+}
+
+::placeholder{
+  font-family: 'poppins';
+}
+
+button{
+  font-size: 14px;
+  font-family: 'poppins';
+  font-weight: 500;
 }

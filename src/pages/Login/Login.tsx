@@ -3,6 +3,7 @@ import './Login.scss';
 import axios from 'axios';
 import { UserContext } from '../../UserContext';
 import { useNavigate } from 'react-router-dom';
+import Logo from '../../assets/Logo.svg'
 
 const Login = () => {
   const [login, setLogin] = useState(false);
@@ -63,9 +64,9 @@ const Login = () => {
         <div className="mainer-root">
           <div className="main-root">
             <div className="login-border">
+              <h1>LogIn to your Account</h1>
               <div className="root">
                 <div className="color1">
-                  <h1>Login to your Account</h1>
                   <form className="color-flex">
                     <input
                       type="text"
@@ -88,12 +89,12 @@ const Login = () => {
                       disabled={loading}
                       onClick={handleSubmit}
                     >
-                      {loading ? 'Logging in' : 'Login'}
+                      {loading ? 'Logging in...' : 'Login'}
                     </button>
                   </form>
                 </div>
                 <div className="color2">
-                  <img src={require('../../assets/logo.png')} alt="" />
+                  <img src={Logo} alt="" />
                 </div>
               </div>
             </div>

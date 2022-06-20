@@ -18,15 +18,13 @@
     border: none;
     margin-top: 12px;
     margin-bottom: 35px;
+    font-weight: 14px;
+    font-family: 'poppins';
+    padding-left: 10px;
 
     &::placeholder {
-      padding-left: 10px;
-      color: #b0b3d1;
-      font-size: 16px;
-    }
-
-    &:focus {
-      padding-left: 10px;
+      color: #AAAAB7;
+      font-size: 13px;
     }
   }
 }
@@ -78,6 +76,7 @@
     border: none;
     margin-top: 12px;
     margin-bottom: 35px;
+    font-size: 13px;
     input[type='file'] {
       display: none;
     }
