@@ -14,11 +14,10 @@
         flex-direction: column;
         margin-bottom: 32px;
 
-
         input {
           border-radius: 5px;
           width: calc(100vw - 880px);
-          max-width: 490px;
+          max-width: 450px;
           height: 48px;
           background-color: #f0f3f8;
           border: none;
@@ -27,10 +26,9 @@
           font-size: 14px;
 
           &::placeholder {
-            color: #AAAAB7;
+            color: #aaaab7;
             font-size: 13px;
           }
-          
         }
       }
 
@@ -51,7 +49,7 @@
           font-size: 13px;
 
           &::placeholder {
-            color: #AAAAB7;
+            color: #aaaab7;
             font-size: 13px;
           }
 
