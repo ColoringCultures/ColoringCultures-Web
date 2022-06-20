@@ -107,8 +107,8 @@ const EditAchievement = () => {
     if (isDeleted) {
       setTimeout(() => {
         setDeleted(false);
+        navigate('/Dashboard/Achievements');
       }, 2000);
-      navigate('/Dashboard/Achievements');
     }
   });
 
