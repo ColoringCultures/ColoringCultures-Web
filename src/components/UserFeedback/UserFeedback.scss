@@ -39,3 +39,9 @@
     color: #7e3910;
   }
 }
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .root-Feedback {
+    max-width: calc(100vw - 190px);
+  }
+}

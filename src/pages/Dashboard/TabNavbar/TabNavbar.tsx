@@ -9,7 +9,7 @@ import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import PaidIcon from '@mui/icons-material/Paid';
 import NavLink from '../../../Navlink';
 
-const TabNavbar = (setModalOpen: any) => {
+const TabNavbar = ({ setModalOpen }: any) => {
   return (
     <div className="tab-navbar">
       <div className="tab-admin-details">
