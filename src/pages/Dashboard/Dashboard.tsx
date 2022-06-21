@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import './Dashboard.scss';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import NavLink from '../../Navlink';
 import Modal from './Modal/Modal';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import ImageIcon from '@mui/icons-material/Image';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import MessageIcon from '@mui/icons-material/Message';
+import PostAddIcon from '@mui/icons-material/PostAdd';
+import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
+import PaidIcon from '@mui/icons-material/Paid';
 
 const Dashboard = () => {
-  const location = useLocation();
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -28,14 +35,7 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
-                  {location.pathname === '/Dashboard/' ? (
-                    <img
-                      src={require('../../assets/active dashboard.png')}
-                      alt=""
-                    />
-                  ) : (
-                    <img src={require('../../assets/Path 2.png')} alt="" />
-                  )}
+                  <DashboardIcon className="dashicon" />
                   Dashboard
                 </NavLink>
               </div>
@@ -47,14 +47,7 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
-                  {location.pathname === '/Dashboard/Images' ? (
-                    <img
-                      src={require('../../assets/active images.png')}
-                      alt=""
-                    />
-                  ) : (
-                    <img src={require('../../assets/Union 2.png')} alt="" />
-                  )}
+                  <ImageIcon className="dashicon" />
                   Images
                 </NavLink>
               </div>
@@ -66,14 +59,7 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
-                  {location.pathname === '/Dashboard/Statistics' ? (
-                    <img
-                      src={require('../../assets/active statistics.png')}
-                      alt=""
-                    />
-                  ) : (
-                    <img src={require('../../assets/Path 19.png')} alt="" />
-                  )}
+                  <BarChartIcon className="dashicon" />
                   Statistics
                 </NavLink>
               </div>
@@ -85,24 +71,7 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
-                  {location.pathname === '/Dashboard/Achievements' ? (
-                    <img
-                      src={require('../../assets/active achievements.png')}
-                      alt=""
-                    />
-                  ) : location.pathname === '/Dashboard/Achievements/Edit' ? (
-                    <img
-                      src={require('../../assets/active achievements.png')}
-                      alt=""
-                    />
-                  ) : location.pathname === '/Dashboard/Achievements/Create' ? (
-                    <img
-                      src={require('../../assets/active achievements.png')}
-                      alt=""
-                    />
-                  ) : (
-                    <img src={require('../../assets/Path 8.png')} alt="" />
-                  )}
+                  <EmojiEventsIcon className="dashicon" />
                   Achievements
                 </NavLink>
               </div>
@@ -114,31 +83,7 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
-                  {location.pathname === '/Dashboard/UserFeedback' ? (
-                    <img
-                      src={require('../../assets/active Feedback.png')}
-                      alt=""
-                    />
-                  ) : location.pathname ===
-                    '/Dashboard/UserFeedback/FeatureRequests' ? (
-                    <img
-                      src={require('../../assets/active Feedback.png')}
-                      alt=""
-                    />
-                  ) : location.pathname === '/Dashboard/UserFeedback/Praise' ? (
-                    <img
-                      src={require('../../assets/active Feedback.png')}
-                      alt=""
-                    />
-                  ) : location.pathname ===
-                    '/Dashboard/UserFeedback/Suggestions' ? (
-                    <img
-                      src={require('../../assets/active Feedback.png')}
-                      alt=""
-                    />
-                  ) : (
-                    <img src={require('../../assets/Path 6.png')} alt="" />
-                  )}
+                  <MessageIcon className="dashicon" />
                   Users Feedback
                 </NavLink>
               </div>
@@ -150,15 +95,7 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
-                  {location.pathname === '/Dashboard/Ads' ? (
-                    <img src={require('../../assets/active Ads.png')} alt="" />
-                  ) : location.pathname === '/Dashboard/Ads/EditAds' ? (
-                    <img src={require('../../assets/active Ads.png')} alt="" />
-                  ) : location.pathname === '/Dashboard/Ads/AddAds' ? (
-                    <img src={require('../../assets/active Ads.png')} alt="" />
-                  ) : (
-                    <img src={require('../../assets/Union 1.png')} alt="" />
-                  )}
+                  <PostAddIcon className="dashicon" />
                   Ads
                 </NavLink>
               </div>
@@ -170,29 +107,7 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
-                  {location.pathname === '/Dashboard/Subscription' ? (
-                    <img
-                      src={require('../../assets/active subscription.png')}
-                      alt=""
-                    />
-                  ) : location.pathname ===
-                    '/Dashboard/Subscription/EditPlans' ? (
-                    <img
-                      src={require('../../assets/active subscription.png')}
-                      alt=""
-                    />
-                  ) : location.pathname ===
-                    '/Dashboard/Subscription/AddPlans' ? (
-                    <img
-                      src={require('../../assets/active subscription.png')}
-                      alt=""
-                    />
-                  ) : (
-                    <img
-                      src={require('../../assets/Icon feather-package.png')}
-                      alt=""
-                    />
-                  )}
+                  <SubscriptionsIcon className="dashicon" />
                   Subscription
                 </NavLink>
               </div>
@@ -204,17 +119,7 @@ const Dashboard = () => {
                   className="navlink"
                   activeClassName="active"
                 >
-                  {location.pathname === '/Dashboard/Revenue' ? (
-                    <img
-                      src={require('../../assets/active subscription.png')}
-                      alt=""
-                    />
-                  ) : (
-                    <img
-                      src={require('../../assets/Icon feather-package.png')}
-                      alt=""
-                    />
-                  )}
+                  <PaidIcon className="dashicon" />
                   Revenue
                 </NavLink>
               </div>
