@@ -7,6 +7,10 @@
   max-width: calc(100vw - 320px);
   height: 100%;
   margin-bottom: 15px;
+  @media (min-width: 768px) and (max-width: 992px) {
+  max-width: calc(100vw - 180px);
+   
+  }
 
   hr {
     background-color: #b0b3d1;

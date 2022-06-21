@@ -4,6 +4,9 @@
   margin-top: 30.4px;
   margin-left: 31px;
   max-width: 100%;
+  @media (min-width: 768px) and (max-width: 992px) {
+    flex-direction: column;
+  }
 
   .right-ads-div {
     width: 50%;
@@ -86,6 +89,9 @@
   .label {
     display: flex;
     justify-content: space-between;
+  }
+  @media (min-width: 768px) and (max-width: 992px) {
+    width: 127%;
   }
 }
 
