@@ -92,6 +92,11 @@ const Login = () => {
                       {loading ? 'Logging in...' : 'Login'}
                     </button>
                   </form>
+                  <div className='forgotPassword'>
+                    <div className="bar"></div>
+                    <h4 className="forgotLink"><a href="/">Forgot password?</a>  </h4>
+                    <div className="bar"></div>
+                  </div>
                 </div>
                 <div className="color2">
                   <img src={Logo} alt="" />
