@@ -18,6 +18,7 @@ const CreateAchievement = () => {
   const [isLoading, setLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [achName, setAchName] = useState('');
+  const [errMessage, setErrMessage] = useState('');
 
   const displaydMode = (e: any) => {
     const image = URL.createObjectURL(e.target.files[0]);
@@ -54,22 +55,25 @@ const CreateAchievement = () => {
     formData.append('colored_icon_image', data.colored_icon_image[0]);
     formData.append('dark_icon_image', data.dark_icon_image[0]);
 
-    const response = await axios.post(
-      'https://colorculture.herokuapp.com/achievements/',
-      formData,
-      {
+    await axios
+      .post('https://colorculture.herokuapp.com/achievements/', formData, {
         headers: {
           Authorization: `Token ${token}`,
         },
-      }
-    );
-    setLoading(false);
-    if (response.data.message === 'OK') {
-      setModalOpen(true);
-    }
-    reset({
-      data: '',
-    });
+      })
+      .then((response) => {
+        setLoading(false);
+        if (response.data.message === 'OK') {
+          setModalOpen(true);
+        }
+        reset({
+          data: '',
+        });
+      })
+      .catch((err) => {
+        setErrMessage(err.message);
+        setLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -218,6 +222,7 @@ const CreateAchievement = () => {
               </div>
             </div>
           </div>
+          {errMessage && <p className="err-message-ach">{errMessage}</p>}
           <div>
             <button
               className="create-button-ach"

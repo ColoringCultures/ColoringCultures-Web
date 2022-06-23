@@ -18,6 +18,13 @@
   }
 }
 
+.feedback-err {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  color: red;
+}
+
 .scroll-card-root {
   margin-top: 30.4px;
   justify-content: space-between;

@@ -13,6 +13,13 @@
   overflow-y: scroll;
 }
 
+.err-message-ach {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  color: red;
+}
+
 .scroll-root-root {
   align-items: center;
   display: grid;

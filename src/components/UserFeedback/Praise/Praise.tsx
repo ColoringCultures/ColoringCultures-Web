@@ -9,20 +9,25 @@ const Praise = () => {
   const { token } = useContext(UserContext);
   const [bugList, setBugList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [errMessage, setErrMessage] = useState('');
   const LIMIT = 6;
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        'https://colorculture.herokuapp.com/feedbacks/list/',
-        {
+      await axios
+        .get('https://colorculture.herokuapp.com/feedbacks/list/', {
           headers: {
             Authorization: `Token ${token}`,
           },
-        }
-      );
-      setData(response.data.data);
-      setIsLoading(false);
+        })
+        .then((response) => {
+          setData(response.data.data);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setIsLoading(false);
+          setErrMessage(err.message);
+        });
     };
     fetchData();
   }, [token]);
@@ -52,6 +57,7 @@ const Praise = () => {
 
   return (
     <div>
+      {errMessage && <p className="feedback-err">{errMessage}</p>}
       {isLoading ? (
         <Loader />
       ) : (

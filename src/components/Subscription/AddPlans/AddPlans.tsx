@@ -13,11 +13,12 @@ const AddPlans = () => {
 
   const [isLoading, setLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [errMessage, setErrMessage] = useState('');
 
   // const [errMsg, setErrMsg] = useState('');
 
   function imageUpload(event: any) {
-    formData.append('plan_avatar', event.target.files[0]);
+    setTestImage(event.target.files[0]);
   }
 
   const createSubscription = async () => {
@@ -27,21 +28,25 @@ const AddPlans = () => {
     formData.append('number_of_arts', numOfArts);
     formData.append('amount', amount);
     formData.append('amount_of_hint', numOfHint);
+    formData.append('plan_avatar', testImage);
 
-    const response = await axios.post(
-      'https://colorculture.herokuapp.com/subscriptions/',
-      formData,
-      {
+    await axios
+      .post('https://colorculture.herokuapp.com/subscriptions/', formData, {
         headers: {
           Authorization: `Token ${token}`,
         },
-      }
-    );
-    setLoading(false);
-    if (response.data.message === 'OK') {
-      setModalOpen(true);
-    }
-    console.log(response);
+      })
+      .then((response) => {
+        setLoading(false);
+        console.log(response);
+        if (response.data.message === 'OK') {
+          setModalOpen(true);
+        }
+      })
+      .catch((error) => {
+        setLoading(false);
+        setErrMessage(error.message);
+      });
   };
 
   const displayImage = (e: any) => {
@@ -58,12 +63,13 @@ const AddPlans = () => {
   const [unlimtedArts, setUnlimtedArts] = useState(false);
   const [unlimtedHints, setUnlimtedHints] = useState(false);
   const [image, setImage] = useState('');
+  const [testImage, setTestImage] = useState('');
 
   useEffect(() => {
     if (modalOpen) {
       setTimeout(() => {
         setModalOpen(false);
-        navigate('/Dashboard/Subscripton');
+        navigate('/Dashboard/Subscription');
       }, 2000);
     }
   });
@@ -219,6 +225,7 @@ const AddPlans = () => {
               </div>
             </div>
           </div>
+          {errMessage && <p className="err-message-plan">{errMessage}</p>}
           <button className="plan-button" onClick={createSubscription}>
             Create Ad
           </button>

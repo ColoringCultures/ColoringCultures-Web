@@ -10,25 +10,31 @@ const Root = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<any[]>([]);
   const navigate = useNavigate();
+  const [errMessage, setErrMessage] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        'https://colorculture.herokuapp.com/achievements/',
-        {
+      await axios
+        .get('https://colorculture.herokuapp.com/achievements/', {
           headers: {
             Authorization: `Token ${token}`,
           },
-        }
-      );
-      setData(response.data.data);
-      setIsLoading(false);
+        })
+        .then((response) => {
+          setData(response.data.data);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setErrMessage(err.message);
+          setIsLoading(false);
+        });
     };
     fetchData();
   }, [token]);
 
   return (
     <>
+      {errMessage && <div className="err-message-ach">{errMessage}</div>}
       {isLoading ? (
         <Loader />
       ) : (
