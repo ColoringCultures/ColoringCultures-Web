@@ -27,8 +27,6 @@ const Login = () => {
 
   useEffect(() => {
     if (login === true) {
-      console.log('kkk');
-
       navigate('/Dashboard');
     }
   }, [navigate, login]);

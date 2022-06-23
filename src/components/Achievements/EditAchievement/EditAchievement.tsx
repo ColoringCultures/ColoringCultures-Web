@@ -20,6 +20,7 @@ const EditAchievement = () => {
   const { token } = useContext(UserContext);
   const [isLoading, setLoading] = useState(true);
   const [isDeleted, setDeleted] = useState(false);
+  const [errMessage, setErrMessage] = useState('');
 
   const { id } = useParams();
 
@@ -47,21 +48,25 @@ const EditAchievement = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        `https://colorculture.herokuapp.com/achievements/${id}`,
-        {
+      await axios
+        .get(`https://colorculture.herokuapp.com/achievements/${id}`, {
           headers: {
             Authorization: `Token ${token}`,
           },
-        }
-      );
-      setName(response.data.data.name);
-      setDescription(response.data.data.task);
-      setcriteria(response.data.data.criteria);
-      setDarkMode(response.data.data.dark_icon_image);
-      setLightMode(response.data.data.icon_image);
-      setColoredMode(response.data.data.colored_icon_image);
-      setLoading(false);
+        })
+        .then((response) => {
+          setName(response.data.data.name);
+          setDescription(response.data.data.task);
+          setcriteria(response.data.data.criteria);
+          setDarkMode(response.data.data.dark_icon_image);
+          setLightMode(response.data.data.icon_image);
+          setColoredMode(response.data.data.colored_icon_image);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setErrMessage(err.message);
+          setLoading(false);
+        });
     };
     fetchData();
   }, [id, token]);
@@ -269,6 +274,7 @@ const EditAchievement = () => {
               </div>
             </div>
           </div>
+          {errMessage && <p className="err-message-ach">{errMessage}</p>}
           <div>
             <button className="create-button-ach">Save Changes</button>
             <button

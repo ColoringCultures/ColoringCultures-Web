@@ -12,20 +12,25 @@ const Plans = () => {
   const [bugList, setBugList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [errMessage, setErrMessage] = useState('');
   const LIMIT = 2;
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        'https://colorculture.herokuapp.com/subscriptions/fetch/',
-        {
+      await axios
+        .get('https://colorculture.herokuapp.com/subscriptions/fetch/', {
           headers: {
             Authorization: `Token ${token}`,
           },
-        }
-      );
-      setData(response.data.data);
-      setIsLoading(false);
+        })
+        .then((response) => {
+          setData(response.data.data);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setErrMessage(err.message);
+          setIsLoading(false);
+        });
     };
     fetchData();
   }, [token]);
@@ -60,10 +65,11 @@ const Plans = () => {
         <Loader />
       ) : (
         <div>
+          {errMessage && <p className="err-message-plan">{errMessage}</p>}
           <div className={scroll ? 'sub-root' : 'scroll-sub-root'}>
             {list.map((data, index) => {
               return (
-                <div key={index} className="plan-root">
+                <div key={index} id={data.id} className="plan-root">
                   <div className="plan-header">
                     <div>
                       <img

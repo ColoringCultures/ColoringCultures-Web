@@ -20,26 +20,31 @@ const EditAds = () => {
   const [watchTime, setWatchTime] = useState('');
   const [peopleToBeReached, setPeopleToBeReached] = useState();
   const [isDeleted, setDeleted] = useState(false);
+  const [errMessage, setErrMessage] = useState('');
 
   // const [adFile, setAdFile] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const response = await axios.get(
-        `https://colorculture.herokuapp.com/advertisements/${id}`,
-        {
+      await axios
+        .get(`https://colorculture.herokuapp.com/advertisements/${id}`, {
           headers: {
             Authorization: `Token ${token}`,
           },
-        }
-      );
-      setTitle(response.data.data.title);
-      setLink(response.data.data.redirect_url);
-      setWatchTime(response.data.data.time_feed);
-      setPeopleToBeReached(response.data.data.ad_target);
-      // setAdFile(response.data.data.file);
-      setLoading(false);
+        })
+        .then((response) => {
+          setTitle(response.data.data.title);
+          setLink(response.data.data.redirect_url);
+          setWatchTime(response.data.data.time_feed);
+          setPeopleToBeReached(response.data.data.ad_target);
+          // setAdFile(response.data.data.file);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setLoading(false);
+          setErrMessage(err.message);
+        });
     };
     fetchData();
   }, [id, token]);
@@ -106,6 +111,7 @@ const EditAds = () => {
               </div>
             </div>
           </div>
+          {errMessage && <p className="err-message-ads">{errMessage}</p>}
           <div className="button-root">
             <button className="save-button">Save Changes</button>
             <button

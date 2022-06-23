@@ -12,20 +12,25 @@ const RootAds = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
   const navigate = useNavigate();
+  const [errMessage, setErrMessage] = useState('');
   const LIMIT = 6;
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        'https://colorculture.herokuapp.com/advertisements/',
-        {
+      await axios
+        .get('https://colorculture.herokuapp.com/advertisements/', {
           headers: {
             Authorization: `Token ${token}`,
           },
-        }
-      );
-      setData(response.data.data);
-      setIsLoading(false);
+        })
+        .then((response) => {
+          setData(response.data.data);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setIsLoading(false);
+          setErrMessage(err.message);
+        });
     };
     fetchData();
   }, [token]);
@@ -60,6 +65,7 @@ const RootAds = () => {
         <Loader />
       ) : (
         <div>
+          {errMessage && <p className='err-message-ads'>{errMessage}</p>}
           <div className={scroll ? 'rootads-root' : 'adsroot-root'}>
             {list.map((data, index) => {
               return (

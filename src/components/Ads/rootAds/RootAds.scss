@@ -30,6 +30,13 @@
   }
 }
 
+.err-message-ads {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  color: red;
+}
+
 .rootads-root {
   overflow-y: scroll;
   margin-top: 10.4px;
@@ -47,7 +54,7 @@
     gap: 15px 0;
     height: 100vh;
     min-height: 100%;
-    max-height: 100%;;
+    max-height: 100%;
   }
 }
 
@@ -67,7 +74,6 @@
   @media (min-width: 768px) and (max-width: 992px) {
     gap: 15px 0;
   }
-
 }
 
 .ads-loadmore-button {

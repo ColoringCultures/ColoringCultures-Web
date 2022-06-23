@@ -16,6 +16,7 @@ const AddAds = () => {
   const [image, setImage] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [adsName, setAdsname] = useState('');
+  const [errMessage, setErrMessage] = useState('');
   const {
     register,
     handleSubmit,
@@ -40,22 +41,25 @@ const AddAds = () => {
     formData.append('ad_target', data.ad_target);
     formData.append('file', data.file[0]);
 
-    const response = await axios.post(
-      'https://colorculture.herokuapp.com/advertisements/',
-      formData,
-      {
+    await axios
+      .post('https://colorculture.herokuapp.com/advertisements/', formData, {
         headers: {
           Authorization: `Token ${token}`,
         },
-      }
-    );
-    setLoading(false);
-    if (response.data.message === 'OK') {
-      setModalOpen(true);
-    }
-    reset({
-      data: '',
-    });
+      })
+      .then((response) => {
+        setLoading(false);
+        if (response.data.message === 'OK') {
+          setModalOpen(true);
+        }
+        reset({
+          data: '',
+        });
+      })
+      .catch((err) => {
+        setLoading(false);
+        setErrMessage(err.message);
+      });
   };
 
   useEffect(() => {
@@ -154,6 +158,7 @@ const AddAds = () => {
               </div>
             </div>
           </div>
+          {errMessage && <p className="err-message-ads">{errMessage}</p>}
           <button className="ad-button" type="submit" disabled={isLoading}>
             Create Ad
           </button>

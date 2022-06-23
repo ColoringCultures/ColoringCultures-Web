@@ -18,6 +18,13 @@
   }
 }
 
+.err-message-plan {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  color: red;
+}
+
 .scroll-sub-root {
   margin-top: 20.4px;
   justify-content: space-between;

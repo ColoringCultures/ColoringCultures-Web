@@ -14,59 +14,66 @@ const EditPlans = () => {
   const formData = new FormData();
   const [isLoading, setLoading] = useState(false);
   const [isDeleted, setDeleted] = useState(false);
+  const [errMessage, setErrMessage] = useState('');
   const { id } = useParams();
 
   function imageUpload(event: any) {
-    formData.append('plan_avatar', event.target.files[0]);
+    setPlanAvatar(event.target.files[0]);
   }
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const response = await axios.get(
-        `https://colorculture.herokuapp.com​/subscriptions/fetch/${id}`,
-        {
+      await axios
+        .get(`https://colorculture.herokuapp.com​/subscriptions/fetch/${id}`, {
           headers: {
             Authorization: `Token ${token}`,
           },
-        }
-      );
-      setPlanName(response.data.data.plan_name);
-      setArtToBeColored(response.data.data.art_to_be_colored);
-      setNumOfArts(response.data.data.number_of_arts);
-      setNumOfHint(response.data.data.amount_of_hint);
-      setAmount(response.data.data.amount);
-      setUnlimtedColors(response.data.data.unlimited_colors);
-      setUnlimtedArts(response.data.data.unlimited_arts);
-      setUnlimtedHints(response.data.data.unlimited_hints);
-      setImage(response.data.data.plan_avatar);
-      setLoading(false);
+        })
+        .then((response) => {
+          setPlanName(response.data.data.plan_name);
+          setArtToBeColored(response.data.data.art_to_be_colored);
+          setNumOfArts(response.data.data.number_of_arts);
+          setNumOfHint(response.data.data.amount_of_hint);
+          setAmount(response.data.data.amount);
+          setUnlimtedColors(response.data.data.unlimited_colors);
+          setUnlimtedArts(response.data.data.unlimited_arts);
+          setUnlimtedHints(response.data.data.unlimited_hints);
+          setImage(response.data.data.plan_avatar);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setErrMessage(err.message);
+        });
     };
     fetchData();
   }, [id, token]);
 
-  const createSubscription = async () => {
+  const updateSubscription = async () => {
     setLoading(true);
     formData.append('plan_name', planName);
     formData.append('art_to_be_colored', artToBeColored);
     formData.append('number_of_arts', numOfArts);
     formData.append('amount', amount);
     formData.append('amount_of_hint', numOfHint);
+    formData.append('plan_avatar', planAvatar);
 
-    const response = await axios.post(
-      'https://colorculture.herokuapp.com/subscriptions/',
-      formData,
-      {
+    await axios
+      .put(`https://colorculture.herokuapp.com/subscriptions/${id}`, formData, {
         headers: {
           Authorization: `Token ${token}`,
         },
-      }
-    );
-    setLoading(false);
-    if (response.data.message === 'OK') {
-      setModalOpen(true);
-    }
-    console.log(response);
+      })
+      .then((response) => {
+        setLoading(false);
+        if (response.data.message === 'OK') {
+          console.log('working');
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        setErrMessage(err.nessage);
+      });
   };
 
   const displayImage = (e: any) => {
@@ -83,6 +90,7 @@ const EditPlans = () => {
   const [unlimtedArts, setUnlimtedArts] = useState(false);
   const [unlimtedHints, setUnlimtedHints] = useState(false);
   const [image, setImage] = useState('');
+  const [planAvatar, setPlanAvatar] = useState('');
 
   useEffect(() => {
     if (modalOpen) {
@@ -261,7 +269,7 @@ const EditPlans = () => {
             </div>
           </div>
           <div className="ad-buttons">
-            <button className="create-ad-button" onClick={createSubscription}>
+            <button className="create-ad-button" onClick={updateSubscription}>
               Save Changes
             </button>
             <button
@@ -273,6 +281,7 @@ const EditPlans = () => {
               Delete Subscription
             </button>
           </div>
+          {errMessage && <p className="err-message-plan">{errMessage}</p>}
         </div>
       )}
       {modalOpen && (
