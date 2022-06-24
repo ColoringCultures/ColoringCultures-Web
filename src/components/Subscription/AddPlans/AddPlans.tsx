@@ -14,6 +14,7 @@ const AddPlans = () => {
   const [isLoading, setLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [errMessage, setErrMessage] = useState('');
+
   const [validateErr, setValidateErr] = useState({
     planName: '',
     artToBeColored: '',
@@ -22,6 +23,7 @@ const AddPlans = () => {
     numOfHint: '',
     testImage: '',
   });
+
 
   function imageUpload(event: any) {
     setTestImage(event.target.files[0]);
@@ -70,6 +72,7 @@ const AddPlans = () => {
   const [unlimtedHints, setUnlimtedHints] = useState(false);
   const [image, setImage] = useState('');
   const [testImage, setTestImage] = useState('');
+
 
   const Validate = () => {
     if (planName === '') {
@@ -127,6 +130,7 @@ const AddPlans = () => {
       createSubscription();
     }
   };
+
 
   useEffect(() => {
     if (modalOpen) {
@@ -307,6 +311,7 @@ const AddPlans = () => {
           </div>
           {errMessage && <p className="err-message-plan">{errMessage}</p>}
           <button className="plan-button" onClick={SubmitForm}>
+
             Create Ad
           </button>
         </div>
