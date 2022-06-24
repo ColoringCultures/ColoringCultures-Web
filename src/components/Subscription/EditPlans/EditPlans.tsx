@@ -53,6 +53,7 @@ const EditPlans = () => {
 
   const updateSubscription = async () => {
     console.log(planAvatar[0]);
+
     setLoading(true);
     formData.append('plan_name', planName);
     formData.append('art_to_be_colored', artToBeColored);
@@ -94,6 +95,7 @@ const EditPlans = () => {
   const [unlimtedHints, setUnlimtedHints] = useState(false);
   const [image, setImage] = useState('');
   const [planAvatar, setPlanAvatar] = useState<any[]>([]);
+
 
 
   useEffect(() => {
