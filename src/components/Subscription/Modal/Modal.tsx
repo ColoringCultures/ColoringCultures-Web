@@ -7,14 +7,15 @@ const Modal = ({ setOpenModal, id, setDeleted }: any) => {
   const { token } = useContext(UserContext);
 
   const deleteSubscription = async () => {
-    await axios.delete(
-      `https://colorculture.herokuapp.com/advertisements/${id}`,
-      {
+    await axios
+      .delete(`https://colorculture.herokuapp.com/subscriptions/${id}`, {
         headers: {
           Authorization: `Token ${token}`,
         },
-      }
-    );
+      })
+      .then((res) => {
+        console.log(res);
+      });
     setDeleted(true);
     setOpenModal(false);
   };

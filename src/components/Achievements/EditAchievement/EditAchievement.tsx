@@ -289,13 +289,7 @@ const EditAchievement = () => {
       {modalOpen && (
         <Modal setOpenModal={setModalOpen} id={id} setDeleted={setDeleted} />
       )}
-      {isDeleted && (
-        <ConfirmModal
-          name={name}
-          setOpenModal={setModalOpen}
-          modalOpen={modalOpen}
-        />
-      )}
+      {isDeleted && <ConfirmModal name={name} />}
     </div>
   );
 };
