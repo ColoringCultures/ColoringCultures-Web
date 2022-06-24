@@ -18,7 +18,9 @@ const EditPlans = () => {
   const { id } = useParams();
 
   function imageUpload(event: any) {
-    setPlanAvatar(event.target.files[0]);
+    // setPlanAvatar(event.target.files[0]);
+    const [file] = event.target.files;
+    setPlanAvatar((planAvatar) => [...planAvatar, file]);
   }
 
   useEffect(() => {
@@ -50,13 +52,14 @@ const EditPlans = () => {
   }, [id, token]);
 
   const updateSubscription = async () => {
+    console.log(planAvatar[0]);
     setLoading(true);
     formData.append('plan_name', planName);
     formData.append('art_to_be_colored', artToBeColored);
     formData.append('number_of_arts', numOfArts);
     formData.append('amount', amount);
     formData.append('amount_of_hint', numOfHint);
-    formData.append('plan_avatar', planAvatar);
+    formData.append('plan_avatar', planAvatar[0]);
 
     await axios
       .put(`https://colorculture.herokuapp.com/subscriptions/${id}`, formData, {
@@ -90,15 +93,8 @@ const EditPlans = () => {
   const [unlimtedArts, setUnlimtedArts] = useState(false);
   const [unlimtedHints, setUnlimtedHints] = useState(false);
   const [image, setImage] = useState('');
-  const [planAvatar, setPlanAvatar] = useState('');
+  const [planAvatar, setPlanAvatar] = useState<any[]>([]);
 
-  useEffect(() => {
-    if (modalOpen) {
-      setTimeout(() => {
-        setModalOpen(false);
-      }, 2000);
-    }
-  });
 
   useEffect(() => {
     if (unlimtedHints) {
@@ -135,7 +131,7 @@ const EditPlans = () => {
         <div>
           <div className="addplan-root">
             <div className="right-ads-div">
-              <div>
+              <div className="radio-plan">
                 <label>Plan Name</label>
                 <input
                   type="text"
@@ -287,13 +283,7 @@ const EditPlans = () => {
       {modalOpen && (
         <Modal setOpenModal={setModalOpen} id={id} setDeleted={setDeleted} />
       )}
-      {isDeleted && (
-        <ConfirmModal
-          name={planName}
-          setOpenModal={setModalOpen}
-          modalOpen={modalOpen}
-        />
-      )}
+      {isDeleted && <ConfirmModal name={planName} />}
     </div>
   );
 };
