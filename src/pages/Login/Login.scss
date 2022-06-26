@@ -15,10 +15,9 @@
   border-radius: 40px;
 }
 
-.login-border h1{
+.login-border h1 {
   font-weight: 700;
 }
-
 
 .root {
   width: 100%;
@@ -58,18 +57,18 @@
       margin-top: 16px;
       font-size: 14px;
       font-family: 'poppins';
-      color: #1C2126;
+      color: #1c2126;
       outline: none;
 
       &::placeholder {
         font-size: 14px;
-        color: #AAAAB7;
+        color: #aaaab7;
         font-family: 'poppins';
       }
 
       &:focus {
         font-size: 14px;
-        color: #1C2126;
+        color: #1c2126;
         font-family: 'poppins';
       }
     }
@@ -97,26 +96,24 @@
   }
 }
 
-.forgotPassword{
+.forgotPassword {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   margin: 1rem 0;
 
-  .forgotLink{
+  .forgotLink {
     margin: 0 2%;
     font-size: 14px;
   }
 
-  .bar{
+  .bar {
     max-width: 70px;
     width: 20%;
-    background: #CFCFCF;
+    background: #cfcfcf;
     height: 2px;
   }
 }
-
-
 
 @media screen and (min-width: 800px) {
   .mainer-root {
@@ -151,4 +148,11 @@
       width: 300px;
     }
   }
+}
+
+.error-network-message {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  color: red;
 }

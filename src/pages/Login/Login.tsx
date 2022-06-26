@@ -3,7 +3,7 @@ import './Login.scss';
 import axios from 'axios';
 import { UserContext } from '../../UserContext';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../../assets/Logo.svg'
+import Logo from '../../assets/Logo.svg';
 
 const Login = () => {
   const [login, setLogin] = useState(false);
@@ -13,6 +13,7 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const { setToken, setUser, user, token } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
+  const [errMessage, setErrMessage] = useState(false);
   const navigate = useNavigate();
 
   const handleUsername = (e: any) => {
@@ -41,19 +42,23 @@ const Login = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
-    const response = await axios.post(
-      'https://colorculture.herokuapp.com/auth/login/',
-      {
+    await axios
+      .post('https://colorculture.herokuapp.com/auth/login/', {
         username,
         email,
         password,
-      }
-    );
-    if (response.data.status_code === 400) {
-      setError('Wrong username, email or password');
-    }
-    setToken(response.data.data.key);
-    setLoading(false);
+      })
+      .then((response) => {
+        if (response.data.status_code === 400) {
+          setError('Wrong username, email or password');
+        }
+        setToken(response.data.data.key);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setErrMessage(err.message);
+        setLoading(false);
+      });
   };
 
   return (
@@ -70,18 +75,24 @@ const Login = () => {
                       type="text"
                       placeholder="Username"
                       onChange={handleUsername}
+                      required
                     />
                     <input
                       type="email"
                       placeholder="Email Address"
                       onChange={handleEmail}
+                      required
                     />
                     <input
                       type="password"
                       placeholder="Password"
                       onChange={handlePassword}
+                      required
                     />
                     <p className="error-message">{error}</p>
+                    {errMessage && (
+                      <p className="error-network-message">{errMessage}</p>
+                    )}
                     <button
                       type="submit"
                       disabled={loading}
@@ -90,9 +101,11 @@ const Login = () => {
                       {loading ? 'Logging in...' : 'Login'}
                     </button>
                   </form>
-                  <div className='forgotPassword'>
+                  <div className="forgotPassword">
                     <div className="bar"></div>
-                    <h4 className="forgotLink"><a href="/">Forgot password?</a>  </h4>
+                    <h4 className="forgotLink">
+                      <a href="/">Forgot password?</a>{' '}
+                    </h4>
                     <div className="bar"></div>
                   </div>
                 </div>
