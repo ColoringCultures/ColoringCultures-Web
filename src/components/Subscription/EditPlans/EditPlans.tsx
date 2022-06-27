@@ -73,6 +73,7 @@ const EditPlans = () => {
         if (response.data.message === 'OK') {
           console.log('working');
         }
+        console.log(planAvatar[0]);
       })
       .catch((err) => {
         setLoading(false);
@@ -95,8 +96,6 @@ const EditPlans = () => {
   const [unlimtedHints, setUnlimtedHints] = useState(false);
   const [image, setImage] = useState('');
   const [planAvatar, setPlanAvatar] = useState<any[]>([]);
-
-
 
   useEffect(() => {
     if (unlimtedHints) {
