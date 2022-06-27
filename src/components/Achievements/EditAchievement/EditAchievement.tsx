@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import ConfirmModal from './Modal/ConfirmModal';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Conversion } from './conversion';
 
 const EditAchievement = () => {
   const navigate = useNavigate();
@@ -25,16 +26,19 @@ const EditAchievement = () => {
   const { id } = useParams();
 
   const displaydMode = (e: any) => {
+    setDarkMode((darkMode) => [...darkMode, e.target.files[0]]);
     const image = URL.createObjectURL(e.target.files[0]);
     setdMode(image);
   };
 
   const displaylMode = (e: any) => {
+    setLightMode((lightMode) => [...lightMode, e.target.files[0]]);
     const image = URL.createObjectURL(e.target.files[0]);
     setlMode(image);
   };
 
   const displayColored = (e: any) => {
+    setColoredMode((coloredMode) => [...coloredMode, e.target.files[0]]);
     const image = URL.createObjectURL(e.target.files[0]);
     setColored(image);
   };
@@ -42,9 +46,12 @@ const EditAchievement = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [criteria, setcriteria] = useState('');
-  const [darkMode, setDarkMode] = useState();
-  const [lightMode, setLightMode] = useState();
-  const [coloredMode, setColoredMode] = useState();
+  const [darkMode, setDarkMode] = useState<any[]>([]);
+  const [lightMode, setLightMode] = useState<any[]>([]);
+  const [coloredMode, setColoredMode] = useState<any[]>([]);
+  const [dImage, setdImage] = useState('');
+  const [lImage, setlImage] = useState('');
+  const [cImage, setcImage] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,10 +65,10 @@ const EditAchievement = () => {
           setName(response.data.data.name);
           setDescription(response.data.data.task);
           setcriteria(response.data.data.criteria);
-          setDarkMode(response.data.data.dark_icon_image);
-          setLightMode(response.data.data.icon_image);
-          setColoredMode(response.data.data.colored_icon_image);
           setLoading(false);
+          setdImage(response.data.data.dark_icon_image);
+          setcImage(response.data.data.colored_icon_image);
+          setlImage(response.data.data.icon_image);
         })
         .catch((err) => {
           setErrMessage(err.message);
@@ -71,42 +78,81 @@ const EditAchievement = () => {
     fetchData();
   }, [id, token]);
 
+  useEffect(() => {
+    if (dImage) {
+      const darkImage = Conversion(dImage);
+      setDarkMode((darkMode) => [...darkMode, darkImage]);
+    }
+    if (lImage) {
+      const lightImage = Conversion(lImage);
+      setLightMode((lightMode) => [...lightMode, lightImage]);
+    }
+    if (cImage) {
+      const coloredImage = Conversion(cImage);
+      setColoredMode((coloredMode) => [...coloredMode, coloredImage]);
+    }
+  }, [cImage, dImage, lImage]);
+
   const {
     register,
-    handleSubmit,
     reset,
+    formState: { isSubmitSuccessful },
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async () => {
     setLoading(true);
     const formData = new FormData();
-    formData.append('name', data.name);
-    formData.append('task', data.task);
-    formData.append('criteria', data.criteria);
-    formData.append('icon_image', data.icon_image[0]);
-    formData.append('colored_icon_image', data.colored_icon_image[0]);
-    formData.append('dark_icon_image', data.dark_icon_image[0]);
+    formData.append('name', name);
+    formData.append('task', description);
+    formData.append('criteria', criteria);
+    lightMode[1]
+      ? formData.append('icon_image', lightMode[1])
+      : formData.append('icon_image', lightMode[0]);
+    darkMode[1]
+      ? formData.append('dark_icon_image', darkMode[1])
+      : formData.append('dark_icon_image', darkMode[0]);
 
-    const response = await axios.post(
-      'https://colorculture.herokuapp.com/achievements/',
-      formData,
-      {
+    coloredMode[1]
+      ? formData.append('colored_icon_image', coloredMode[1])
+      : formData.append('colored_icon_image', coloredMode[0]);
+
+    console.log(Object.fromEntries(formData.entries()));
+
+    await axios
+      .put(`https://colorculture.herokuapp.com/achievements/${id}`, formData, {
         headers: {
           Authorization: `Token ${token}`,
         },
-      }
-    );
-    setLoading(false);
-    if (response.data.message === 'OK') {
-      setModalOpen(true);
-    }
-    reset({
-      data: '',
-    });
+      })
+      .then((response) => {
+        setLoading(false);
+        console.log(response);
+
+        if (response.data.message === 'OK') {
+          setModalOpen(true);
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+      });
   };
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({
+        name: '',
+        task: '',
+        criteria: '',
+        dark_icon_image: '',
+        icon_image: '',
+        colored_icon_image: '',
+      });
+    }
+  }, [isSubmitSuccessful, reset]);
 
   useEffect(() => {
     if (isDeleted) {
@@ -122,7 +168,7 @@ const EditAchievement = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form>
           <div className="create-root">
             <div className="create-root-div1">
               <div className="create-input-text">
@@ -131,7 +177,7 @@ const EditAchievement = () => {
                   type="text"
                   placeholder="Enter a name here"
                   defaultValue={name}
-                  {...register('name')}
+                  onChange={(e) => setName(e.target.value)}
                 />
                 {errors.name && (
                   <p className="create-error-message">{errors.name?.message}</p>
@@ -143,7 +189,7 @@ const EditAchievement = () => {
                   type="text"
                   placeholder="Enter text"
                   defaultValue={description}
-                  {...register('task')}
+                  onChange={(e) => setDescription(e.target.value)}
                 />
                 {errors.task && (
                   <p className="create-error-message">{errors.task?.message}</p>
@@ -155,7 +201,7 @@ const EditAchievement = () => {
                   type="text"
                   placeholder="Enter a number"
                   defaultValue={criteria}
-                  {...register('criteria')}
+                  onChange={(e) => setcriteria(e.target.value)}
                 />
                 {errors.criteria && (
                   <p className="create-error-message">
@@ -199,7 +245,7 @@ const EditAchievement = () => {
                     ) : (
                       <img
                         style={{ width: '150px', height: ' 168px' }}
-                        src={darkMode}
+                        src={dImage}
                         alt="Empty"
                       />
                     )}
@@ -232,7 +278,7 @@ const EditAchievement = () => {
                     ) : (
                       <img
                         style={{ width: '150px', height: ' 168px' }}
-                        src={lightMode}
+                        src={lImage}
                         alt="Empty"
                       />
                     )}
@@ -265,7 +311,7 @@ const EditAchievement = () => {
                     ) : (
                       <img
                         style={{ width: '150px', height: '168px' }}
-                        src={coloredMode}
+                        src={cImage}
                         alt="Empty"
                       />
                     )}
@@ -276,7 +322,9 @@ const EditAchievement = () => {
           </div>
           {errMessage && <p className="err-message-ach">{errMessage}</p>}
           <div>
-            <button className="create-button-ach">Save Changes</button>
+            <button className="create-button-ach" onClick={onSubmit}>
+              Save Changes
+            </button>
             <button
               className="delete-button-ach"
               onClick={() => setModalOpen(true)}
