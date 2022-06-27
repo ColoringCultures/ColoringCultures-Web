@@ -114,7 +114,6 @@ const EditAchievement = () => {
     darkMode[1]
       ? formData.append('dark_icon_image', darkMode[1])
       : formData.append('dark_icon_image', darkMode[0]);
-
     coloredMode[1]
       ? formData.append('colored_icon_image', coloredMode[1])
       : formData.append('colored_icon_image', coloredMode[0]);
