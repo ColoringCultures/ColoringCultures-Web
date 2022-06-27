@@ -74,6 +74,7 @@
         width: 100%;
         .major-files {
           display: flex;
+          flex-direction: column;
           justify-content: space-between;
           margin-right: 15px;
           margin-top: 14px;
@@ -81,7 +82,7 @@
             flex-direction: column;
           }
           .shade-mode {
-            // margin-left: .25rem;
+            display: flex;
             .file-label-create {
               color: #b0b3d1;
               font-size: 13px;

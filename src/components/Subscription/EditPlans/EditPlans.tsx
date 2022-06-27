@@ -18,7 +18,6 @@ const EditPlans = () => {
   const { id } = useParams();
 
   function imageUpload(event: any) {
-    // setPlanAvatar(event.target.files[0]);
     const [file] = event.target.files;
     setPlanAvatar((planAvatar) => [...planAvatar, file]);
   }
