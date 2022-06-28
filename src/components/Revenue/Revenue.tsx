@@ -1,9 +1,16 @@
-import React from 'react'
+import './Revenue.scss';
+import AdsRevenue from './AdsRevenue/AdsRevenue';
+import SubRevenue from './SubscriptionRevenue/SubRevenue';
+import GeneralRevenue from './GeneralRevenue/GeneralRevenue';
 
 const Revenue = () => {
   return (
-    <div>Revenue</div>
-  )
-}
+    <div className="rev-root">
+      <SubRevenue />
+      <AdsRevenue />
+      <GeneralRevenue />
+    </div>
+  );
+};
 
-export default Revenue
+export default Revenue;
