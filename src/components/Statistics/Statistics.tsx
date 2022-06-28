@@ -1,9 +1,14 @@
+import FeedbackStats from './FeedbackStats/FeedbackStats';
 import './Statistics.scss';
+import SubStats from './SubStats/SubStats';
+import Visitors from './Visitors/Visitors';
 
 const Statistics = () => {
   return (
-    <div>
-     
+    <div className="statistics-main-root">
+      <Visitors />
+      <SubStats />
+      <FeedbackStats />
     </div>
   );
 };

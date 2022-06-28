@@ -24,10 +24,22 @@
       justify-content: center;
       align-items: center;
     }
-    p {
+    .ads-head {
       font-size: 18px;
       font-weight: 500;
       color: #000;
+    }
+    
+    .ads-drop {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 45%;
+      p {
+        font-size: 12px;
+        font-weight: 400;
+        color: #000;
+      }
     }
   }
 

@@ -1,41 +1,40 @@
-.root-subrevenue {
+.root-visitors {
   display: flex;
   flex-direction: column;
-  min-width: 324px;
+  min-width: 300px;
   max-width: 100%;
   height: 100%;
   background-color: #fff;
   border-radius: 50px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
-  .revenue-header {
+  .visitors-header {
     display: flex;
     align-items: center;
     gap: 15px;
     margin: 30px 20px 0px 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid #b0b3d1;
-    .image-rev {
+    .image-visitors {
       width: 55px;
       height: 55px;
-      background-color: #fbdbf0;
+      background-color: #aceafd;
       border-radius: 15px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .sub-head {
+    .visitors-head {
       font-size: 18px;
       font-weight: 500;
       color: #000;
     }
 
-    .revenue-drop {
+    .visitors-drop {
       display: flex;
       align-items: center;
       gap: 4px;
-      // margin-left: 40px;
-      margin-left: 14%;
+      margin-left: 25%;
       p {
         font-size: 12px;
         font-weight: 400;
@@ -44,36 +43,36 @@
     }
   }
 
-  .revenue-details {
+  .visitors-details {
     display: flex;
     margin: 0 20px 0 20px;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #b0b3d1;
 
-    .revenue-name {
+    .visitors-name {
       font-size: 15px;
       color: #aaaab7;
     }
-    .revenue-number {
+    .visitors-number {
       font-size: 20px;
       font-weight: bold;
       color: #000;
     }
   }
 
-  .revenue-details-bottom {
+  .visitors-details-bottom {
     display: flex;
     margin: 0 20px 0 20px;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
 
-    .revenue-name {
+    .visitors-name {
       font-size: 15px;
       color: #aaaab7;
     }
-    .revenue-number {
+    .visitors-number {
       font-size: 20px;
       font-weight: bold;
       color: #000;
