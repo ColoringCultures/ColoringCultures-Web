@@ -8,7 +8,11 @@ const AdsRevenue = () => {
           <div className="image-ads-rev">
             <img src={require('../../../assets/Union 3.png')} alt="" />
           </div>
-          <p>Ads</p>
+          <p className="ads-head">Ads</p>
+          <div className="ads-drop">
+            <p>All</p>
+            <img src={require('../../../assets/Path 729.png')} alt="" />
+          </div>
         </div>
         <div className="revenue-ads-details">
           <p className="revenue-ads-name">Subscription</p>

@@ -12,7 +12,11 @@ const SubRevenue = () => {
               alt=""
             />
           </div>
-          <p>Subscriptions</p>
+          <p className='sub-head'>Subscriptions</p>
+          <div className='revenue-drop'>
+            <p>All</p>
+            <img src={require('../../../assets/Path 729.png')} alt="" />
+          </div>
         </div>
         <div className="revenue-details">
           <p className="revenue-name">Subscription</p>
