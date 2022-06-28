@@ -40,7 +40,7 @@ export const routes = [
         element: <Dashboard />,
         children: [
           {
-            path: 'Home',
+            path: '',
             element: <Home />,
           },
           {
