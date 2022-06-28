@@ -2,6 +2,7 @@ import './AdsStats.scss';
 import ProgressBar from '@ramonak/react-progress-bar';
 
 const AdsStats = ({ allow }: any) => {
+
   return (
     <div>
       <div className="ads-stats-root">
@@ -73,6 +74,7 @@ const AdsStats = ({ allow }: any) => {
             </div>
           </div>
         )}
+
       </div>
     </div>
   );
