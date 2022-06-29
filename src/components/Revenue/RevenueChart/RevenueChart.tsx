@@ -8,7 +8,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import './MonthlyVisitors.scss';
+import './RevenueChart.scss';
 
 ChartJS.register(
   CategoryScale,
@@ -21,7 +21,6 @@ ChartJS.register(
 
 export const options = {
   responsive: true,
-  maintainAspectRatio: false,
   plugins: {
     legend: {
       position: 'top' as const,
@@ -29,11 +28,13 @@ export const options = {
   },
   scales: {
     x: {
+      stacked: true,
       grid: {
         display: false,
       },
     },
     y: {
+      stacked: true,
       grid: {
         display: false,
       },
@@ -60,20 +61,26 @@ const data = {
   labels,
   datasets: [
     {
-      label: '',
-      data: [900, 200, 450, 700, 500, 200, 300, 100, 200, 300, 360, 500],
-      backgroundColor: '#E3844C',
+      label: 'Subscription',
+      data: [90, 20, 45, 70, 50, 20, 30, 10, 20, 30, 30, 50],
+      backgroundColor: '#E20097',
+      maxBarThickness: 20,
+    },
+    {
+      label: 'Ads',
+      data: [40, 50, 20, 50, 20, 40, 10, 50, 50, 10, 30, 20],
+      backgroundColor: '#FF9584',
       maxBarThickness: 20,
     },
   ],
 };
 
-const MonthlyVisitors = () => {
+const RevenueChart = () => {
   return (
-    <div className="MV-root">
-      <div className="MV-below">
-        <p className="MV-header">Monthly visitors statistics</p>
-        <div className="MV-drop">
+    <div className="RC-root">
+      <div className="RC-below">
+        <p className="RC-header">Revenue</p>
+        <div className="RC-drop">
           <p>Months</p>
           {/* <img src={require('../../../assets/Path 729.png')} alt="" /> */}
         </div>
@@ -83,4 +90,4 @@ const MonthlyVisitors = () => {
   );
 };
 
-export default MonthlyVisitors;
+export default RevenueChart;

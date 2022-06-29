@@ -2,6 +2,7 @@ import './Revenue.scss';
 import AdsRevenue from './AdsRevenue/AdsRevenue';
 import SubRevenue from './SubscriptionRevenue/SubRevenue';
 import GeneralRevenue from './GeneralRevenue/GeneralRevenue';
+import RevenueChart from './RevenueChart/RevenueChart';
 
 const Revenue = () => {
   return (
@@ -9,6 +10,7 @@ const Revenue = () => {
       <SubRevenue />
       <AdsRevenue />
       <GeneralRevenue />
+      <RevenueChart />
     </div>
   );
 };

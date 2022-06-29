@@ -1,25 +1,24 @@
-.MV-root {
-  height: 37%;
-  max-height: 300px;
+.RC-root {
   background-color: #fff;
-  width: 126%;
+  width: 100%;
+  min-width: 400px;
+  height: 50%;
   border-radius: 50px;
   padding: 10px;
-  padding-bottom: 70px;
   @media (min-width: 768px) and (max-width: 992px) {
     min-width: 650px;
   }
 
-  .MV-below {
+  .RC-below {
     margin: 0 35px 0 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .MV-header {
+    .RC-header {
       font-size: 20px;
     }
 
-    .MV-drop {
+    .RC-drop {
       display: flex;
       align-items: center;
       gap: 4px;
