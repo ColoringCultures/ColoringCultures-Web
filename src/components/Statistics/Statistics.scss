@@ -1,6 +1,38 @@
 .statistics-main-root {
   margin-top: 25px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  width: 100%;
+  gap: 25%;
+  padding-bottom: 10px;
+  @media (min-width: 768px) and (max-width: 992px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .stats-rr {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 5%;
+    @media (min-width: 768px) and (max-width: 992px) {
+      gap: 30px;
+    }
+    .stats-rr-below {
+      display: flex;
+      gap: 5%;
+      @media (min-width: 768px) and (max-width: 992px) {
+        gap: 40px;
+      }
+    }
+  }
+  .stats-ww {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+    @media (min-width: 768px) and (max-width: 992px) {
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
 }

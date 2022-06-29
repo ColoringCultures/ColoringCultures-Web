@@ -11,7 +11,7 @@ const Visitors = () => {
           <p className="visitors-head">Visitors</p>
           <div className="visitors-drop">
             <p>All</p>
-            <img src={require('../../../assets/Path 729.png')} alt="" />
+            {/* <img src={require('../../../assets/Path 729.png')} alt="" /> */}
           </div>
         </div>
         <div className="visitors-details">
