@@ -9,7 +9,7 @@ const GeneralRevenue = () => {
           <p className="gen-p1">Revenue</p>
           <div className="gen-header-details">
             <p className="gen-p2">7 days</p>
-            <img src={require('../../../assets/Path 729.png')} alt="" />
+            {/* <img src={require('../../../assets/Path 729.png')} alt="" /> */}
           </div>
         </div>
         <div className="gen-total">

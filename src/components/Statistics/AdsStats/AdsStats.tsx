@@ -10,7 +10,7 @@ const AdsStats = ({ allow }: any) => {
           <p className='stats-h1'>Ads</p>
           <div className="ads-stats-drop">
             <p>7 days</p>
-            <img src={require('../../../assets/Path 729.png')} alt="" />
+            {/* <img src={require('../../../assets/Path 729.png')} alt="" /> */}
           </div>
         </div>
         <div className="status-bar">

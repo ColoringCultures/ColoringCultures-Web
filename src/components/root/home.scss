@@ -1,6 +1,16 @@
 .dash-home {
   margin-top: 30px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  margin-bottom: 10px;
+
+  .dash-home-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .dash-analitics {
+      display: flex;
+      gap: 10px;
+    }
+  }
 }

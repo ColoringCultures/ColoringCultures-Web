@@ -9,7 +9,7 @@ const FeedbackStats = () => {
           <p className="feedback-p1">Feedbacks</p>
           <div className="feedback-header-details">
             <p className="feedback-p2">7 days</p>
-            <img src={require('../../../assets/Path 729.png')} alt="" />
+            {/* <img src={require('../../../assets/Path 729.png')} alt="" /> */}
           </div>
         </div>
         <div className="feedback-total">
