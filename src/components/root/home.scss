@@ -2,15 +2,23 @@
   margin-top: 30px;
   display: flex;
   margin-bottom: 10px;
+  width: 100%;
+  height: 100%;
 
   .dash-home-1 {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    width: 72%;
+    height: 100%;
 
     .dash-analitics {
       display: flex;
       gap: 10px;
+    }
+    .dash-MV {
+      height: 500px;
+      width: 100%;
     }
   }
 }

@@ -3,7 +3,7 @@ import './FeedbackStats.scss';
 
 const FeedbackStats = () => {
   return (
-    <div>
+    <div className='fd-root'>
       <div className="feedback-root">
         <div className="feedback-header">
           <p className="feedback-p1">Feedbacks</p>

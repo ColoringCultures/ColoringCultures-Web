@@ -4,7 +4,8 @@ import AdsStats from '../Statistics/AdsStats/AdsStats';
 import VisitorsPerDay from './VisitorsPerDay/VisitorsPerDay';
 import AchievementsPerDay from './AchievementsPerDay/AchievementsPerDay';
 import FeedbacksPerDay from './FeedbacksPerDay/FeedbacksPerDay';
-import MonthlyVisitors from '../Statistics/MonthlyVisitors/MonthlyVisitors';
+// import MonthlyVisitors from '../Statistics/MonthlyVisitors/MonthlyVisitors';
+
 
 
 const home = () => {
@@ -17,7 +18,9 @@ const home = () => {
           <AchievementsPerDay />
           <FeedbacksPerDay />
         </div>
-        <MonthlyVisitors />
+        {/* <div className="dash-MV">
+          <MonthlyVisitors />
+        </div> */}
         <div>
           <AdsStats allow={allow} />
         </div>
