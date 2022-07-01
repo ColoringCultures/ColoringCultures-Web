@@ -10,31 +10,19 @@ const Statistics = () => {
   let allow: boolean = true;
   return (
     <div className="statistics-main-root">
-      <div className="stats-r1">
-        <div className="MV-stats">
-          <MonthlyVisitors />
-        </div>
-        <div className="stats-rr">
-          <div className="stats-ads">
-            <AdsStats allow={allow} />
-          </div>
-          <div className="stats-ads-flex">
-            <div className="stats-rc">
-              <RevenueChart />
-            </div>
-            <div>
-              <FeedbackStats />
-            </div>
-          </div>
-        </div>
+      <div className="MV1-stats">
+        <MonthlyVisitors />
       </div>
-      <div className="stats-r2">
-        <div className="r2-VV">
-          <Visitors />
-        </div>
-        <div className="r2-VV">
-          <SubStats />
-        </div>
+      <div className="ADS1">
+        <AdsStats allow={allow} />
+      </div>
+      <div className="RevFed">
+        <RevenueChart />
+        <FeedbackStats />
+      </div>
+      <div className="VISSUB">
+        <Visitors />
+        <SubStats />
       </div>
     </div>
   );
