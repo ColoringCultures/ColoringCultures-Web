@@ -11,6 +11,7 @@ const Revenue = () => {
       <AdsRevenue />
       <GeneralRevenue />
       <RevenueChart />
+      <div className="sjs"></div>
     </div>
   );
 };
