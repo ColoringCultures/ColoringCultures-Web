@@ -1,24 +1,30 @@
 .dash-home {
   margin-top: 30px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0 2%;
   margin-bottom: 10px;
-  width: 100%;
-  height: 100%;
 
-  .dash-home-1 {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 72%;
-    height: 100%;
-
-    .dash-analitics {
-      display: flex;
-      gap: 10px;
-    }
-    .dash-MV {
-      height: 500px;
-      width: 100%;
-    }
+  .MV-grid {
+    grid-row: 2/ 3;
+    grid-column: 1/5;
+    margin-top: -9%;
   }
+
+  .AS-grid {
+    grid-row: 3 / 4;
+    grid-column: 1/2;
+    margin-top: -14%;
+  }
+
+  .RC-grid {
+    grid-row: 3/4;
+    grid-column: 2/4;
+    margin-top: -9%;
+  }
+
+  // .PD-grid {
+  //   grid-row: 1/2;
+  // }
 }
