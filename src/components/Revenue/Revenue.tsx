@@ -7,11 +7,10 @@ import RevenueChart from './RevenueChart/RevenueChart';
 const Revenue = () => {
   return (
     <div className="rev-root">
+      <RevenueChart />
       <SubRevenue />
       <AdsRevenue />
       <GeneralRevenue />
-      <RevenueChart />
-      <div className="sjs"></div>
     </div>
   );
 };
