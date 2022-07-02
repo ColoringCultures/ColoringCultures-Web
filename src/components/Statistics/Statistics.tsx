@@ -12,13 +12,13 @@ const Statistics = () => {
     <div className="statistics-main-root">
       <div className="MV1-stats">
         <MonthlyVisitors />
-      </div>
-      <div className="ADS1">
-        <AdsStats allow={allow} />
-      </div>
-      <div className="RevFed">
-        <RevenueChart />
-        <FeedbackStats />
+        <div className="ARF">
+          <AdsStats allow={allow} />
+          <div className="ARF-ss">
+            <RevenueChart />
+            <FeedbackStats />
+          </div>
+        </div>
       </div>
       <div className="VISSUB">
         <Visitors />
