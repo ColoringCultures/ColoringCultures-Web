@@ -7,10 +7,13 @@ import useSessionStorage from './useSessionStorage';
 function App() {
   const [token, setToken] = useSessionStorage('token', '');
   const [user, setUser] = useSessionStorage('user', 'false');
+  const [userName, setUserName] = useSessionStorage('userName', '');
 
   return (
     <Router>
-      <UserContext.Provider value={{ token, setToken, user, setUser }}>
+      <UserContext.Provider
+        value={{ token, setToken, user, setUser, userName, setUserName }}
+      >
         <Routes />
       </UserContext.Provider>
     </Router>

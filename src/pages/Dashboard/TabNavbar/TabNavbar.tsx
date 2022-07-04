@@ -8,13 +8,16 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import PaidIcon from '@mui/icons-material/Paid';
 import NavLink from '../../../Navlink';
+import { useContext } from 'react';
+import { UserContext } from '../../../UserContext';
 
 const TabNavbar = ({ setModalOpen }: any) => {
+  const { userName } = useContext(UserContext);
   return (
     <div className="tab-navbar">
       <div className="tab-admin-details">
         <img src={require('../../../assets/Ellipse 1.png')} alt="" />
-        <h1>Omodu Uche</h1>
+        <h1>{userName}</h1>
         <p>Admin</p>
       </div>
       <div className="tab-menu-wrapper">
