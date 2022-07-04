@@ -103,7 +103,7 @@ const EditAds = () => {
               <div className="file-edit">
                 <label>
                   Choose the Ad file
-                  <label className="file-label-2">
+                  <label className="file-label-20">
                     Choose a file
                     <input type={'file'} placeholder="Choose a file" />
                   </label>
