@@ -10,23 +10,22 @@ const home = () => {
   let allow: boolean = false;
   return (
     <div className="dash-home">
-      <div className="PD-grid">
-        <VisitorsPerDay />
+      <div className="root-h1">
+        <div className="VAF">
+          <VisitorsPerDay />
+          <AchievementsPerDay />
+          <FeedbacksPerDay />
+        </div>
+        <div className="MV-home">
+          <MonthlyVisitors />
+        </div>
+        <div className="AR-home">
+          <AdsStats allow={allow} />
+          <RevenueChart />
+        </div>
       </div>
-      <div className="PD-grid">
-        <AchievementsPerDay />
-      </div>
-      <div className="PD-grid">
-        <FeedbacksPerDay />
-      </div>
-      <div className="MV-grid">
-        <MonthlyVisitors />
-      </div>
-      <div className="AS-grid">
-        <AdsStats allow={allow} />
-      </div>
-      <div className="RC-grid">
-        <RevenueChart />
+      <div className="root-h2">
+        <p>images info</p>
       </div>
     </div>
   );
