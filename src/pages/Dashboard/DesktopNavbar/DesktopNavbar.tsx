@@ -8,13 +8,16 @@ import MessageIcon from '@mui/icons-material/Message';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import PaidIcon from '@mui/icons-material/Paid';
+import { useContext } from 'react';
+import { UserContext } from '../../../UserContext';
 
 const DesktopNavbar = ({ setModalOpen }: any) => {
+  const { userName } = useContext(UserContext);
   return (
     <div className="navbar">
       <div className="admin-details">
         <img src={require('../../../assets/Ellipse 1.png')} alt="" />
-        <h1>Omodu Uche</h1>
+        <h1>{userName}</h1>
         <p>Admin</p>
       </div>
       <div className="menu-wrapper">

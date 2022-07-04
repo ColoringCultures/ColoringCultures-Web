@@ -11,13 +11,15 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-  const { setToken, setUser, user, token } = useContext(UserContext);
+  const { setToken, setUser, user, token, setUserName } =
+    useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [errMessage, setErrMessage] = useState(false);
   const navigate = useNavigate();
 
   const handleUsername = (e: any) => {
     setUsername(e.target.value);
+    setUserName(e.target.value);
   };
   const handleEmail = (event: any) => {
     setEmail(event.target.value);
