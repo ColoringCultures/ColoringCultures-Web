@@ -11,7 +11,6 @@ const Plans = () => {
   const { token } = useContext(UserContext);
   const [bugList, setBugList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isDisabled, setIsDisabled] = useState(false);
   const [errMessage, setErrMessage] = useState('');
   const LIMIT = 2;
 
@@ -26,6 +25,7 @@ const Plans = () => {
         .then((response) => {
           setData(response.data.data);
           setIsLoading(false);
+          console.log(response.data.data);
         })
         .catch((err) => {
           setErrMessage(err.message);
@@ -49,15 +49,12 @@ const Plans = () => {
 
   const loadMore = () => {
     const newIndex = index + LIMIT;
-    const newShowMore = newIndex < LENGTH - 1;
+    const newShowMore = newIndex < LENGTH;
     const newList = list.concat(bugList.slice(index, newIndex));
     setIndex(newIndex);
     setList(newList);
     setShowMore(newShowMore);
     setScroll(true);
-    if (LENGTH <= 6) {
-      setIsDisabled(true);
-    }
   };
   return (
     <div>
@@ -129,11 +126,7 @@ const Plans = () => {
             })}
           </div>
           {showMore && (
-            <button
-              onClick={loadMore}
-              className="sub-loadmore-button"
-              disabled={isDisabled}
-            >
+            <button onClick={loadMore} className="sub-loadmore-button">
               {' '}
               Load More{' '}
             </button>
