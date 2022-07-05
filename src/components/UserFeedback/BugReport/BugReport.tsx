@@ -9,7 +9,6 @@ const BugReport = () => {
   const { token } = useContext(UserContext);
   const [bugList, setBugList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isDisabled, setIsDisabled] = useState(false);
   const [errMessage, setErrMessage] = useState('');
   const LIMIT = 6;
 
@@ -56,9 +55,6 @@ const BugReport = () => {
     setList(newList);
     setShowMore(newShowMore);
     setScroll(true);
-    if (LENGTH <= 6) {
-      setIsDisabled(true);
-    }
   };
 
   return (
@@ -84,7 +80,6 @@ const BugReport = () => {
           <button
             onClick={loadMore}
             className="submit-button"
-            disabled={isDisabled}
           >
             {' '}
             Load More{' '}
