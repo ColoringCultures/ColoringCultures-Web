@@ -33,6 +33,10 @@ export const options = {
       grid: {
         display: false,
       },
+      ticks: {
+        maxRotation: 90,
+        minRotation: 90,
+      },
     },
     y: {
       stacked: true,
@@ -44,18 +48,18 @@ export const options = {
 };
 
 const labels = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December ',
+  'JAN',
+  'FEB',
+  'MAR',
+  'APR',
+  'MAY',
+  'JUN',
+  'JUL',
+  'AUG',
+  'SEPT',
+  'OCT',
+  'NOV',
+  'DEC ',
 ];
 
 const data = {
@@ -82,7 +86,7 @@ const RevenueChart = () => {
       <div className="RC-below">
         <p className="RC-header">Revenue</p>
         <div className="RC-drop">
-          <p>Months</p>
+          <p>Last year</p>
           {/* <img src={require('../../../assets/Path 729.png')} alt="" /> */}
         </div>
       </div>
