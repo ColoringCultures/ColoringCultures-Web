@@ -2,12 +2,11 @@ import './AdsStats.scss';
 import ProgressBar from '@ramonak/react-progress-bar';
 
 const AdsStats = ({ allow }: any) => {
-
   return (
     <div>
       <div className="ads-stats-root">
         <div className="ads-stats-header">
-          <p className='stats-h1'>Ads</p>
+          <p className="stats-h1">Ads</p>
           <div className="ads-stats-drop">
             <p>7 days</p>
             {/* <img src={require('../../../assets/Path 729.png')} alt="" /> */}
@@ -74,7 +73,6 @@ const AdsStats = ({ allow }: any) => {
             </div>
           </div>
         )}
-
       </div>
     </div>
   );
