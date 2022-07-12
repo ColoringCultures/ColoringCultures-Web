@@ -24,7 +24,6 @@ const AddPlans = () => {
     testImage: '',
   });
 
-
   function imageUpload(event: any) {
     setTestImage(event.target.files[0]);
   }
@@ -46,7 +45,6 @@ const AddPlans = () => {
       })
       .then((response) => {
         setLoading(false);
-        console.log(response);
         if (response.data.message === 'OK') {
           setModalOpen(true);
         }
@@ -72,7 +70,6 @@ const AddPlans = () => {
   const [unlimtedHints, setUnlimtedHints] = useState(false);
   const [image, setImage] = useState('');
   const [testImage, setTestImage] = useState('');
-
 
   const Validate = () => {
     if (planName === '') {
@@ -130,7 +127,6 @@ const AddPlans = () => {
       createSubscription();
     }
   };
-
 
   useEffect(() => {
     if (modalOpen) {
@@ -311,7 +307,6 @@ const AddPlans = () => {
           </div>
           {errMessage && <p className="err-message-plan">{errMessage}</p>}
           <button className="plan-button" onClick={SubmitForm}>
-
             Create Ad
           </button>
         </div>

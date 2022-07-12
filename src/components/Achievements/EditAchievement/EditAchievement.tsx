@@ -10,7 +10,6 @@ import { useForm } from 'react-hook-form';
 import ConfirmModal from './Modal/ConfirmModal';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Conversion } from './conversion';
 
 const EditAchievement = () => {
   const navigate = useNavigate();
@@ -26,37 +25,38 @@ const EditAchievement = () => {
   const { id } = useParams();
 
   const displaydMode = (e: any) => {
-    setDarkMode((darkMode) => [...darkMode, e.target.files[0]]);
     const image = URL.createObjectURL(e.target.files[0]);
     setdMode(image);
+    setdImage(e.target.files[0]);
+    setNewImage('true');
   };
 
   const displaylMode = (e: any) => {
-    setLightMode((lightMode) => [...lightMode, e.target.files[0]]);
     const image = URL.createObjectURL(e.target.files[0]);
     setlMode(image);
+    setlImage(e.target.files[0]);
+    setNewImage('true');
   };
 
   const displayColored = (e: any) => {
-    setColoredMode((coloredMode) => [...coloredMode, e.target.files[0]]);
     const image = URL.createObjectURL(e.target.files[0]);
     setColored(image);
+    setcImage(e.target.files[0]);
+    setNewImage('true');
   };
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [criteria, setcriteria] = useState('');
-  const [darkMode, setDarkMode] = useState<any[]>([]);
-  const [lightMode, setLightMode] = useState<any[]>([]);
-  const [coloredMode, setColoredMode] = useState<any[]>([]);
   const [dImage, setdImage] = useState('');
   const [lImage, setlImage] = useState('');
   const [cImage, setcImage] = useState('');
+  const [newImage, setNewImage] = useState('false');
 
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get(`https://colorculture.herokuapp.com/achievements/${id}`, {
+        .get(`https://colorculture.herokuapp.com/achievements/${id}/`, {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -78,21 +78,6 @@ const EditAchievement = () => {
     fetchData();
   }, [id, token]);
 
-  useEffect(() => {
-    if (dImage) {
-      const darkImage = Conversion(dImage);
-      setDarkMode((darkMode) => [...darkMode, darkImage]);
-    }
-    if (lImage) {
-      const lightImage = Conversion(lImage);
-      setLightMode((lightMode) => [...lightMode, lightImage]);
-    }
-    if (cImage) {
-      const coloredImage = Conversion(cImage);
-      setColoredMode((coloredMode) => [...coloredMode, coloredImage]);
-    }
-  }, [cImage, dImage, lImage]);
-
   const {
     register,
     reset,
@@ -108,35 +93,26 @@ const EditAchievement = () => {
     formData.append('name', name);
     formData.append('task', description);
     formData.append('criteria', criteria);
-    lightMode[1]
-      ? formData.append('icon_image', lightMode[1])
-      : formData.append('icon_image', lightMode[0]);
-    darkMode[1]
-      ? formData.append('dark_icon_image', darkMode[1])
-      : formData.append('dark_icon_image', darkMode[0]);
-    coloredMode[1]
-      ? formData.append('colored_icon_image', coloredMode[1])
-      : formData.append('colored_icon_image', coloredMode[0]);
-
-    console.log(Object.fromEntries(formData.entries()));
+    formData.append('icon_image', lImage);
+    formData.append('dark_icon_image', dImage);
+    formData.append('colored_icon_image', cImage);
+    formData.append('new_image', newImage);
 
     await axios
-      .put(`https://colorculture.herokuapp.com/achievements/${id}`, formData, {
+      .put(`https://colorculture.herokuapp.com/achievements/${id}/`, formData, {
         headers: {
           Authorization: `Token ${token}`,
         },
       })
       .then((response) => {
         setLoading(false);
-        console.log(response);
-
         if (response.data.message === 'OK') {
-          setModalOpen(true);
+          navigate('/Dashboard/Achievements');
         }
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err);
+        setErrMessage(err.message);
       });
   };
 

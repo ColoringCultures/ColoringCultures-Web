@@ -28,7 +28,7 @@ const EditAds = () => {
     const fetchData = async () => {
       setLoading(true);
       await axios
-        .get(`https://colorculture.herokuapp.com/advertisements/${id}`, {
+        .get(`https://colorculture.herokuapp.com/advertisements/${id}/`, {
           headers: {
             Authorization: `Token ${token}`,
           },
