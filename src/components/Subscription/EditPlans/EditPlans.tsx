@@ -26,7 +26,7 @@ const EditPlans = () => {
     const fetchData = async () => {
       setLoading(true);
       await axios
-        .get(`https://colorculture.herokuapp.com​/subscriptions/fetch/${id}`, {
+        .get(`https://colorculture.herokuapp.com/subscriptions/fetch/${id}/`, {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -62,13 +62,18 @@ const EditPlans = () => {
     formData.append('plan_avatar', planAvatar[0]);
 
     await axios
-      .put(`https://colorculture.herokuapp.com/subscriptions/${id}`, formData, {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-      })
+      .put(
+        `https://colorculture.herokuapp.com/subscriptions/${id}/`,
+        formData,
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      )
       .then((response) => {
         setLoading(false);
+        console.log(response);
         if (response.data.message === 'OK') {
           console.log('working');
         }

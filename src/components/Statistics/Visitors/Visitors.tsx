@@ -8,10 +8,12 @@ const Visitors = () => {
           <div className="image-visitors">
             <img src={require('../../../assets/Group 73.png')} alt="" />
           </div>
-          <p className="visitors-head">Visitors</p>
-          <div className="visitors-drop">
-            <p>All</p>
-            {/* <img src={require('../../../assets/Path 729.png')} alt="" /> */}
+          <div className="V-HD">
+            <p className="visitors-head">Visitors</p>
+            <div className="visitors-drop">
+              <p>All</p>
+              {/* <img src={require('../../../assets/Path 729.png')} alt="" /> */}
+            </div>
           </div>
         </div>
         <div className="visitors-details">

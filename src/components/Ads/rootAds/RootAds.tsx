@@ -65,7 +65,7 @@ const RootAds = () => {
         <Loader />
       ) : (
         <div>
-          {errMessage && <p className='err-message-ads'>{errMessage}</p>}
+          {errMessage && <p className="err-message-ads">{errMessage}</p>}
           <div className={scroll ? 'rootads-root' : 'adsroot-root'}>
             {list.map((data, index) => {
               return (
