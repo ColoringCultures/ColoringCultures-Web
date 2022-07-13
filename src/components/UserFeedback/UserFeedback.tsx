@@ -1,13 +1,48 @@
-import React from 'react';
 import { Outlet } from 'react-router-dom';
 import NavLink from '../../Navlink';
 import './UserFeedback.scss';
+import { UserContext } from '../../UserContext';
+import { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
 
 const UserFeedback = () => {
+  const { token } = useContext(UserContext);
+  const [data, setData] = useState<any[]>([]);
+  const [filterName, setFilterName] = useState('Bug reports');
+  const [filteredArr, setFilteredArr] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await axios
+        .get('https://colorculture.herokuapp.com/feedbacks/list/', {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        })
+        .then((response) => {
+          setData(response.data.data);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    };
+    fetchData();
+  }, [token]);
+
+  useEffect(() => {
+    const filterdData = data.filter(
+      (item: any) => item.category.name === filterName
+    );
+    setFilteredArr(filterdData);
+  }, [data, filterName]);
+
   return (
     <div>
       <div className="root-Feedback">
-        <h1>Feedbacks</h1>
+        <div className="RF-header">
+          <h1>Feedbacks</h1>
+          <p>Total Number: {filteredArr.length} </p>
+        </div>
         <div className="Feedback-header">
           <NavLink
             className="Feedback-link"
@@ -15,6 +50,7 @@ const UserFeedback = () => {
             exact={true}
             activeClassName="active"
             inactiveClassName="Feedback-Link"
+            onClick={() => setFilterName('Bug reports')}
           >
             Bug Report
           </NavLink>
@@ -24,6 +60,7 @@ const UserFeedback = () => {
             exact={false}
             activeClassName="active"
             inactiveClassName="Feedback-Link"
+            onClick={() => setFilterName('Feature requests')}
           >
             Feature Requests
           </NavLink>
@@ -33,6 +70,7 @@ const UserFeedback = () => {
             exact={false}
             activeClassName="active"
             inactiveClassName="Feedback-Link"
+            onClick={() => setFilterName('Praise')}
           >
             Praise
           </NavLink>
@@ -42,6 +80,7 @@ const UserFeedback = () => {
             exact={false}
             activeClassName="active"
             inactiveClassName="Feedback-Link"
+            onClick={() => setFilterName('Suggestions')}
           >
             Suggestions
           </NavLink>

@@ -8,10 +8,19 @@
   max-width: calc(100vw - 320px);
   margin-bottom: 15px;
   height: 100%;
-  hr {
-    background-color: #b0b3d1;
-    margin-left: 35px;
-    margin-right: 35px;
+
+  .RF-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 35px 0 35px;
+    h1 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 15px;
+      font-weight: 400;
+    }
   }
 
   .Feedback-header {
@@ -19,12 +28,6 @@
     margin-left: 35px;
     border-bottom: 1px #b0b3d1 solid;
     margin-right: 35px;
-  }
-
-  h1 {
-    margin-left: 35px;
-    font-size: 20px;
-    margin-top: 25px;
   }
 
   .Feedback-link {
