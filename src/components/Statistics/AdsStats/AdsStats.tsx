@@ -17,7 +17,7 @@ const AdsStats = ({ allow }: any) => {
           <div className="progress-bar">
             <ProgressBar
               completed={60}
-              height={'10px'}
+              height={'15px'}
               bgColor={'#FF6933'}
               labelSize={'10px'}
               animateOnRender={true}
@@ -29,7 +29,7 @@ const AdsStats = ({ allow }: any) => {
           <div className="progress-bar">
             <ProgressBar
               completed={22}
-              height={'10px'}
+              height={'15px'}
               bgColor={'#FF6933'}
               labelSize={'10px'}
               animateOnRender={true}
@@ -41,7 +41,7 @@ const AdsStats = ({ allow }: any) => {
           <div className="progress-bar">
             <ProgressBar
               completed={12}
-              height={'10px'}
+              height={'15px'}
               bgColor={'#FF6933'}
               labelSize={'10px'}
               animateOnRender={true}
@@ -52,8 +52,8 @@ const AdsStats = ({ allow }: any) => {
           <p>Conversion</p>
           <div className="progress-bar">
             <ProgressBar
-              completed={10}
-              height={'10px'}
+              completed={15}
+              height={'15px'}
               bgColor={'#FF6933'}
               labelSize={'10px'}
               animateOnRender={true}
