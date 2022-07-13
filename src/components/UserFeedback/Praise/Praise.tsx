@@ -79,7 +79,6 @@ const Praise = () => {
             {' '}
             Load More{' '}
           </button>
-          <p style={{ marginLeft: '50px' }}>Total number is {LENGTH} </p>
         </div>
       )}
     </div>
