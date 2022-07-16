@@ -5,6 +5,7 @@ import AchievementsPerDay from './AchievementsPerDay/AchievementsPerDay';
 import FeedbacksPerDay from './FeedbacksPerDay/FeedbacksPerDay';
 import MonthlyVisitors from '../Statistics/MonthlyVisitors/MonthlyVisitors';
 import RevenueChart from '../Revenue/RevenueChart/RevenueChart';
+import ImagesInfo from './ImagesInfo/ImagesInfo';
 
 const home = () => {
   let allow: boolean = false;
@@ -25,7 +26,7 @@ const home = () => {
         </div>
       </div>
       <div className="root-h2">
-        <p>images info</p>
+        <ImagesInfo />
       </div>
     </div>
   );
