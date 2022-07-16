@@ -41,7 +41,6 @@ const UserFeedback = () => {
       <div className="root-Feedback">
         <div className="RF-header">
           <h1>Feedbacks</h1>
-          <p>Total Number: {filteredArr.length} </p>
         </div>
         <div className="Feedback-header">
           <NavLink
@@ -84,6 +83,7 @@ const UserFeedback = () => {
           >
             Suggestions
           </NavLink>
+          <p>Total Number: {filteredArr.length} </p>
         </div>
         <div>
           <Outlet />
