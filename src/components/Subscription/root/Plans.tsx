@@ -25,6 +25,7 @@ const Plans = () => {
         .then((response) => {
           setData(response.data.data);
           setIsLoading(false);
+          console.log(response.data.data);
         })
         .catch((err) => {
           setErrMessage(err.message);
