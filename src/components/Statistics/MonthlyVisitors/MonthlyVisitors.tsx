@@ -24,7 +24,7 @@ export const options = {
   maintainAspectRatio: false,
   plugins: {
     legend: {
-      position: 'top' as const,
+      display: false,
     },
   },
   scales: {
@@ -73,10 +73,6 @@ const MonthlyVisitors = () => {
     <div className="MV-root">
       <div className="MV-below">
         <p className="MV-header">Monthly visitors statistics</p>
-        <div className="MV-drop">
-          <p>Months</p>
-          {/* <img src={require('../../../assets/Path 729.png')} alt="" /> */}
-        </div>
       </div>
       <Bar options={options} data={data} />
     </div>

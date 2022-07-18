@@ -25,6 +25,10 @@ export const options = {
   plugins: {
     legend: {
       position: 'top' as const,
+      labels: {
+        usePointStyle: true,
+        boxWidth: 30,
+      },
     },
   },
   scales: {
