@@ -1,6 +1,7 @@
 .dash-home {
   display: flex;
   margin-top: 34px;
+  padding-bottom: 10px;
   @media (min-width: 768px) and (max-width: 992px) {
     flex-direction: column;
   }
@@ -25,11 +26,10 @@
     .MV-home {
       grid-column: 1/4;
       grid-row: 2/3;
-      margin-top: -24%;
+      margin-top: -28%;
       @media (min-width: 768px) and (max-width: 992px) {
         margin-top: 3%;
       }
-
     }
 
     .AR-home {
@@ -42,7 +42,6 @@
         gap: 20px;
         margin-top: 3%;
       }
-
     }
   }
 
