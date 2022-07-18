@@ -136,14 +136,14 @@ const EditAchievement = () => {
         navigate('/Dashboard/Achievements');
       }, 2000);
     }
-  });
+  }, [isDeleted, navigate]);
 
   return (
     <div className="root-create">
       {isLoading ? (
         <Loader />
       ) : (
-        <form>
+        <div>
           <div className="create-root">
             <div className="create-root-div1">
               <div className="create-input-text">
@@ -307,7 +307,7 @@ const EditAchievement = () => {
               Delete achievement
             </button>
           </div>
-        </form>
+        </div>
       )}
       {modalOpen && (
         <Modal setOpenModal={setModalOpen} id={id} setDeleted={setDeleted} />
