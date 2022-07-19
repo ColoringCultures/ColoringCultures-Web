@@ -1,12 +1,13 @@
 import React from 'react';
 import './VisitorsPerDay.scss';
+import PersonIcon from '@mui/icons-material/Person';
 
 const VisitorsPerDay = () => {
   return (
     <div>
       <div className="VPD-root">
         <div className="VPD-header">
-          <img src={require('../../../assets/Path 63.png')} alt="dashboard" />
+          <PersonIcon />
           <p>Visitors/day</p>
         </div>
         <div className="VPD-details">
