@@ -1,11 +1,12 @@
 import './FeedbacksPerDay.scss';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 
 const FeedbacksPerDay = () => {
   return (
     <div>
       <div className="FPD-root">
         <div className="FPD-header">
-          <img src={require('../../../assets/Path 63.png')} alt="dashboard" />
+          <QuestionAnswerIcon />
           <p>Feedbacks/day</p>
         </div>
         <div className="FPD-details">

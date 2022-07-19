@@ -1,11 +1,12 @@
 import './AchievementsPerDay.scss';
+import GradeIcon from '@mui/icons-material/Grade';
 
 const AchievementsPerDay = () => {
   return (
     <div>
       <div className="APD-root">
         <div className="APD-header">
-          <img src={require('../../../assets/Path 63.png')} alt="dashboard" />
+          <GradeIcon />
           <p>Achievements/day</p>
         </div>
         <div className="APD-details">
