@@ -21,6 +21,6 @@ export const schema = yup.object().shape({
       return value && value.length;
     })
     .test('fileSize', 'The file is too large', (value) => {
-      return value && value[0] && value[0].size <= 200000;
+      return value && value[0] && value[0].size <= 100000000;
     }),
 });

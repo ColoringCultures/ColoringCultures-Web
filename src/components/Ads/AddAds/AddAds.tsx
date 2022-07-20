@@ -49,6 +49,8 @@ const AddAds = () => {
       })
       .then((response) => {
         setLoading(false);
+        console.log(response);
+
         if (response.data.message === 'OK') {
           setModalOpen(true);
         }
@@ -141,7 +143,7 @@ const AddAds = () => {
                       placeholder="Choose a file"
                       {...register('file')}
                       onInput={displayImage}
-                      accept=".svg"
+                      accept=".svg, .mp4"
                     />
                   </label>
                 </label>
