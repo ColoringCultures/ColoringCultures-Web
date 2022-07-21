@@ -26,6 +26,8 @@ import Suggestions from './components/UserFeedback/Suggestions/Suggestions';
 import EditEmpty from './components/Achievements/EditEmpty/EditEmpty';
 import EmptyAds from './components/Ads/EmptyAds/EmptyAds';
 import EmptySubscription from './components/Subscription/EmptySubscription/EmptySubscription';
+import ImagesRoot from './components/Images/ImagesRoot/ImagesRoot';
+import AddImages from './components/Images/AddImages/AddImages';
 
 export const routes = [
   {
@@ -46,6 +48,11 @@ export const routes = [
           {
             path: 'Images',
             element: <Images />,
+            children: [
+              { path: '', element: <ImagesRoot /> },
+              { path: 'Add', element: <AddImages /> },
+              // { path: 'Edit', element: <AddImages /> },
+            ],
           },
           {
             path: 'Statistics',
