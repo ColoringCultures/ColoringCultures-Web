@@ -16,7 +16,7 @@ const TabNavbar = ({ setModalOpen }: any) => {
   return (
     <div className="tab-navbar">
       <div className="tab-admin-details">
-        <img src={require('../../../assets/Ellipse 1.png')} alt="" />
+        <img src={require('../../../assets/user-profile2.webp')} alt="" />
         <h1>{userName}</h1>
         <p>Admin</p>
       </div>
