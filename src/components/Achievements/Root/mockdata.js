@@ -1,4 +1,4 @@
-export const mockdata = [
+export const  = [
   {
     id: '1',
     title: 'An Artist is born',
