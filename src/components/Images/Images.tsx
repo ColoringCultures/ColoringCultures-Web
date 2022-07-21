@@ -27,7 +27,7 @@ const Images = () => {
         <div className="images-header">
           <NavLink
             className="images-link"
-            to="/Dashboard/images"
+            to="/Dashboard/Images"
             exact={true}
             activeClassName="active"
             inactiveClassName="images-Link"
@@ -36,7 +36,7 @@ const Images = () => {
           </NavLink>
           <NavLink
             className="images-link"
-            to="AddPlans"
+            to="//"
             exact={false}
             activeClassName="active"
             inactiveClassName="images-Link"
@@ -45,7 +45,7 @@ const Images = () => {
           </NavLink>
           <NavLink
             className="images-link"
-            to="EditPlans"
+            to="EditImages"
             exact={false}
             activeClassName="active"
             inactiveClassName="images-Link"
