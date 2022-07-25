@@ -11,12 +11,14 @@ import { useNavigate } from 'react-router-dom';
 
 const AddAds = () => {
   const navigate = useNavigate();
+  const formData = new FormData();
   const [modalOpen, setModalOpen] = useState(false);
   const { token } = useContext(UserContext);
   const [image, setImage] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [adsName, setAdsname] = useState('');
   const [errMessage, setErrMessage] = useState('');
+  const [video, setVideo] = useState(false);
   const {
     register,
     handleSubmit,
@@ -28,18 +30,21 @@ const AddAds = () => {
 
   const displayImage = (e: any) => {
     const image = URL.createObjectURL(e.target.files[0]);
+    e.target.files[0].name.includes('.mp4') ? setVideo(true) : setVideo(false);
     setImage(image);
   };
 
   const onSubmit = async (data: any) => {
     setLoading(true);
     setAdsname(data.title);
-    const formData = new FormData();
     formData.append('title', data.title);
     formData.append('redirect_url', data.redirect_url);
     formData.append('time_feed', data.time_feed);
     formData.append('ad_target', data.ad_target);
     formData.append('file', data.file[0]);
+    video === true
+      ? formData.append('type', 'video')
+      : formData.append('type', 'image');
 
     await axios
       .post('https://colorculture.herokuapp.com/advertisements/', formData, {

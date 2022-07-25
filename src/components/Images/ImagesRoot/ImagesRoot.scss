@@ -55,14 +55,13 @@
 
 .rootImages-root {
   overflow-y: scroll;
-  margin-top: 10.4px;
   justify-content: space-between;
   min-height: 600px;
   max-height: 700px;
   height: fit-content;
   align-self: center;
   display: grid;
-  justify-content: center;
+  margin: 10.4px 30px 0 30px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
   grid-auto-rows: 1fr;
   gap: 0px 0px;
@@ -77,13 +76,14 @@
 
 .images-root-root {
   margin-top: 10.4px;
+  margin: 10.4px 30px 0 30px;
   justify-content: space-between;
   min-height: 600px;
   max-height: 100%;
   height: fit-content;
   align-self: center;
   display: grid;
-  justify-content: center;
+  // justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
   grid-auto-rows: 1fr;
   gap: 0px 0px;
