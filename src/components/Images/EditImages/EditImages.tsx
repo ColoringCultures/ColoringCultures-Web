@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import './AddImages.scss';
+import '../AddImages/AddImages.scss';
 
-const AddImages = () => {
+const EditImages = () => {
   const [openDD, setOpenDD] = useState(false);
   const container = useRef<HTMLDivElement>(null);
 
@@ -18,7 +18,7 @@ const AddImages = () => {
   });
 
   return (
-    <div className="root_addImages">
+    <div className="root_addIEdites">
       <form>
         <div className="form">
           <section className="section-1">
@@ -41,10 +41,6 @@ const AddImages = () => {
                     type="button"
                   >
                     Select a category
-                    <img
-                      src={require('../../../assets/Icon feather-chevron-down.png')}
-                      alt="icon"
-                    />
                   </button>
                   <p>Add new category</p>
                 </div>
@@ -103,4 +99,4 @@ const AddImages = () => {
   );
 };
 
-export default AddImages;
+export default EditImages;

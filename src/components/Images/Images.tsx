@@ -36,7 +36,7 @@ const Images = () => {
           </NavLink>
           <NavLink
             className="images-link"
-            to="//"
+            to="AddImages"
             exact={false}
             activeClassName="active"
             inactiveClassName="images-Link"

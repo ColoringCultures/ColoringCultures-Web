@@ -51,7 +51,7 @@ export const routes = [
             element: <Images />,
             children: [
               { path: '', element: <ImagesRoot /> },
-              { path: 'Add', element: <AddImages /> },
+              { path: 'AddImages', element: <AddImages /> },
               { path: 'EditImages', element: <EmptyImages /> },
             ],
           },
