@@ -148,20 +148,25 @@ const AddAds = () => {
                       placeholder="Choose a file"
                       {...register('file')}
                       onInput={displayImage}
-                      accept=".svg, .mp4"
+                      accept=".svg, .mp4, .png, .jpg, .jpeg"
                     />
                   </label>
                 </label>
                 {errors.file && (
                   <p className="error-message-ads">{errors.file?.message}</p>
                 )}
-                {image && (
-                  <img
-                    style={{ width: '241px', height: ' 270px' }}
-                    src={image}
-                    alt=""
-                  />
-                )}
+                {image &&
+                  (video === true ? (
+                    <video width={241} controls>
+                      <source src={image} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img
+                      style={{ width: '241px', height: ' 270px' }}
+                      src={image}
+                      alt=""
+                    />
+                  ))}
               </div>
             </div>
           </div>

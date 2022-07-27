@@ -13,7 +13,7 @@ const RootAds = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const navigate = useNavigate();
   const [errMessage, setErrMessage] = useState('');
-  const LIMIT = 6;
+  const LIMIT = 4;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -70,7 +70,13 @@ const RootAds = () => {
             {list.map((data, index) => {
               return (
                 <div key={index} className="ads-border">
-                  <img src={require('../../../assets/adsss.png')} alt="" />
+                  {data.file.includes('.mp4') ? (
+                    <video width={240} height={250} controls>
+                      <source src={data.file} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img src={data.file} alt="" className="ads-border__image" />
+                  )}
                   <div className="ads-edit-title">
                     <div>{data.title}</div>
                     <div>
