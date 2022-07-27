@@ -18,11 +18,16 @@ const EditAds = () => {
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
   const [watchTime, setWatchTime] = useState('');
-  const [peopleToBeReached, setPeopleToBeReached] = useState();
+  const [peopleToBeReached, setPeopleToBeReached] = useState('');
   const [isDeleted, setDeleted] = useState(false);
   const [errMessage, setErrMessage] = useState('');
+  const [adFile, setAdFile] = useState('');
+  const [video, setVideo] = useState(false);
 
-  // const [adFile, setAdFile] = useState();
+  const displayImage = (e: any) => {
+    const image = URL.createObjectURL(e.target.files[0]);
+    setAdFile(image);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +43,7 @@ const EditAds = () => {
           setLink(response.data.data.redirect_url);
           setWatchTime(response.data.data.time_feed);
           setPeopleToBeReached(response.data.data.ad_target);
-          // setAdFile(response.data.data.file);
+          setAdFile(response.data.data.file);
           setLoading(false);
         })
         .catch((err) => {
@@ -50,6 +55,10 @@ const EditAds = () => {
   }, [id, token]);
 
   useEffect(() => {
+    adFile.includes('.mp4') ? setVideo(true) : setVideo(false);
+  }, [adFile]);
+
+  useEffect(() => {
     if (isDeleted) {
       setTimeout(() => {
         setDeleted(false);
@@ -57,6 +66,39 @@ const EditAds = () => {
       }, 2000);
     }
   });
+
+  const onSubmit = async () => {
+    setLoading(true);
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('redirect_url', link);
+    formData.append('time_feed', watchTime);
+    formData.append('ad_target', peopleToBeReached);
+    formData.append('file', adFile);
+    formData.append('type', video ? 'video' : 'image');
+
+    console.log(Object.fromEntries(formData));
+    await axios
+      .put(
+        `https://colorculture.herokuapp.com/advertisements/${id}/`,
+        formData,
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        setLoading(false);
+        if (response.data.message === 'OK') {
+          navigate('/Dashboard/Ads');
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        setErrMessage(err.message);
+      });
+  };
 
   return (
     <div className="edit-ads-root">
@@ -72,6 +114,7 @@ const EditAds = () => {
                   type="text"
                   placeholder="Enter a title for the ad"
                   defaultValue={title}
+                  onChange={(event) => setTitle(event.target.value)}
                 />
               </div>
               <div className="column-edit-root">
@@ -88,6 +131,7 @@ const EditAds = () => {
                   type="text"
                   placeholder="Enter the amount of watching minutes"
                   defaultValue={watchTime}
+                  onChange={(event) => setWatchTime(event.target.value)}
                 />
               </div>
             </div>
@@ -98,6 +142,7 @@ const EditAds = () => {
                   type="text"
                   placeholder="Enter a number"
                   defaultValue={peopleToBeReached}
+                  onChange={(event) => setPeopleToBeReached(event.target.value)}
                 />
               </div>
               <div className="file-edit">
@@ -105,15 +150,34 @@ const EditAds = () => {
                   Choose the Ad file
                   <label className="file-label-20">
                     Choose a file
-                    <input type={'file'} placeholder="Choose a file" />
+                    <input
+                      type={'file'}
+                      placeholder="Choose a file"
+                      onInput={displayImage}
+                      accept=".svg, .mp4, .png, .jpg, .jpeg"
+                    />
                   </label>
                 </label>
+                {adFile &&
+                  (video === true ? (
+                    <video width={241} controls>
+                      <source src={adFile} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img
+                      style={{ width: '241px', height: ' 270px' }}
+                      src={adFile}
+                      alt=""
+                    />
+                  ))}
               </div>
             </div>
           </div>
           {errMessage && <p className="err-message-ads">{errMessage}</p>}
           <div className="button-root">
-            <button className="save-button">Save Changes</button>
+            <button className="save-button" onClick={onSubmit}>
+              Save Changes
+            </button>
             <button
               className="delete-ad"
               onClick={() => {
