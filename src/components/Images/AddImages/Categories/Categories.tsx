@@ -2,15 +2,23 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import '../AddImages.scss';
 import { UserContext } from '../../../../UserContext';
 import axios from 'axios';
+import './AddCategories/AddCategories';
+import AddCategories from './AddCategories/AddCategories';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const Categories = ({ setCategory }: any) => {
   const { token } = useContext(UserContext);
   const [openDD, setOpenDD] = useState(false);
   const [data, setData] = useState<any[]>([]);
   const [errMessage, setErrMessage] = useState('');
+  const [AddCategory, setAddCategory] = useState(false);
 
   const container = useRef<HTMLDivElement>(null);
   const [categoryName, setCategoryName] = useState('Select a category');
+  const [refresh, setRefresh] = useState(false);
+  const [change, setChange] = useState(false);
+
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -40,7 +48,27 @@ const Categories = ({ setCategory }: any) => {
         });
     };
     fetchData();
-  }, [token]);
+    setRefresh(false);
+  }, [token, refresh]);
+
+  const deleteCategory = (id: number) => {
+    axios
+      .delete(`https://colorculture.herokuapp.com/colorapp/category/${id}/`, {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    if (change) {
+      setCategoryName('Select a category');
+      setChange(false);
+    }
+  }, [change]);
 
   return (
     <div className="dd-root">
@@ -59,7 +87,13 @@ const Categories = ({ setCategory }: any) => {
               alt="icon"
             />
           </button>
-          <p>Add new category</p>
+          <p
+            onClick={() => {
+              setAddCategory(true);
+            }}
+          >
+            Add new category
+          </p>
         </div>
         {openDD && (
           <div className="dd-container__dropdown">
@@ -74,13 +108,31 @@ const Categories = ({ setCategory }: any) => {
                     setOpenDD(false);
                   }}
                 >
-                  <li>{data.name}</li>
+                  <li>
+                    {data.name}{' '}
+                    <span
+                      onClick={() => {
+                        setRefresh(true);
+                        deleteCategory(data.id);
+                        setChange(true);
+                      }}
+                    >
+                      <DeleteIcon className="deleteicon" />
+                    </span>
+                  </li>
                 </ul>
               );
             })}
           </div>
         )}
       </div>
+      {AddCategory && (
+        <AddCategories
+          setModal={setAddCategory}
+          setOpenDD={setOpenDD}
+          setRefresh={setRefresh}
+        />
+      )}
     </div>
   );
 };
