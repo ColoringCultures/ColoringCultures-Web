@@ -79,7 +79,6 @@ const AddImages = () => {
       )
       .then((response) => {
         setLoading(false);
-        console.log(response.data);
         if (response.data.message === 'OK') {
           setModalOpen(true);
         }
