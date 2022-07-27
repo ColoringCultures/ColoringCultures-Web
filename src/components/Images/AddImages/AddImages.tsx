@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './AddImages.scss';
 import { useForm } from 'react-hook-form';
 import { schema } from '../schema';
@@ -8,12 +8,11 @@ import axios from 'axios';
 import { UserContext } from '../../../UserContext';
 import Modal from './Modal/Modal';
 import { useNavigate } from 'react-router-dom';
+import Categories from './Categories/Categories';
 
 const AddImages = () => {
   const navigate = useNavigate();
-  const [openDD, setOpenDD] = useState(false);
   const [category, setCategory] = useState('');
-  const [categoryName, setCategoryName] = useState('Select a category');
   const [image, setImage] = useState('');
   const [image2, setImage2] = useState('');
   const { token } = useContext(UserContext);
@@ -21,8 +20,6 @@ const AddImages = () => {
   const [isLoading, setLoading] = useState(false);
   const [errMessage, setErrMessage] = useState('');
   const [imgName, setImgName] = useState('');
-
-  const container = useRef<HTMLDivElement>(null);
 
   const displayImage = (e: any) => {
     const image = URL.createObjectURL(e.target.files[0]);
@@ -33,19 +30,6 @@ const AddImages = () => {
     const image = URL.createObjectURL(e.target.files[0]);
     setImage2(image);
   };
-
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (container.current && !container.current.contains(e.target as Node)) {
-        setOpenDD(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  });
 
   const {
     register,
@@ -130,67 +114,8 @@ const AddImages = () => {
                   <p className="images-error">{errors.description?.message}</p>
                 )}
               </div>
-              <div className="dd-root">
-                <label>Category</label>
-                <div className="dd-container" ref={container}>
-                  <div className="dd-container__button">
-                    <button
-                      onClick={() => {
-                        setOpenDD(!openDD);
-                      }}
-                      type="button"
-                    >
-                      {categoryName}
-                      <img
-                        src={require('../../../assets/Icon feather-chevron-down.png')}
-                        alt="icon"
-                      />
-                    </button>
-                    <p>Add new category</p>
-                  </div>
-                  {openDD && (
-                    <div className="dd-container__dropdown">
-                      <ul>
-                        <li
-                          onClick={() => {
-                            setCategory('3');
-                            setCategoryName('History');
-                            setOpenDD(false);
-                          }}
-                        >
-                          History
-                        </li>
-                        <li
-                          onClick={() => {
-                            setCategory('2');
-                            setOpenDD(false);
-                            setCategoryName('HBCU');
-                          }}
-                        >
-                          HBCU
-                        </li>
-                        <li
-                          onClick={() => {
-                            setCategory('1');
-                            setCategoryName('Location');
-                            setOpenDD(false);
-                          }}
-                        >
-                          Location
-                        </li>
-                        <li
-                          onClick={() => {
-                            setCategory('4');
-                            setCategoryName('People');
-                            setOpenDD(false);
-                          }}
-                        >
-                          People
-                        </li>
-                      </ul>
-                    </div>
-                  )}
-                </div>
+              <div>
+                <Categories setCategory={setCategory} />
               </div>
               <div className="section__details">
                 <label>Link</label>
