@@ -34,6 +34,7 @@ const AddImages = () => {
     setImage2(image);
   };
 
+
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (container.current && !container.current.contains(e.target as Node)) {
