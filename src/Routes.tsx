@@ -29,6 +29,7 @@ import EmptySubscription from './components/Subscription/EmptySubscription/Empty
 import ImagesRoot from './components/Images/ImagesRoot/ImagesRoot';
 import AddImages from './components/Images/AddImages/AddImages';
 import EmptyImages from './components/Images/EmptyImages/EmptyImages';
+import EditImages from './components/Images/EditImages/EditImages';
 
 export const routes = [
   {
@@ -53,6 +54,7 @@ export const routes = [
               { path: '', element: <ImagesRoot /> },
               { path: 'AddImages', element: <AddImages /> },
               { path: 'EditImages', element: <EmptyImages /> },
+              { path: 'EditImages/:id', element: <EditImages /> },
             ],
           },
           {

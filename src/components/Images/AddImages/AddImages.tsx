@@ -195,13 +195,7 @@ const AddImages = () => {
           </button>
         </form>
       )}
-      {modalOpen && (
-        <Modal
-          setOpenModal={setModalOpen}
-          Modal={modalOpen}
-          achName={imgName}
-        />
-      )}
+      {modalOpen && <Modal setOpenModal={setModalOpen} imgName={imgName} />}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import '../AddPlans/AddPlans.scss';
 import Modal from '../Modal/Modal';
 import axios from 'axios';
@@ -73,7 +73,6 @@ const EditPlans = () => {
       )
       .then((response) => {
         setLoading(false);
-        console.log(response);
         if (response.data.message === 'OK') {
           console.log('working');
         }
@@ -195,7 +194,6 @@ const EditPlans = () => {
                 <input
                   type="text"
                   placeholder={unlimtedArts ? 'Unlimited' : 'Eg. 200'}
-                  // value={unlimtedArts ? 'Unlimited' : numOfArts}
                   onChange={(e) => {
                     setNumOfArts(e.target.value);
                   }}

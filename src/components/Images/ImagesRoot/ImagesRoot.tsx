@@ -37,7 +37,6 @@ const ImagesRoot = () => {
         })
         .then((response) => {
           setData(response.data.data);
-          console.log(response.data.data);
           setIsLoading(false);
         })
         .catch((err) => {
@@ -93,7 +92,7 @@ const ImagesRoot = () => {
                         src={require('../../../assets/adEdit.png')}
                         alt=""
                         onClick={() => {
-                          navigate(`Editimages/${data.id}`);
+                          navigate(`EditImages/${data.id}`);
                         }}
                       />
                     </div>
