@@ -13,6 +13,8 @@ const AddImages = () => {
   const [category, setCategory] = useState('');
   const [image, setImage] = useState('');
   const [image2, setImage2] = useState('');
+  const [initialImage, setInitialImage] = useState('');
+  const [finalImage, setFinalImage] = useState('');
   const { token } = useContext(UserContext);
   const [modalOpen, setModalOpen] = useState(false);
   const [isLoading, setLoading] = useState(false);
@@ -28,11 +30,13 @@ const AddImages = () => {
   const displayImage = (e: any) => {
     const image = URL.createObjectURL(e.target.files[0]);
     setImage(image);
+    setInitialImage(e.target.files[0]);
   };
 
   const displayImage2 = (e: any) => {
     const image = URL.createObjectURL(e.target.files[0]);
     setImage2(image);
+    setFinalImage(e.target.files[0]);
   };
 
   useEffect(() => {
@@ -45,13 +49,13 @@ const AddImages = () => {
           },
         })
         .then((response) => {
-          console.log(response);
           setImgName(response.data.data.name);
           setDescription(response.data.data.description);
-          setRedirect_url(response.data.data.redirect_url);
+          setRedirect_url(response.data.data.link);
           setImage(response.data.data.initial_image);
           setImage2(response.data.data.final_image);
           setCategoryName(response.data.data.category.name);
+          setCategory(response.data.data.category.id);
           setLoading(false);
         })
         .catch((err) => {
@@ -61,20 +65,25 @@ const AddImages = () => {
     fetchData();
   }, [id, token]);
 
-  const updateImage = async (data: any) => {
+  const updateImage = async () => {
     setLoading(true);
-    setImgName(data.name);
     const formData = new FormData();
-    formData.append('name', data.name);
-    formData.append('description', data.description);
-    formData.append('redirect_url', data.redirect_url);
-    formData.append('initial_image', data.initial_image[0]);
-    formData.append('final_image', data.final_image[0]);
+    formData.append('name', imgName);
+    formData.append('description', description);
+    formData.append('redirect_url', redirect_url);
     formData.append('category', category);
+    initialImage
+      ? formData.append('initial_image', initialImage)
+      : formData.append('initial_image', image);
+    finalImage
+      ? formData.append('final_image', finalImage)
+      : formData.append('final_image', image2);
+
+    console.log(Object.fromEntries(formData));
 
     await axios
-      .post(
-        'https://colorculture.herokuapp.com/colorapp/imagevector',
+      .put(
+        `https://colorculture.herokuapp.com/colorapp/imagevector/${id}/`,
         formData,
         {
           headers: {
@@ -83,6 +92,7 @@ const AddImages = () => {
         }
       )
       .then((response) => {
+        console.log(response);
         setLoading(false);
         if (response.data.message === 'OK') {
           setModalOpen(true);
@@ -117,6 +127,7 @@ const AddImages = () => {
                   type="text"
                   placeholder="Enter a name here"
                   defaultValue={imgName}
+                  onChange={(e) => setImgName(e.target.value)}
                 />
               </div>
               <div className="description__details">
@@ -124,6 +135,7 @@ const AddImages = () => {
                 <textarea
                   placeholder="Enter the product description here"
                   defaultValue={description}
+                  onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
               <div>
@@ -139,6 +151,7 @@ const AddImages = () => {
                   type="text"
                   placeholder="Enter a link or URL"
                   defaultValue={redirect_url}
+                  onChange={(e) => setRedirect_url(e.target.value)}
                 />
               </div>
             </section>

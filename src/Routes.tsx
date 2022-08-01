@@ -30,6 +30,9 @@ import ImagesRoot from './components/Images/ImagesRoot/ImagesRoot';
 import AddImages from './components/Images/AddImages/AddImages';
 import EmptyImages from './components/Images/EmptyImages/EmptyImages';
 import EditImages from './components/Images/EditImages/EditImages';
+import Carousel from './components/Carousel/Carousel';
+import AddCarousel from './components/Carousel/AddCarousel/AddCarousel';
+import EditCarousel from './components/Carousel/EditCarousel/EditCarousel';
 
 export const routes = [
   {
@@ -55,6 +58,9 @@ export const routes = [
               { path: 'AddImages', element: <AddImages /> },
               { path: 'EditImages', element: <EmptyImages /> },
               { path: 'EditImages/:id', element: <EditImages /> },
+              { path: 'Carousel', element: <Carousel /> },
+              { path: 'AddCarousel', element: <AddCarousel /> },
+              { path: 'EditCarousel/:id', element: <EditCarousel /> },
             ],
           },
           {

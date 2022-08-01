@@ -296,7 +296,7 @@ const EditAchievement = () => {
             </div>
           </div>
           {errMessage && <p className="err-message-ach">{errMessage}</p>}
-          <div className='edit-vv'>
+          <div className="edit-vv">
             <button className="create-button-ach" onClick={onSubmit}>
               Save Changes
             </button>
