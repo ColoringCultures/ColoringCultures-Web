@@ -52,6 +52,24 @@ const Images = () => {
           >
             Edit Images
           </NavLink>
+          <NavLink
+            className="images-link"
+            to="Carousel"
+            exact={false}
+            activeClassName="active"
+            inactiveClassName="images-Link"
+          >
+            Carousel Images
+          </NavLink>
+          <NavLink
+            className="images-link"
+            to="AddCarousel"
+            exact={false}
+            activeClassName="active"
+            inactiveClassName="images-Link"
+          >
+            Add Carousel Images
+          </NavLink>
         </div>
         <div>
           <Outlet context={inputText} />

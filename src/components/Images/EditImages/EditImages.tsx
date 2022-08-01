@@ -1,102 +1,231 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import '../AddImages/AddImages.scss';
+import Loader from '../../../Loader/Loader';
+import axios from 'axios';
+import { UserContext } from '../../../UserContext';
+import { useNavigate, useParams } from 'react-router-dom';
+import Categories from './Categories/Categories';
+import Modal from './Modal/Modal';
+import ConfirmModal from './Modal/ConfirmModal';
 
-const EditImages = () => {
-  const [openDD, setOpenDD] = useState(false);
-  const container = useRef<HTMLDivElement>(null);
+const AddImages = () => {
+  const navigate = useNavigate();
+  const [category, setCategory] = useState('');
+  const [image, setImage] = useState('');
+  const [image2, setImage2] = useState('');
+  const [initialImage, setInitialImage] = useState('');
+  const [finalImage, setFinalImage] = useState('');
+  const { token } = useContext(UserContext);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  const [errMessage, setErrMessage] = useState('');
+  const [categoryName, setCategoryName] = useState('Select a category');
+
+  const [description, setDescription] = useState('');
+  const [redirect_url, setRedirect_url] = useState('');
+  const [imgName, setImgName] = useState('');
+  const [isDeleted, setDeleted] = useState(false);
+  const { id } = useParams();
+
+  const displayImage = (e: any) => {
+    const image = URL.createObjectURL(e.target.files[0]);
+    setImage(image);
+    setInitialImage(e.target.files[0]);
+  };
+
+  const displayImage2 = (e: any) => {
+    const image = URL.createObjectURL(e.target.files[0]);
+    setImage2(image);
+    setFinalImage(e.target.files[0]);
+  };
 
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (container.current && !container.current.contains(e.target as Node)) {
-        setOpenDD(false);
-      }
+    const fetchData = async () => {
+      setLoading(true);
+      await axios
+        .get(`https://colorculture.herokuapp.com/colorapp/imagevector/${id}/`, {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        })
+        .then((response) => {
+          setImgName(response.data.data.name);
+          setDescription(response.data.data.description);
+          setRedirect_url(response.data.data.link);
+          setImage(response.data.data.initial_image);
+          setImage2(response.data.data.final_image);
+          setCategoryName(response.data.data.category.name);
+          setCategory(response.data.data.category.id);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    fetchData();
+  }, [id, token]);
+
+  const updateImage = async () => {
+    setLoading(true);
+    const formData = new FormData();
+    formData.append('name', imgName);
+    formData.append('description', description);
+    formData.append('redirect_url', redirect_url);
+    formData.append('category', category);
+    initialImage
+      ? formData.append('initial_image', initialImage)
+      : formData.append('initial_image', image);
+    finalImage
+      ? formData.append('final_image', finalImage)
+      : formData.append('final_image', image2);
+
+    console.log(Object.fromEntries(formData));
+
+    await axios
+      .put(
+        `https://colorculture.herokuapp.com/colorapp/imagevector/${id}/`,
+        formData,
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        setLoading(false);
+        if (response.data.message === 'OK') {
+          setModalOpen(true);
+        }
+      })
+      .catch((err) => {
+        setErrMessage(err.message);
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    if (isDeleted) {
+      setTimeout(() => {
+        setDeleted(false);
+        navigate('/Dashboard/Images');
+      }, 2000);
+    }
   });
 
   return (
-    <div className="root_addIEdites">
-      <form>
-        <div className="form">
-          <section className="section-1">
-            <div className="section__details">
-              <label>Products Name</label>
-              <input type="text" placeholder="Enter a name here" />
-            </div>
-            <div className="description__details">
-              <label>Products Description</label>
-              <textarea placeholder="Enter the product description here"></textarea>
-            </div>
-            <div className="dd-root">
-              <label>Category</label>
-              <div className="dd-container" ref={container}>
-                <div className="dd-container__button">
-                  <button
-                    onClick={() => {
-                      setOpenDD(!openDD);
-                    }}
-                    type="button"
-                  >
-                    Select a category
-                  </button>
-                  <p>Add new category</p>
+    <div className="root_addImages">
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <form>
+          <div className="form">
+            <section className="section-1">
+              <div className="section__details">
+                <label>Products Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter a name here"
+                  defaultValue={imgName}
+                  onChange={(e) => setImgName(e.target.value)}
+                />
+              </div>
+              <div className="description__details">
+                <label>Products Description</label>
+                <textarea
+                  placeholder="Enter the product description here"
+                  defaultValue={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </div>
+              <div>
+                <Categories
+                  setCategory={setCategory}
+                  setCategoryName={setCategoryName}
+                  categoryName={categoryName}
+                />
+              </div>
+              <div className="section__details">
+                <label>Link</label>
+                <input
+                  type="text"
+                  placeholder="Enter a link or URL"
+                  defaultValue={redirect_url}
+                  onChange={(e) => setRedirect_url(e.target.value)}
+                />
+              </div>
+            </section>
+            <section className="section-2">
+              <label>Upload initial and final images. (SVG)</label>
+              <div className="section-2__root">
+                <div className="upload__images">
+                  <label>
+                    Initial
+                    <label className="file__upload-images">
+                      <span>Choose a file</span>
+                      <input
+                        type={'file'}
+                        placeholder="Choose a file"
+                        onInput={displayImage}
+                        accept=".svg"
+                      />
+                    </label>
+                  </label>
+                  {image && (
+                    <img
+                      style={{ width: '221px', height: ' 270px' }}
+                      src={image}
+                      alt=""
+                    />
+                  )}
                 </div>
-                {openDD && (
-                  <div className="dd-container__dropdown">
-                    <ul>
-                      <li>History</li>
-                      <li>HBCU</li>
-                      <li>Location</li>
-                      <li>People</li>
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </div>
-            <div className="section__details">
-              <label>Link</label>
-              <input type="text" placeholder="Enter a link or URL" />
-            </div>
-          </section>
-          <section className="section-2">
-            <label>Upload initial and final images. (SVG)</label>
-            <div className="section-2__root">
-              <div className="upload__images">
-                <label>
-                  Initial
-                  <label className="file__upload-images">
-                    <span>Choose a file</span>
-                    <input
-                      type={'file'}
-                      placeholder="Choose a file"
-                      accept=".svg"
-                    />
+                <div className="upload__images">
+                  <label>
+                    Final
+                    <label className="file__upload-images">
+                      <span>Choose a file</span>
+                      <input
+                        type={'file'}
+                        placeholder="Choose a file"
+                        onInput={displayImage2}
+                        accept=".svg"
+                      />
+                    </label>
                   </label>
-                </label>
-              </div>
-              <div className="upload__images">
-                <label>
-                  Final
-                  <label className="file__upload-images">
-                    <span>Choose a file</span>
-                    <input
-                      type={'file'}
-                      placeholder="Choose a file"
-                      accept=".svg"
+                  {image2 && (
+                    <img
+                      style={{ width: '221px', height: ' 270px' }}
+                      src={image2}
+                      alt=""
                     />
-                  </label>
-                </label>
+                  )}
+                </div>
               </div>
-            </div>
-          </section>
-        </div>
-        <button className="add-image__button">Add Image</button>
-      </form>
+            </section>
+          </div>
+          {errMessage && <p className="images-error">{errMessage}</p>}
+          <div className="image-buttons">
+            <button className="create-Image-button" onClick={updateImage}>
+              Save Changes
+            </button>
+            <button
+              className="delete-Image-button"
+              onClick={() => {
+                setModalOpen(true);
+              }}
+              type="button"
+            >
+              Delete Subscription
+            </button>
+          </div>
+        </form>
+      )}
+      {modalOpen && (
+        <Modal setOpenModal={setModalOpen} id={id} setDeleted={setDeleted} />
+      )}
+      {isDeleted && <ConfirmModal name={imgName} />}
     </div>
   );
 };
 
-export default EditImages;
+export default AddImages;

@@ -22,11 +22,13 @@ const EditAds = () => {
   const [isDeleted, setDeleted] = useState(false);
   const [errMessage, setErrMessage] = useState('');
   const [adFile, setAdFile] = useState('');
+  const [file, setFile] = useState('');
   const [video, setVideo] = useState(false);
 
   const displayImage = (e: any) => {
     const image = URL.createObjectURL(e.target.files[0]);
     setAdFile(image);
+    setFile(e.target.files[0]);
   };
 
   useEffect(() => {
@@ -74,7 +76,7 @@ const EditAds = () => {
     formData.append('redirect_url', link);
     formData.append('time_feed', watchTime);
     formData.append('ad_target', peopleToBeReached);
-    formData.append('file', adFile);
+    file ? formData.append('file', file) : formData.append('file', adFile);
     formData.append('type', video ? 'video' : 'image');
 
     console.log(Object.fromEntries(formData));
@@ -89,6 +91,7 @@ const EditAds = () => {
         }
       )
       .then((response) => {
+        console.log(response);
         setLoading(false);
         if (response.data.message === 'OK') {
           navigate('/Dashboard/Ads');

@@ -1,21 +1,24 @@
 import './Modal.scss';
-import { UserContext } from '../../../UserContext';
+import { UserContext } from '../../../../UserContext';
 import { useContext } from 'react';
 import axios from 'axios';
 
 const Modal = ({ setOpenModal, id, setDeleted }: any) => {
   const { token } = useContext(UserContext);
 
-  const deleteSubscription = async () => {
-    await axios.delete(
-      `https://colorculture.herokuapp.com/subscriptions/${id}`,
-      {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-      }
-    );
-
+  const deleteImage = async () => {
+    await axios
+      .delete(
+        `https://colorculture.herokuapp.com/colorapp/imagevector/${id}/`,
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+      });
     setDeleted(true);
     setOpenModal(false);
   };
@@ -34,10 +37,10 @@ const Modal = ({ setOpenModal, id, setDeleted }: any) => {
         </div>
         <div className="modal-content">
           <div className="modal-header">
-            <h1>Are you sure you want to delete this Subscription?</h1>
+            <h1>Are you sure you want to delete this Image?</h1>
           </div>
           <div className="modal-buttons">
-            <button className="Yes-button" onClick={deleteSubscription}>
+            <button className="Yes-button" onClick={deleteImage}>
               Yes
             </button>
             <button

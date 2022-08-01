@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import '../AddPlans/AddPlans.scss';
 import Modal from '../Modal/Modal';
 import axios from 'axios';
@@ -17,10 +17,11 @@ const EditPlans = () => {
   const [errMessage, setErrMessage] = useState('');
   const { id } = useParams();
 
-  function imageUpload(event: any) {
-    const [file] = event.target.files;
-    setPlanAvatar((planAvatar) => [...planAvatar, file]);
-  }
+  const displayImage = (e: any) => {
+    setPlanAvatar(e.target.files[0]);
+    const image = URL.createObjectURL(e.target.files[0]);
+    setImage(image);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +33,7 @@ const EditPlans = () => {
           },
         })
         .then((response) => {
+          console.log(response.data);
           setPlanName(response.data.data.plan_name);
           setArtToBeColored(response.data.data.art_to_be_colored);
           setNumOfArts(response.data.data.number_of_arts);
@@ -41,6 +43,7 @@ const EditPlans = () => {
           setUnlimtedArts(response.data.data.unlimited_arts);
           setUnlimtedHints(response.data.data.unlimited_hints);
           setImage(response.data.data.plan_avatar);
+          setDefaultImage(response.data.data.plan_avatar);
           setLoading(false);
         })
         .catch((err) => {
@@ -51,15 +54,15 @@ const EditPlans = () => {
   }, [id, token]);
 
   const updateSubscription = async () => {
-    console.log(planAvatar[0]);
-
     setLoading(true);
     formData.append('plan_name', planName);
     formData.append('art_to_be_colored', artToBeColored);
     formData.append('number_of_arts', numOfArts);
     formData.append('amount', amount);
     formData.append('amount_of_hint', numOfHint);
-    formData.append('plan_avatar', planAvatar[0]);
+    planAvatar
+      ? formData.append('plan_avatar', planAvatar)
+      : formData.append('plan_avatar', defaultImage);
 
     await axios
       .put(
@@ -75,19 +78,13 @@ const EditPlans = () => {
         setLoading(false);
         console.log(response);
         if (response.data.message === 'OK') {
-          console.log('working');
+          navigate('/Dashboard/Subscription');
         }
-        console.log(planAvatar[0]);
       })
       .catch((err) => {
         setLoading(false);
-        setErrMessage(err.nessage);
+        setErrMessage(err.message);
       });
-  };
-
-  const displayImage = (e: any) => {
-    const image = URL.createObjectURL(e.target.files[0]);
-    setImage(image);
   };
 
   const [planName, setPlanName] = useState('');
@@ -99,7 +96,8 @@ const EditPlans = () => {
   const [unlimtedArts, setUnlimtedArts] = useState(false);
   const [unlimtedHints, setUnlimtedHints] = useState(false);
   const [image, setImage] = useState('');
-  const [planAvatar, setPlanAvatar] = useState<any[]>([]);
+  const [defaultImage, setDefaultImage] = useState('');
+  const [planAvatar, setPlanAvatar] = useState('');
 
   useEffect(() => {
     if (unlimtedHints) {
@@ -195,7 +193,6 @@ const EditPlans = () => {
                 <input
                   type="text"
                   placeholder={unlimtedArts ? 'Unlimited' : 'Eg. 200'}
-                  // value={unlimtedArts ? 'Unlimited' : numOfArts}
                   onChange={(e) => {
                     setNumOfArts(e.target.value);
                   }}
@@ -236,7 +233,6 @@ const EditPlans = () => {
                 <input
                   type="text"
                   placeholder={unlimtedHints ? 'Unlimited' : 'Eg. 400'}
-                  // value={unlimtedHints ? 'Unlimited' : numOfHint}
                   onChange={(e) => {
                     setNumOfHint(e.target.value);
                   }}
@@ -254,8 +250,7 @@ const EditPlans = () => {
                       type={'file'}
                       placeholder="Choose a file"
                       accept=".svg"
-                      onInput={displayImage}
-                      onChange={imageUpload}
+                      onChange={displayImage}
                     />
                   </label>
                 </label>

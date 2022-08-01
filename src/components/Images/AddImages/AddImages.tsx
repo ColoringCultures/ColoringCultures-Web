@@ -46,7 +46,7 @@ const AddImages = () => {
     const formData = new FormData();
     formData.append('name', data.name);
     formData.append('description', data.description);
-    formData.append('redirect_url', data.redirect_url);
+    formData.append('link', data.redirect_url);
     formData.append('initial_image', data.initial_image[0]);
     formData.append('final_image', data.final_image[0]);
     formData.append('category', category);
@@ -62,6 +62,7 @@ const AddImages = () => {
         }
       )
       .then((response) => {
+        console.log(response);
         setLoading(false);
         if (response.data.message === 'OK') {
           setModalOpen(true);
@@ -195,13 +196,7 @@ const AddImages = () => {
           </button>
         </form>
       )}
-      {modalOpen && (
-        <Modal
-          setOpenModal={setModalOpen}
-          Modal={modalOpen}
-          achName={imgName}
-        />
-      )}
+      {modalOpen && <Modal setOpenModal={setModalOpen} imgName={imgName} />}
     </div>
   );
 };

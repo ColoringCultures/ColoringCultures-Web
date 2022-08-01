@@ -1,13 +1,12 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import '../AddImages.scss';
+import '../../AddImages/AddImages.scss';
 import { UserContext } from '../../../../UserContext';
 import axios from 'axios';
 import './AddCategories/AddCategories';
 import AddCategories from './AddCategories/AddCategories';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-
-const Categories = ({ setCategory }: any) => {
+const Categories = ({ setCategory, setCategoryName, categoryName }: any) => {
   const { token } = useContext(UserContext);
   const [openDD, setOpenDD] = useState(false);
   const [data, setData] = useState<any[]>([]);
@@ -15,10 +14,8 @@ const Categories = ({ setCategory }: any) => {
   const [AddCategory, setAddCategory] = useState(false);
 
   const container = useRef<HTMLDivElement>(null);
-  const [categoryName, setCategoryName] = useState('Select a category');
   const [refresh, setRefresh] = useState(false);
   const [change, setChange] = useState(false);
-
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -69,7 +66,7 @@ const Categories = ({ setCategory }: any) => {
       setCategoryName('Select a category');
       setChange(false);
     }
-  }, [change]);
+  }, [change, setCategoryName]);
 
   return (
     <div className="dd-root">

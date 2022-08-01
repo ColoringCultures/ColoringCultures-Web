@@ -6,6 +6,9 @@
 .form {
   display: flex;
   gap: 5%;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    flex-direction: column;
+  }
   .section-1 {
     .section__details {
       display: flex;
@@ -26,7 +29,7 @@
           color: #aaaab7;
           font-size: 13px;
         }
-        @media (min-width: 768px) and (max-width: 992px) {
+        @media (min-width: 768px) and (max-width: 1199px) {
           width: calc(100vw - 80px);
         }
       }
@@ -51,7 +54,7 @@
           color: #aaaab7;
           font-size: 13px;
         }
-        @media (min-width: 768px) and (max-width: 992px) {
+        @media (min-width: 768px) and (max-width: 1199px) {
           width: calc(100vw - 80px);
         }
       }
@@ -59,9 +62,16 @@
   }
 
   .section-2 {
+    @media (min-width: 768px) and (max-width: 1199px) {
+      margin-top: 20px;
+    }
     .section-2__root {
       display: flex;
-      gap: 5%;
+      gap: 2%;
+      @media (min-width: 768px) and (max-width: 1199px) {
+        flex-direction: column;
+        gap: 50px;
+      }
       .upload__images {
         display: flex;
         flex-direction: column;
@@ -75,8 +85,8 @@
           justify-content: center;
           cursor: pointer;
           border-radius: 5px;
-          width: 220px;
-          max-width: 250px;
+          min-width: 200px;
+          max-width: 210px;
           height: 48px;
           background-color: #f0f3f8;
           border: none;
@@ -177,4 +187,35 @@
 .images-error {
   font-size: 14px;
   color: red;
+}
+
+.image-buttons {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+  .create-Image-button {
+    width: 254px;
+    height: 49px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #7e3910;
+    color: white;
+    border: 1px solid #707070;
+    margin-top: 45px;
+    margin-right: 41px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #984514;
+    }
+  }
+  .delete-Image-button {
+    width: 254px;
+    height: 49px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #ff0000;
+    color: white;
+    border: 1px solid #ffff;
+    margin-top: 45px;
+    cursor: pointer;
+  }
 }
