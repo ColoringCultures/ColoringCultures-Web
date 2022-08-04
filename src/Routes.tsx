@@ -58,9 +58,9 @@ export const routes = [
               { path: 'AddImages', element: <AddImages /> },
               { path: 'EditImages', element: <EmptyImages /> },
               { path: 'EditImages/:id', element: <EditImages /> },
-              { path: 'Carousel', element: <Carousel /> },
-              { path: 'AddCarousel', element: <AddCarousel /> },
-              { path: 'EditCarousel/:id', element: <EditCarousel /> },
+              { path: 'SlideShowImages', element: <Carousel /> },
+              { path: 'AddSlideShowImages', element: <AddCarousel /> },
+              { path: 'EditSlideShowImages/:id', element: <EditCarousel /> },
             ],
           },
           {

@@ -20,6 +20,7 @@ const AddImages = () => {
   const [isLoading, setLoading] = useState(false);
   const [errMessage, setErrMessage] = useState('');
   const [categoryName, setCategoryName] = useState('Select a category');
+  const [isImage, setIsImage] = useState(false);
 
   const [description, setDescription] = useState('');
   const [redirect_url, setRedirect_url] = useState('');
@@ -31,12 +32,16 @@ const AddImages = () => {
     const image = URL.createObjectURL(e.target.files[0]);
     setImage(image);
     setInitialImage(e.target.files[0]);
+    setIsImage(true);
+
   };
 
   const displayImage2 = (e: any) => {
     const image = URL.createObjectURL(e.target.files[0]);
     setImage2(image);
     setFinalImage(e.target.files[0]);
+    setIsImage(true);
+
   };
 
   useEffect(() => {
@@ -78,6 +83,8 @@ const AddImages = () => {
     finalImage
       ? formData.append('final_image', finalImage)
       : formData.append('final_image', image2);
+    formData.append('isImage', isImage.toString());
+
 
     console.log(Object.fromEntries(formData));
 
@@ -95,7 +102,8 @@ const AddImages = () => {
         console.log(response);
         setLoading(false);
         if (response.data.message === 'OK') {
-          setModalOpen(true);
+          navigate('/Dashboard/Images');
+
         }
       })
       .catch((err) => {

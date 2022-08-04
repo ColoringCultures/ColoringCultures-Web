@@ -76,7 +76,6 @@ const EditPlans = () => {
       )
       .then((response) => {
         setLoading(false);
-        console.log(response);
         if (response.data.message === 'OK') {
           navigate('/Dashboard/Subscription');
         }

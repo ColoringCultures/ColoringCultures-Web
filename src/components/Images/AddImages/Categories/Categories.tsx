@@ -6,7 +6,6 @@ import './AddCategories/AddCategories';
 import AddCategories from './AddCategories/AddCategories';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-
 const Categories = ({ setCategory }: any) => {
   const { token } = useContext(UserContext);
   const [openDD, setOpenDD] = useState(false);
@@ -18,7 +17,6 @@ const Categories = ({ setCategory }: any) => {
   const [categoryName, setCategoryName] = useState('Select a category');
   const [refresh, setRefresh] = useState(false);
   const [change, setChange] = useState(false);
-
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {

@@ -51,6 +51,8 @@ const AddImages = () => {
     formData.append('final_image', data.final_image[0]);
     formData.append('category', category);
 
+    console.log(Object.fromEntries(formData));
+
     await axios
       .post(
         'https://colorculture.herokuapp.com/colorapp/imagevector',

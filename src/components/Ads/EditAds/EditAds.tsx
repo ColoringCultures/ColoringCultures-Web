@@ -22,13 +22,27 @@ const EditAds = () => {
   const [isDeleted, setDeleted] = useState(false);
   const [errMessage, setErrMessage] = useState('');
   const [adFile, setAdFile] = useState('');
+  const [newImage, setNewImage] = useState('');
+  const [newVideo, setNewVideo] = useState(false);
+  const [display, setDisplay] = useState(true);
+
   const [file, setFile] = useState('');
   const [video, setVideo] = useState(false);
 
   const displayImage = (e: any) => {
+    setDisplay(false);
     const image = URL.createObjectURL(e.target.files[0]);
-    setAdFile(image);
+
+    if (e.target.files[0].name.includes('.mp4')) {
+      setNewVideo(true);
+      setVideo(true);
+    } else {
+      setNewVideo(false);
+      setVideo(false);
+    }
     setFile(e.target.files[0]);
+    setNewImage(image);
+
   };
 
   useEffect(() => {
@@ -70,6 +84,7 @@ const EditAds = () => {
   });
 
   const onSubmit = async () => {
+    console.log(video);
     setLoading(true);
     const formData = new FormData();
     formData.append('title', title);
@@ -77,7 +92,8 @@ const EditAds = () => {
     formData.append('time_feed', watchTime);
     formData.append('ad_target', peopleToBeReached);
     file ? formData.append('file', file) : formData.append('file', adFile);
-    formData.append('type', video ? 'video' : 'image');
+    video ? formData.append('type', 'video') : formData.append('type', 'image');
+
 
     console.log(Object.fromEntries(formData));
     await axios
@@ -161,8 +177,8 @@ const EditAds = () => {
                     />
                   </label>
                 </label>
-                {adFile &&
-                  (video === true ? (
+                {display ? (
+                  video === true ? (
                     <video width={241} controls>
                       <source src={adFile} type="video/mp4" />
                     </video>
@@ -172,7 +188,18 @@ const EditAds = () => {
                       src={adFile}
                       alt=""
                     />
-                  ))}
+                  )
+                ) : newVideo === true ? (
+                  <video width={241} controls>
+                    <source src={newImage} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img
+                    style={{ width: '241px', height: ' 270px' }}
+                    src={newImage}
+                    alt=""
+                  />
+                )}
               </div>
             </div>
           </div>
