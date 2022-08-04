@@ -33,6 +33,7 @@ const AddImages = () => {
     setImage(image);
     setInitialImage(e.target.files[0]);
     setIsImage(true);
+
   };
 
   const displayImage2 = (e: any) => {
@@ -40,6 +41,7 @@ const AddImages = () => {
     setImage2(image);
     setFinalImage(e.target.files[0]);
     setIsImage(true);
+
   };
 
   useEffect(() => {
@@ -83,6 +85,7 @@ const AddImages = () => {
       : formData.append('final_image', image2);
     formData.append('isImage', isImage.toString());
 
+
     console.log(Object.fromEntries(formData));
 
     await axios
@@ -100,6 +103,7 @@ const AddImages = () => {
         setLoading(false);
         if (response.data.message === 'OK') {
           navigate('/Dashboard/Images');
+
         }
       })
       .catch((err) => {
