@@ -54,21 +54,21 @@ const Images = () => {
           </NavLink>
           <NavLink
             className="images-link"
-            to="Carousel"
+            to="SlideShowImages"
             exact={false}
             activeClassName="active"
             inactiveClassName="images-Link"
           >
-            Carousel Images
+            SlideShow Images
           </NavLink>
           <NavLink
             className="images-link"
-            to="AddCarousel"
+            to="AddSlideShowImages"
             exact={false}
             activeClassName="active"
             inactiveClassName="images-Link"
           >
-            Add Carousel Images
+            Add SlideShow Images
           </NavLink>
         </div>
         <div>

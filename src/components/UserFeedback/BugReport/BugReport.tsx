@@ -77,10 +77,7 @@ const BugReport = () => {
       )}
       {showMore && (
         <div>
-          <button
-            onClick={loadMore}
-            className="submit-button"
-          >
+          <button onClick={loadMore} className="submit-button">
             {' '}
             Load More{' '}
           </button>
