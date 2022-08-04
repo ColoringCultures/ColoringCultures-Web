@@ -25,6 +25,7 @@ const EditAds = () => {
   const [newImage, setNewImage] = useState('');
   const [newVideo, setNewVideo] = useState(false);
   const [display, setDisplay] = useState(true);
+
   const [file, setFile] = useState('');
   const [video, setVideo] = useState(false);
 
@@ -41,6 +42,7 @@ const EditAds = () => {
     }
     setFile(e.target.files[0]);
     setNewImage(image);
+
   };
 
   useEffect(() => {
@@ -91,6 +93,7 @@ const EditAds = () => {
     formData.append('ad_target', peopleToBeReached);
     file ? formData.append('file', file) : formData.append('file', adFile);
     video ? formData.append('type', 'video') : formData.append('type', 'image');
+
 
     console.log(Object.fromEntries(formData));
     await axios
