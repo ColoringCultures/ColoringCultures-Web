@@ -13,7 +13,9 @@ const AddCarousel = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data: any) => {};
+  const onSubmit = async (data: any) => {
+    console.log(data);
+  };
 
   return (
     <div className="slideshow__root">

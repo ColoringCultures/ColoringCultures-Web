@@ -16,6 +16,11 @@ const Carousel = () => {
   useEffect(() => {
     setDataList(data);
     setList(data.slice(0, LIMIT));
+    // remeber to remove this
+    setErrMessage('');
+    setIsLoading(false);
+    setData(data);
+    // this is for testing
   }, [LENGTH, data]);
 
   const [index, setIndex] = useState(LIMIT);
