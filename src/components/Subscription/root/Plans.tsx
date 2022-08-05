@@ -4,6 +4,7 @@ import { UserContext } from '../../../UserContext';
 import axios from 'axios';
 import Loader from '../../../Loader/Loader';
 import { useNavigate } from 'react-router-dom';
+import { url } from '../../../api';
 
 const Plans = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Plans = () => {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get('https://colorculture.herokuapp.com/subscriptions/fetch/', {
+        .get(`${url}/subscriptions/fetch/`, {
           headers: {
             Authorization: `Token ${token}`,
           },

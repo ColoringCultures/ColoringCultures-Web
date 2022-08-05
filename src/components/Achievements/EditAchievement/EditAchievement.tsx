@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import ConfirmModal from './Modal/ConfirmModal';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { url } from '../../../api';
 
 const EditAchievement = () => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const EditAchievement = () => {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get(`https://colorculture.herokuapp.com/achievements/${id}/`, {
+        .get(`${url}/achievements/${id}/`, {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -99,7 +100,7 @@ const EditAchievement = () => {
     formData.append('new_image', newImage);
 
     await axios
-      .put(`https://colorculture.herokuapp.com/achievements/${id}/`, formData, {
+      .put(`${url}/achievements/${id}/`, formData, {
         headers: {
           Authorization: `Token ${token}`,
         },

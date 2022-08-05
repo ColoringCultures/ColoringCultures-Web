@@ -2,6 +2,7 @@ import { useContext, useState, useRef, useEffect } from 'react';
 import './AddCategories.scss';
 import { UserContext } from '../../../../../UserContext';
 import axios from 'axios';
+import { url } from '../../../../../api';
 
 const AddCategories = ({ setModal, setRefresh }: any) => {
   const { token } = useContext(UserContext);
@@ -17,7 +18,7 @@ const AddCategories = ({ setModal, setRefresh }: any) => {
   const onSubmit = async () => {
     await axios
       .post(
-        'https://colorculture.herokuapp.com/colorapp/category/',
+        `${url}/colorapp/category/`,
         {
           name,
         },

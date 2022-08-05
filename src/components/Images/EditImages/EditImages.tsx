@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Categories from './Categories/Categories';
 import Modal from './Modal/Modal';
 import ConfirmModal from './Modal/ConfirmModal';
+import { url } from '../../../api';
 
 const AddImages = () => {
   const navigate = useNavigate();
@@ -33,7 +34,6 @@ const AddImages = () => {
     setImage(image);
     setInitialImage(e.target.files[0]);
     setIsImage(true);
-
   };
 
   const displayImage2 = (e: any) => {
@@ -41,14 +41,13 @@ const AddImages = () => {
     setImage2(image);
     setFinalImage(e.target.files[0]);
     setIsImage(true);
-
   };
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       await axios
-        .get(`https://colorculture.herokuapp.com/colorapp/imagevector/${id}/`, {
+        .get(`${url}/colorapp/imagevector/${id}/`, {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -85,25 +84,19 @@ const AddImages = () => {
       : formData.append('final_image', image2);
     formData.append('isImage', isImage.toString());
 
-
     console.log(Object.fromEntries(formData));
 
     await axios
-      .put(
-        `https://colorculture.herokuapp.com/colorapp/imagevector/${id}/`,
-        formData,
-        {
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        }
-      )
+      .put(`${url}/colorapp/imagevector/${id}/`, formData, {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      })
       .then((response) => {
         console.log(response);
         setLoading(false);
         if (response.data.message === 'OK') {
           navigate('/Dashboard/Images');
-
         }
       })
       .catch((err) => {

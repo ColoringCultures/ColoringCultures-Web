@@ -6,6 +6,7 @@ import { UserContext } from '../../../UserContext';
 import Loader from '../../../Loader/Loader';
 import { useNavigate, useParams } from 'react-router-dom';
 import ConfirmModal from './Modal/ConfirmModal';
+import { url } from '../../../api';
 
 const EditPlans = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const EditPlans = () => {
     const fetchData = async () => {
       setLoading(true);
       await axios
-        .get(`https://colorculture.herokuapp.com/subscriptions/fetch/${id}/`, {
+        .get(`${url}/subscriptions/fetch/${id}/`, {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -65,15 +66,11 @@ const EditPlans = () => {
       : formData.append('plan_avatar', defaultImage);
 
     await axios
-      .put(
-        `https://colorculture.herokuapp.com/subscriptions/${id}/`,
-        formData,
-        {
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        }
-      )
+      .put(`${url}/subscriptions/${id}/`, formData, {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      })
       .then((response) => {
         setLoading(false);
         if (response.data.message === 'OK') {

@@ -4,6 +4,7 @@ import { UserContext } from '../../../UserContext';
 import axios from 'axios';
 import Loader from '../../../Loader/Loader';
 import { useNavigate } from 'react-router-dom';
+import { url } from '../../../api';
 
 const RootAds = () => {
   const [data, setData] = useState<any[]>([]);
@@ -18,7 +19,7 @@ const RootAds = () => {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get('https://colorculture.herokuapp.com/advertisements/', {
+        .get(`${url}/advertisements/`, {
           headers: {
             Authorization: `Token ${token}`,
           },

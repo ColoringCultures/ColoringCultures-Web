@@ -4,6 +4,7 @@ import './UserFeedback.scss';
 import { UserContext } from '../../UserContext';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { url } from '../../api';
 
 const UserFeedback = () => {
   const { token } = useContext(UserContext);
@@ -14,7 +15,7 @@ const UserFeedback = () => {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get('https://colorculture.herokuapp.com/feedbacks/list/', {
+        .get(`${url}/feedbacks/list/`, {
           headers: {
             Authorization: `Token ${token}`,
           },

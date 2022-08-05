@@ -5,6 +5,7 @@ import axios from 'axios';
 import './AddCategories/AddCategories';
 import AddCategories from './AddCategories/AddCategories';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { url } from '../../../../api';
 
 const Categories = ({ setCategory }: any) => {
   const { token } = useContext(UserContext);
@@ -33,7 +34,7 @@ const Categories = ({ setCategory }: any) => {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get('https://colorculture.herokuapp.com/colorapp/category/', {
+        .get(`${url}/colorapp/category/`, {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -52,7 +53,7 @@ const Categories = ({ setCategory }: any) => {
   const deleteCategory = (id: number) => {
     setRefresh(true);
     axios
-      .delete(`https://colorculture.herokuapp.com/colorapp/category/${id}/`, {
+      .delete(`${url}/colorapp/category/${id}/`, {
         headers: {
           Authorization: `Token ${token}`,
         },

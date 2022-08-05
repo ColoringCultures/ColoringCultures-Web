@@ -9,6 +9,7 @@ import { UserContext } from '../../../UserContext';
 import Modal from './Modal/Modal';
 import { useNavigate } from 'react-router-dom';
 import Categories from './Categories/Categories';
+import { url } from '../../../api';
 
 const AddImages = () => {
   const navigate = useNavigate();
@@ -54,15 +55,11 @@ const AddImages = () => {
     console.log(Object.fromEntries(formData));
 
     await axios
-      .post(
-        'https://colorculture.herokuapp.com/colorapp/imagevector',
-        formData,
-        {
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        }
-      )
+      .post(`${url}/colorapp/imagevector`, formData, {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      })
       .then((response) => {
         console.log(response);
         setLoading(false);

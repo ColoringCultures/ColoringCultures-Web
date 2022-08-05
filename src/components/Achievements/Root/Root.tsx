@@ -4,6 +4,7 @@ import './root.scss';
 import { UserContext } from '../../../UserContext';
 import Loader from '../../../Loader/Loader';
 import { useNavigate } from 'react-router-dom';
+import { url } from '../../../api';
 
 const Root = () => {
   const { token } = useContext(UserContext);
@@ -15,7 +16,7 @@ const Root = () => {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get('https://colorculture.herokuapp.com/achievements/', {
+        .get(`${url}/achievements/`, {
           headers: {
             Authorization: `Token ${token}`,
           },

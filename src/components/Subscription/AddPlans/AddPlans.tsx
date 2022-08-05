@@ -5,6 +5,7 @@ import { UserContext } from '../../../UserContext';
 import Loader from '../../../Loader/Loader';
 import Modal from './Modal/Modal';
 import { useNavigate } from 'react-router-dom';
+import { url } from '../../../api';
 
 const AddPlans = () => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const AddPlans = () => {
     formData.append('plan_avatar', testImage);
 
     await axios
-      .post('https://colorculture.herokuapp.com/subscriptions/', formData, {
+      .post(`${url}/subscriptions/`, formData, {
         headers: {
           Authorization: `Token ${token}`,
         },
