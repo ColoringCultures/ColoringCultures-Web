@@ -1,26 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Carousel.scss';
 import { mockdata } from './mockdata';
 import Loader from '../../Loader/Loader';
 import { useNavigate } from 'react-router-dom';
+import { url } from '../../api';
+import axios from 'axios';
+import { UserContext } from '../../UserContext';
 
 const Carousel = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [errMessage, setErrMessage] = useState('');
   const navigate = useNavigate();
   const [data, setData] = useState<any[]>(mockdata);
   const [dataList, setDataList] = useState<any[]>([]);
   const LIMIT = 4;
+  const { token } = useContext(UserContext);
   const LENGTH = dataList.length;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await axios
+        .get(`${url}/carousels/`, {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        })
+        .then((response) => {
+          setData(response.data.data);
+          console.log(response);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setErrMessage(err.message);
+          setIsLoading(false);
+        });
+    };
+    fetchData();
+  }, [token]);
 
   useEffect(() => {
     setDataList(data);
     setList(data.slice(0, LIMIT));
-    // remeber to remove this
-    setErrMessage('');
-    setIsLoading(false);
-    setData(data);
-    // this is for testing
   }, [LENGTH, data]);
 
   const [index, setIndex] = useState(LIMIT);
@@ -49,7 +69,7 @@ const Carousel = () => {
               return (
                 <div key={index} className="carousel-border">
                   <img
-                    src={data.file}
+                    src={data.image}
                     alt=""
                     className="carousel-border__image"
                   />
