@@ -34,6 +34,7 @@ const AddImages = () => {
     setImage(image);
     setInitialImage(e.target.files[0]);
     setIsImage(true);
+
   };
 
   const displayImage2 = (e: any) => {
