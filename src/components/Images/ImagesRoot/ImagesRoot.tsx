@@ -4,6 +4,7 @@ import axios from 'axios';
 import Loader from '../../../Loader/Loader';
 import { useNavigate, useOutletContext } from 'react-router-dom';
 import './ImagesRoot.scss';
+import { url } from '../../../api';
 
 const ImagesRoot = () => {
   const [filteredData, setFilteredData] = useState<any[]>([]);
@@ -25,18 +26,19 @@ const ImagesRoot = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const [errMessage, setErrMessage] = useState('');
-  const LIMIT = 4;
+  const LIMIT = 8;
 
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get('https://colorculture.herokuapp.com/colorapp/imagevector', {
+        .get(`${url}/colorapp/imagevector`, {
           headers: {
             Authorization: `Token ${token}`,
           },
         })
         .then((response) => {
           setData(response.data.data);
+          console.log(response);
           setIsLoading(false);
         })
         .catch((err) => {

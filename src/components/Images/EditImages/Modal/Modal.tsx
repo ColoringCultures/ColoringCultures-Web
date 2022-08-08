@@ -2,20 +2,18 @@ import './Modal.scss';
 import { UserContext } from '../../../../UserContext';
 import { useContext } from 'react';
 import axios from 'axios';
+import { url } from '../../../../api';
 
 const Modal = ({ setOpenModal, id, setDeleted }: any) => {
   const { token } = useContext(UserContext);
 
   const deleteImage = async () => {
     await axios
-      .delete(
-        `https://colorculture.herokuapp.com/colorapp/imagevector/${id}/`,
-        {
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        }
-      )
+      .delete(`${url}/colorapp/imagevector/${id}/`, {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      })
       .then((res) => {
         console.log(res);
       });

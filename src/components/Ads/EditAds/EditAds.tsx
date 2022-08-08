@@ -7,6 +7,7 @@ import axios from 'axios';
 import Loader from '../../../Loader/Loader';
 import { useNavigate } from 'react-router-dom';
 import ConfirmModal from './Modal/ConfirmModal';
+import { url } from '../../../api';
 
 const EditAds = () => {
   const navigate = useNavigate();
@@ -42,14 +43,13 @@ const EditAds = () => {
     }
     setFile(e.target.files[0]);
     setNewImage(image);
-
   };
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       await axios
-        .get(`https://colorculture.herokuapp.com/advertisements/${id}/`, {
+        .get(`${url}/advertisements/${id}/`, {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -94,18 +94,13 @@ const EditAds = () => {
     file ? formData.append('file', file) : formData.append('file', adFile);
     video ? formData.append('type', 'video') : formData.append('type', 'image');
 
-
     console.log(Object.fromEntries(formData));
     await axios
-      .put(
-        `https://colorculture.herokuapp.com/advertisements/${id}/`,
-        formData,
-        {
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        }
-      )
+      .put(`${url}/advertisements/${id}/`, formData, {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      })
       .then((response) => {
         console.log(response);
         setLoading(false);

@@ -8,6 +8,7 @@ import { UserContext } from '../../../UserContext';
 import Loader from '../../../Loader/Loader';
 import Modal from './Modal/Modal';
 import { useNavigate } from 'react-router-dom';
+import { url } from '../../../api';
 
 const CreateAchievement = () => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const CreateAchievement = () => {
     formData.append('dark_icon_image', data.dark_icon_image[0]);
 
     await axios
-      .post('https://colorculture.herokuapp.com/achievements/', formData, {
+      .post(`${url}/achievements/`, formData, {
         headers: {
           Authorization: `Token ${token}`,
         },

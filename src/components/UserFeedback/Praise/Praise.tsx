@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../../UserContext';
 import '../FeedbackCategories.scss';
 import Loader from '../../../Loader/Loader';
+import { url } from '../../../api';
 
 const Praise = () => {
   const [data, setData] = useState<any[]>([]);
@@ -15,7 +16,7 @@ const Praise = () => {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get('https://colorculture.herokuapp.com/feedbacks/list/', {
+        .get(`${url}/feedbacks/list`, {
           headers: {
             Authorization: `Token ${token}`,
           },

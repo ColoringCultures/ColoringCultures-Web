@@ -4,6 +4,7 @@ import axios from 'axios';
 import { UserContext } from '../../UserContext';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../assets/Logo.svg';
+import { url } from '../../api';
 
 const Login = () => {
   const [login, setLogin] = useState(false);
@@ -45,7 +46,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     await axios
-      .post('https://colorculture.herokuapp.com/auth/login/', {
+      .post(`${url}/auth/login/`, {
         username,
         email,
         password,

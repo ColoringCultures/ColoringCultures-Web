@@ -8,6 +8,7 @@ import { UserContext } from '../../../UserContext';
 import Modal from './Modal/Modal';
 import Loader from '../../../Loader/Loader';
 import { useNavigate } from 'react-router-dom';
+import { url } from '../../../api';
 
 const AddAds = () => {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ const AddAds = () => {
       : formData.append('type', 'image');
 
     await axios
-      .post('https://colorculture.herokuapp.com/advertisements/', formData, {
+      .post(`${url}/advertisements/`, formData, {
         headers: {
           Authorization: `Token ${token}`,
         },

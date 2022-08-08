@@ -2,13 +2,14 @@ import './Modal.scss';
 import { UserContext } from '../../../UserContext';
 import { useContext } from 'react';
 import axios from 'axios';
+import { url } from '../../../api';
 
 const Modal = ({ setOpenModal, id, setDeleted }: any) => {
   const { token } = useContext(UserContext);
 
   const deleteSubscription = async () => {
     await axios.delete(
-      `https://colorculture.herokuapp.com/subscriptions/${id}`,
+      `${url}/subscriptions/${id}`,
       {
         headers: {
           Authorization: `Token ${token}`,

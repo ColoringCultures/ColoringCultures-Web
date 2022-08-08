@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 export const schema = yup.object().shape({
-  title: yup.string().required('Title is required'),
+  title: yup.string().required('Description is required'),
   url: yup.string().notRequired(),
   image: yup
     .mixed()
