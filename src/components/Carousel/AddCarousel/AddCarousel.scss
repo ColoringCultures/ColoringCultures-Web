@@ -79,3 +79,21 @@
     }
   }
 }
+
+.AC-add {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 254px;
+  height: 49px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #7e3910;
+  color: white;
+  border: 1px solid #707070;
+  margin-top: 30px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #984514;
+  }
+}
