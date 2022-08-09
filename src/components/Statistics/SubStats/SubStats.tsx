@@ -20,23 +20,23 @@ const SubStats = () => {
           </div>
         </div>
         <div className="sub-details">
-          <p className="sub-name">Total</p>
+          <p className="sub-name">Total Subscription</p>
           <p className="sub-number">3,254</p>
         </div>
         <div className="sub-details">
-          <p className="sub-name">Active/Returning</p>
+          <p className="sub-name">Active Subscription</p>
           <p className="sub-number">8,113</p>
         </div>
         <div className="sub-details">
-          <p className="sub-name">Inactive</p>
+          <p className="sub-name">Unrenewed Subscription</p>
           <p className="sub-number">4,013</p>
         </div>
         <div className="sub-details">
-          <p className="sub-name">Subscribing</p>
+          <p className="sub-name">Subscription Revenue</p>
           <p className="sub-number">3,018</p>
         </div>
         <div className="sub-details-bottom">
-          <p className="sub-name">Free trial</p>
+          <p className="sub-name">Active Sub Revenue</p>
           <p className="sub-number">9,051</p>
         </div>
       </div>
