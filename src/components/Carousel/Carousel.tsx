@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './Carousel.scss';
 import { mockdata } from './mockdata';
 import Loader from '../../Loader/Loader';
@@ -13,7 +13,7 @@ const Carousel = () => {
   const navigate = useNavigate();
   const [data, setData] = useState<any[]>(mockdata);
   const [dataList, setDataList] = useState<any[]>([]);
-  const LIMIT = 4;
+  const LIMIT = 8;
   const { token } = useContext(UserContext);
   const LENGTH = dataList.length;
 

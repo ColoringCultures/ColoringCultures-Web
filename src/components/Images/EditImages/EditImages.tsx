@@ -84,8 +84,6 @@ const AddImages = () => {
       : formData.append('final_image', image2);
     formData.append('isImage', isImage.toString());
 
-    console.log(Object.fromEntries(formData));
-
     await axios
       .put(`${url}/colorapp/imagevector/${id}/`, formData, {
         headers: {
