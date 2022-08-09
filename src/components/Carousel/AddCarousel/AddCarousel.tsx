@@ -18,6 +18,15 @@ const AddCarousel = () => {
   const { token } = useContext(UserContext);
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
+  const [descriptionText, setDescriptionText] = useState('');
+
+  const characterLimit = 50;
+
+  const handleChange = (event: any) => {
+    if (characterLimit - event.target.value.length >= 0) {
+      setDescriptionText(event.target.value);
+    }
+  };
 
   const displayImage = (e: any) => {
     const image = URL.createObjectURL(e.target.files[0]);
@@ -81,8 +90,14 @@ const AddCarousel = () => {
                 <label>Image Description</label>
                 <textarea
                   placeholder="Enter the image description here"
+                  value={descriptionText}
+                  onInput={handleChange}
                   {...register('title')}
                 />
+                <p className="characters-left">
+                  {characterLimit - descriptionText.length} chacracters
+                  remaining
+                </p>
                 {errors.title && (
                   <p className="images-error">{errors.title?.message}</p>
                 )}
@@ -139,4 +154,3 @@ const AddCarousel = () => {
 };
 
 export default AddCarousel;
-
