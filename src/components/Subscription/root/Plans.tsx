@@ -77,7 +77,7 @@ const Plans = () => {
                     <div className="plan-header-details">
                       <div className="details-name">{data.plan_name}</div>
                       <div className="details-amount">
-                        ${data.amount}
+                        ${Math.round(data.amount)}
                         <span>/month</span>
                       </div>
                     </div>
