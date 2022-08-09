@@ -200,6 +200,10 @@ const AddImages = () => {
                   )}
                 </div>
               </div>
+              <p className="pointer-ks">
+                *When Updating the images, it is required you update both the
+                initial and final image.
+              </p>
             </section>
           </div>
           {errMessage && <p className="images-error">{errMessage}</p>}
