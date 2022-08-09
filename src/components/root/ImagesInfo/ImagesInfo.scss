@@ -57,6 +57,9 @@
       padding: 5%;
       text-align: center;
       cursor: pointer;
+      &:hover {
+        background-color: #9e5a1b;
+      }
     }
 
     .images-info-UI {
@@ -68,6 +71,9 @@
       padding: 5%;
       text-align: center;
       cursor: pointer;
+      &:hover {
+        background-color: #c0c1cc;
+      }
     }
 
     .images-info-DI {
@@ -79,6 +85,9 @@
       padding: 5%;
       text-align: center;
       cursor: pointer;
+      &:hover {
+        background-color: #ff0000da;
+      }
     }
 
     .Images_view {
@@ -86,6 +95,7 @@
       p {
         font-size: 20px;
         color: #707070;
+        cursor: pointer;
       }
       img {
         width: 100%;
