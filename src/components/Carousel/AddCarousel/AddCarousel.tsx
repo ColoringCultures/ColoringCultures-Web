@@ -98,6 +98,7 @@ const AddCarousel = () => {
                   {characterLimit - descriptionText.length} chacracters
                   remaining
                 </p>
+
                 {errors.title && (
                   <p className="images-error">{errors.title?.message}</p>
                 )}
@@ -118,6 +119,7 @@ const AddCarousel = () => {
               <div>
                 <label>
                   Upload Image <span>(300 x 200 px)</span>
+
                   <label className="slideshow__upload">
                     <span>Choose a file</span>
                     <input
