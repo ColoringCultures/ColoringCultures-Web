@@ -95,7 +95,6 @@ const AddCarousel = () => {
                 <p className="characters-left">
                   {characterLimit - descriptionText.length} characters remaining
                 </p>
-
                 {errors.title && (
                   <p className="images-error">{errors.title?.message}</p>
                 )}
