@@ -60,7 +60,10 @@ export const routes = [
               { path: 'EditImages/:id', element: <EditImages /> },
               { path: 'SlideShowImages', element: <Carousel /> },
               { path: 'AddSlideShowImages', element: <AddCarousel /> },
-              { path: 'EditSlideShowImages/:id', element: <EditCarousel /> },
+              {
+                path: 'SlideShowImages/EditSlideShowImages/:id',
+                element: <EditCarousel />,
+              },
             ],
           },
           {
