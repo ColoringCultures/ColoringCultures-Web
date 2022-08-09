@@ -43,7 +43,6 @@ const AddCarousel = () => {
 
   const onSubmit = async (data: any) => {
     setLoading(true);
-    console.log(data);
     setName(data.title);
     const formData = new FormData();
     formData.append('title', data.title);
@@ -58,7 +57,6 @@ const AddCarousel = () => {
       })
       .then((response) => {
         setLoading(false);
-        console.log(response);
         if (response.data.message === 'OK') {
           setModalOpen(true);
         }
@@ -73,7 +71,7 @@ const AddCarousel = () => {
     if (modalOpen) {
       setTimeout(() => {
         setModalOpen(false);
-        navigate('/Dashboard/SlideShowImages');
+        navigate('/Dashboard/Images/SlideShowImages');
       }, 2000);
     }
   });
@@ -95,8 +93,7 @@ const AddCarousel = () => {
                   {...register('title')}
                 />
                 <p className="characters-left">
-                  {characterLimit - descriptionText.length} chacracters
-                  remaining
+                  {characterLimit - descriptionText.length} characters remaining
                 </p>
                 {errors.title && (
                   <p className="images-error">{errors.title?.message}</p>
@@ -134,7 +131,7 @@ const AddCarousel = () => {
                 </label>
                 {image && (
                   <img
-                    style={{ width: '241px', height: ' 270px' }}
+                    style={{ width: '300px', height: ' 200px' }}
                     src={image}
                     alt=""
                   />
