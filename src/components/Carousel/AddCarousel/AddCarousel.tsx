@@ -117,7 +117,7 @@ const AddCarousel = () => {
             <div className="form-rr__two">
               <div>
                 <label>
-                  Upload Image
+                  Upload Image <span>(300 x 200 px)</span>
                   <label className="slideshow__upload">
                     <span>Choose a file</span>
                     <input
