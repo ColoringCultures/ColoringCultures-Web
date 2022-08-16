@@ -15,7 +15,7 @@ const Modal = ({ setOpenModal, imgName }: any) => {
         </div>
         <div className="modal-content-ads">
           <div className="modal-header">
-            <h1>{imgName} has been added </h1>
+            <h1>{imgName} has been added</h1>
           </div>
         </div>
       </div>
