@@ -48,9 +48,6 @@ const EditCarousel = () => {
           setLink(response.data.data.url);
           setImage(response.data.data.image);
           setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
         });
     };
     fetchData();

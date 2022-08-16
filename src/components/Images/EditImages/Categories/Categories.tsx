@@ -51,15 +51,11 @@ const Categories = ({ setCategory, setCategoryName, categoryName }: any) => {
 
   const deleteCategory = (id: number) => {
     setRefresh(true);
-    axios
-      .delete(`${url}/colorapp/category/${id}/`, {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    axios.delete(`${url}/colorapp/category/${id}/`, {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    });
   };
 
   useEffect(() => {

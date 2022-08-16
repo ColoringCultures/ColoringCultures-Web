@@ -26,7 +26,6 @@ const RootAds = () => {
         })
         .then((response) => {
           setData(response.data.data);
-          console.log(response);
           setIsLoading(false);
         })
         .catch((err) => {

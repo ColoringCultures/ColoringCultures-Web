@@ -52,8 +52,6 @@ const AddImages = () => {
     formData.append('final_image', data.final_image[0]);
     formData.append('category', category);
 
-    console.log(Object.fromEntries(formData));
-
     await axios
       .post(`${url}/colorapp/imagevector`, formData, {
         headers: {
@@ -61,7 +59,6 @@ const AddImages = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         setLoading(false);
         if (response.data.message === 'OK') {
           setModalOpen(true);

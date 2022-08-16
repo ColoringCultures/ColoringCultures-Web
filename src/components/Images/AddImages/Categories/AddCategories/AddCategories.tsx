@@ -31,9 +31,6 @@ const AddCategories = ({ setModal, setRefresh }: any) => {
       .then(() => {
         setRefresh(true);
         setModal(false);
-      })
-      .catch((err) => {
-        console.log(err);
       });
   };
 

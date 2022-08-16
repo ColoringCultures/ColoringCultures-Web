@@ -8,15 +8,12 @@ const Modal = ({ setOpenModal, id, setDeleted }: any) => {
   const { token } = useContext(UserContext);
 
   const deleteAds = async () => {
-    await axios
-      .delete(`${url}/advertisements/${id}`, {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log(response);
-      });
+    await axios.delete(`${url}/advertisements/${id}`, {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    });
+
     setDeleted(true);
     setOpenModal(false);
   };

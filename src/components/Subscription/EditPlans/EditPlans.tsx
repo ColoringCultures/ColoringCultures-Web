@@ -34,7 +34,6 @@ const EditPlans = () => {
           },
         })
         .then((response) => {
-          console.log(response.data);
           setPlanName(response.data.data.plan_name);
           setArtToBeColored(response.data.data.art_to_be_colored);
           setNumOfArts(response.data.data.number_of_arts);

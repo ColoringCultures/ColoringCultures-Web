@@ -7,7 +7,6 @@ import AddCategories from './AddCategories/AddCategories';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { url } from '../../../../api';
 
-
 const Categories = ({ setCategory }: any) => {
   const { token } = useContext(UserContext);
   const [openDD, setOpenDD] = useState(false);
@@ -53,15 +52,11 @@ const Categories = ({ setCategory }: any) => {
 
   const deleteCategory = (id: number) => {
     setRefresh(true);
-    axios
-      .delete(`${url}/colorapp/category/${id}/`, {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    axios.delete(`${url}/colorapp/category/${id}/`, {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    });
   };
 
   useEffect(() => {

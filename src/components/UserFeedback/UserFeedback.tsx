@@ -22,9 +22,6 @@ const UserFeedback = () => {
         })
         .then((response) => {
           setData(response.data.data);
-        })
-        .catch((err) => {
-          console.log(err.message);
         });
     };
     fetchData();

@@ -61,9 +61,6 @@ const AddImages = () => {
           setCategoryName(response.data.data.category.name);
           setCategory(response.data.data.category.id);
           setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
         });
     };
     fetchData();
@@ -91,7 +88,6 @@ const AddImages = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         setLoading(false);
         if (response.data.message === 'OK') {
           navigate('/Dashboard/Images');

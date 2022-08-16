@@ -84,7 +84,6 @@ const EditAds = () => {
   });
 
   const onSubmit = async () => {
-    console.log(video);
     setLoading(true);
     const formData = new FormData();
     formData.append('title', title);
@@ -94,7 +93,6 @@ const EditAds = () => {
     file ? formData.append('file', file) : formData.append('file', adFile);
     video ? formData.append('type', 'video') : formData.append('type', 'image');
 
-    console.log(Object.fromEntries(formData));
     await axios
       .put(`${url}/advertisements/${id}/`, formData, {
         headers: {
@@ -102,7 +100,6 @@ const EditAds = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         setLoading(false);
         if (response.data.message === 'OK') {
           navigate('/Dashboard/Ads');
