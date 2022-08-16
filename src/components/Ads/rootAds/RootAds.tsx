@@ -26,6 +26,7 @@ const RootAds = () => {
         })
         .then((response) => {
           setData(response.data.data);
+          console.log(response);
           setIsLoading(false);
         })
         .catch((err) => {
@@ -60,6 +61,7 @@ const RootAds = () => {
       setIsDisabled(true);
     }
   };
+
   return (
     <div>
       {isLoading ? (
@@ -70,7 +72,7 @@ const RootAds = () => {
           <div className={scroll ? 'rootads-root' : 'adsroot-root'}>
             {list.map((data, index) => {
               return (
-                <div key={index} className="ads-border">
+                <div key={index} className="ads__border">
                   {data.file.includes('.mp4') ? (
                     <video width={240} height={250} controls>
                       <source src={data.file} type="video/mp4" />
