@@ -3,7 +3,7 @@ import * as yup from 'yup';
 export const schema = yup.object().shape({
   name: yup.string().required('Title is required'),
   description: yup.string().required('Title is required'),
-  redirect_url: yup.string().required('URL is required'),
+  redirect_url: yup.string().notRequired(),
   initial_image: yup
     .mixed()
     .test('required', 'You need to provide a file', (value) => {

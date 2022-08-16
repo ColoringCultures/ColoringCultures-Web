@@ -16,15 +16,6 @@ const AddPlans = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [errMessage, setErrMessage] = useState('');
 
-  const [validateErr, setValidateErr] = useState({
-    planName: '',
-    artToBeColored: '',
-    numOfArts: '',
-    amount: '',
-    numOfHint: '',
-    testImage: '',
-  });
-
   function imageUpload(event: any) {
     setTestImage(event.target.files[0]);
   }
@@ -72,61 +63,8 @@ const AddPlans = () => {
   const [image, setImage] = useState('');
   const [testImage, setTestImage] = useState('');
 
-  const Validate = () => {
-    if (planName === '') {
-      setValidateErr((validateErr) => ({
-        ...validateErr,
-        planName: 'Plan Name is required',
-      }));
-    }
-
-    if (artToBeColored === '') {
-      setValidateErr((validateErr) => ({
-        ...validateErr,
-        artToBeColored: 'Art to be colored is required',
-      }));
-    }
-    if (numOfArts === '') {
-      setValidateErr((validateErr) => ({
-        ...validateErr,
-        numOfArts: 'Number of arts is required',
-      }));
-    }
-    if (amount === '') {
-      setValidateErr((validateErr) => ({
-        ...validateErr,
-        amount: 'Amount is required',
-      }));
-    }
-    if (numOfHint === '') {
-      setValidateErr((validateErr) => ({
-        ...validateErr,
-        numOfHint: 'Amount of hints is required',
-      }));
-    }
-    if (testImage === '') {
-      setValidateErr((validateErr) => ({
-        ...validateErr,
-        testImage: 'Plan avatar is required',
-      }));
-    }
-    if (
-      validateErr.amount === '' ||
-      validateErr.artToBeColored === '' ||
-      validateErr.numOfArts === '' ||
-      validateErr.numOfHint === '' ||
-      validateErr.planName === '' ||
-      validateErr.testImage === ''
-    ) {
-      return false;
-    }
-    return true;
-  };
-
   const SubmitForm = () => {
-    if (Validate()) {
-      createSubscription();
-    }
+    createSubscription();
   };
 
   useEffect(() => {
@@ -173,9 +111,6 @@ const AddPlans = () => {
                     setPlanName(e.target.value);
                   }}
                 />
-                {validateErr.planName && (
-                  <p className="err-plans-add">{validateErr.planName}</p>
-                )}
               </div>
               <div className="radio-plan">
                 <div className="label">
@@ -202,9 +137,6 @@ const AddPlans = () => {
                   disabled={unlimtedColors}
                   required
                 />
-                {validateErr.artToBeColored && (
-                  <p className="err-plans-add">{validateErr.artToBeColored}</p>
-                )}
               </div>
               <div className="radio-plan">
                 <div className="label">
@@ -231,9 +163,6 @@ const AddPlans = () => {
                   disabled={unlimtedArts}
                   required
                 />
-                {validateErr.numOfArts && (
-                  <p className="err-plans-add">{validateErr.numOfArts}</p>
-                )}
               </div>
               <div className="radio-plan">
                 <label>Amount</label>
@@ -244,9 +173,6 @@ const AddPlans = () => {
                     setAmount(e.target.value);
                   }}
                 />
-                {validateErr.amount && (
-                  <p className="err-plans-add">{validateErr.amount}</p>
-                )}
               </div>
             </div>
             <div className="left-div-plan">
@@ -275,9 +201,6 @@ const AddPlans = () => {
                   disabled={unlimtedHints}
                   required
                 />
-                {validateErr.numOfHint && (
-                  <p className="err-plans-add">{validateErr.numOfHint}</p>
-                )}
               </div>
               <div className="upload-plans">
                 <label>
@@ -299,9 +222,6 @@ const AddPlans = () => {
                     src={image}
                     alt=""
                   />
-                )}
-                {validateErr.testImage && (
-                  <p className="err-plans-add">{validateErr.testImage}</p>
                 )}
               </div>
             </div>

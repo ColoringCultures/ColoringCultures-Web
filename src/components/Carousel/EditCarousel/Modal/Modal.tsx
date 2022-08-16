@@ -8,15 +8,12 @@ const Modal = ({ setOpenModal, id, setDeleted }: any) => {
   const { token } = useContext(UserContext);
 
   const deleteImage = async () => {
-    await axios
-      .delete(`${url}/carousels/${id}/`, {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-      });
+    await axios.delete(`${url}/carousels/${id}/`, {
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    });
+
     setDeleted(true);
     setOpenModal(false);
   };

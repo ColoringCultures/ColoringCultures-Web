@@ -77,7 +77,7 @@ const ImagesRoot = () => {
           <div className={scroll ? 'rootImages-root' : 'images-root-root'}>
             {list.map((data, index) => {
               return (
-                <div key={index} className="images-border">
+                <div key={index} className="images__border">
                   <img
                     src={data.final_image}
                     alt=""
