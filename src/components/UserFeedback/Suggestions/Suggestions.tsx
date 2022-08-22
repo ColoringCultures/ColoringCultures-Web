@@ -78,10 +78,12 @@ const Suggestions = () => {
       )}
       {showMore && (
         <div>
-          <button onClick={loadMore} className="submit-button">
-            {' '}
-            Load More{' '}
-          </button>
+          {list.length >= LIMIT && (
+            <button onClick={loadMore} className="submit-button">
+              {' '}
+              Load More{' '}
+            </button>
+          )}
         </div>
       )}
     </div>

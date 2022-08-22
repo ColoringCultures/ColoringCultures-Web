@@ -126,10 +126,14 @@ const Plans = () => {
             })}
           </div>
           {showMore && (
-            <button onClick={loadMore} className="sub-loadmore-button">
-              {' '}
-              Load More{' '}
-            </button>
+            <div>
+              {list.length >= LIMIT && (
+                <button onClick={loadMore} className="sub-loadmore-button">
+                  {' '}
+                  Load More{' '}
+                </button>
+              )}
+            </div>
           )}
         </div>
       )}

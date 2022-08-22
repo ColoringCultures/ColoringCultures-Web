@@ -1,5 +1,4 @@
 import './home.scss';
-import AdsStats from '../Statistics/AdsStats/AdsStats';
 import VisitorsPerDay from './VisitorsPerDay/VisitorsPerDay';
 import AchievementsPerDay from './AchievementsPerDay/AchievementsPerDay';
 import FeedbacksPerDay from './FeedbacksPerDay/FeedbacksPerDay';
@@ -8,7 +7,6 @@ import RevenueChart from '../Revenue/RevenueChart/RevenueChart';
 import ImagesInfo from './ImagesInfo/ImagesInfo';
 
 const home = () => {
-  let allow: boolean = false;
   return (
     <div className="dash-home">
       <div className="root-h1">
@@ -21,7 +19,6 @@ const home = () => {
           <MonthlyVisitors />
         </div>
         <div className="AR-home">
-          <AdsStats allow={allow} />
           <RevenueChart />
         </div>
       </div>
