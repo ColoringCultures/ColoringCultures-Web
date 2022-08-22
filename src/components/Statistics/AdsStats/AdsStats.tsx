@@ -1,7 +1,7 @@
 import './AdsStats.scss';
 import ProgressBar from '@ramonak/react-progress-bar';
 
-const AdsStats = ({ allow }: any) => {
+const AdsStats = ({ allow, stats }: any) => {
   return (
     <div>
       <div className="ads-stats-root">

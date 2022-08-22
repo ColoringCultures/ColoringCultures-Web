@@ -1,9 +1,9 @@
 import React from 'react';
 import './FeedbackStats.scss';
 
-const FeedbackStats = () => {
+const FeedbackStats = ({ stats }: any) => {
   return (
-    <div className='fd-root'>
+    <div className="fd-root">
       <div className="feedback-root">
         <div className="feedback-header">
           <p className="feedback-p1">Feedbacks</p>
@@ -14,7 +14,7 @@ const FeedbackStats = () => {
         </div>
         <div className="feedback-total">
           <p className="feedback-total-p">Total</p>
-          <p className="feedback-total-p2">$3,254</p>
+          <p className="feedback-total-p2">3,254</p>
         </div>
       </div>
     </div>
