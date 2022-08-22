@@ -38,6 +38,7 @@ const ImagesRoot = () => {
         })
         .then((response) => {
           setData(response.data.data);
+          console.log(response.data);
           setIsLoading(false);
         })
         .catch((err) => {
@@ -104,10 +105,12 @@ const ImagesRoot = () => {
           </div>
           {showMore && (
             <div className="button-images-div">
-              <button onClick={loadMore} className="images-loadmore-button">
-                {' '}
-                Load More{' '}
-              </button>
+              {list.length >= LIMIT && (
+                <button onClick={loadMore} className="images-loadmore-button">
+                  {' '}
+                  Load More{' '}
+                </button>
+              )}
             </div>
           )}
         </div>

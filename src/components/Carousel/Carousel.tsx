@@ -89,10 +89,12 @@ const Carousel = () => {
           </div>
           {showMore && (
             <div className="button-carousel-div">
-              <button onClick={loadMore} className="carousel-loadmore-button">
-                {' '}
-                Load More{' '}
-              </button>
+              {list.length > LIMIT && (
+                <button onClick={loadMore} className="carousel-loadmore-button">
+                  {' '}
+                  Load More{' '}
+                </button>
+              )}
             </div>
           )}
         </div>

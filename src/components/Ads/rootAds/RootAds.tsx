@@ -97,14 +97,16 @@ const RootAds = () => {
           </div>
           {showMore && (
             <div className="button-ad-div">
-              <button
-                onClick={loadMore}
-                className="ads-loadmore-button"
-                disabled={isDisabled}
-              >
-                {' '}
-                Load More{' '}
-              </button>
+              {list.length > LIMIT && (
+                <button
+                  onClick={loadMore}
+                  className="ads-loadmore-button"
+                  disabled={isDisabled}
+                >
+                  {' '}
+                  Load More{' '}
+                </button>
+              )}
             </div>
           )}
         </div>
