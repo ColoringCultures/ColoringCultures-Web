@@ -1,6 +1,6 @@
 import './Visitors.scss';
 
-const Visitors = () => {
+const Visitors = ({ stats }: any) => {
   return (
     <div>
       <div className="root-visitors">

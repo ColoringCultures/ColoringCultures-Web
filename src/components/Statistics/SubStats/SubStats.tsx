@@ -1,6 +1,6 @@
 import './SubStats.scss';
 
-const SubStats = () => {
+const SubStats = ({ stats }: any) => {
   return (
     <div>
       <div className="root-sub">
@@ -21,23 +21,23 @@ const SubStats = () => {
         </div>
         <div className="sub-details">
           <p className="sub-name">Total Subscription</p>
-          <p className="sub-number">3,254</p>
+          <p className="sub-number">{stats.total_subscriptions}</p>
         </div>
         <div className="sub-details">
           <p className="sub-name">Active Subscription</p>
-          <p className="sub-number">8,113</p>
+          <p className="sub-number">{stats.active_subscription}</p>
         </div>
         <div className="sub-details">
           <p className="sub-name">Unrenewed Subscription</p>
-          <p className="sub-number">4,013</p>
+          <p className="sub-number">nil</p>
         </div>
         <div className="sub-details">
           <p className="sub-name">Subscription Revenue</p>
-          <p className="sub-number">3,018</p>
+          <p className="sub-number">{stats.subscription_revenue}</p>
         </div>
         <div className="sub-details-bottom">
           <p className="sub-name">Active Sub Revenue</p>
-          <p className="sub-number">9,051</p>
+          <p className="sub-number">{stats.active_sub_revenue}</p>
         </div>
       </div>
     </div>
