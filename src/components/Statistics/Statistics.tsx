@@ -11,7 +11,7 @@ import SubStats from './SubStats/SubStats';
 import Visitors from './Visitors/Visitors';
 
 const Statistics = () => {
-  let allow: boolean = true;
+  let allow: boolean = false;
   const { token } = useContext(UserContext);
   const [adStats, setAdstats] = useState({});
   const [feedback, setFeedback] = useState({});

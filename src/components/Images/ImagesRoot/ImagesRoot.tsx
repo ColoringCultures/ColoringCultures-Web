@@ -53,7 +53,6 @@ const ImagesRoot = () => {
         })
         .then((response) => {
           setData(response.data.data);
-          console.log(response.data);
           setIsLoading(false);
         })
         .catch((err) => {

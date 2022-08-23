@@ -10,10 +10,8 @@ const Plans = () => {
   const navigate = useNavigate();
   const [data, setData] = useState<any[]>([]);
   const { token } = useContext(UserContext);
-  const [bugList, setBugList] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errMessage, setErrMessage] = useState('');
-  const LIMIT = 2;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,27 +33,12 @@ const Plans = () => {
     fetchData();
   }, [token]);
 
-  const LENGTH = bugList.length;
-  const [showMore, setShowMore] = useState(true);
   const [list, setList] = useState<any[]>([]);
 
   useEffect(() => {
-    setBugList(data);
-    setList(data.slice(0, LIMIT));
-  }, [LENGTH, data]);
+    setList(data);
+  }, [data]);
 
-  const [index, setIndex] = useState(LIMIT);
-  const [scroll, setScroll] = useState(false);
-
-  const loadMore = () => {
-    const newIndex = index + LIMIT;
-    const newShowMore = newIndex < LENGTH;
-    const newList = list.concat(bugList.slice(index, newIndex));
-    setIndex(newIndex);
-    setList(newList);
-    setShowMore(newShowMore);
-    setScroll(true);
-  };
   return (
     <div>
       {isLoading ? (
@@ -63,7 +46,7 @@ const Plans = () => {
       ) : (
         <div>
           {errMessage && <p className="err-message-plan">{errMessage}</p>}
-          <div className={scroll ? 'sub-root' : 'scroll-sub-root'}>
+          <div className={'scroll-sub-root'}>
             {list.map((data, index) => {
               return (
                 <div key={index} id={data.id} className="plan-root">
@@ -125,16 +108,6 @@ const Plans = () => {
               );
             })}
           </div>
-          {showMore && (
-            <div>
-              {list.length >= LIMIT && (
-                <button onClick={loadMore} className="sub-loadmore-button">
-                  {' '}
-                  Load More{' '}
-                </button>
-              )}
-            </div>
-          )}
         </div>
       )}
     </div>
