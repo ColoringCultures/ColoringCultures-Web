@@ -97,7 +97,7 @@ const RootAds = () => {
           </div>
           {showMore && (
             <div className="button-ad-div">
-              {list.length > LIMIT && (
+              {bugList.length > LIMIT && (
                 <button
                   onClick={loadMore}
                   className="ads-loadmore-button"
