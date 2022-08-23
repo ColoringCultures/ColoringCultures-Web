@@ -96,6 +96,7 @@ const AddImages = () => {
                   type="text"
                   placeholder="Enter a name here"
                   {...register('name')}
+                  className={errors.name ? 'test' : ''}
                 />
                 {errors.name && (
                   <p className="images-error">{errors.name?.message}</p>
