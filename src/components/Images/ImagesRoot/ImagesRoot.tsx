@@ -119,7 +119,7 @@ const ImagesRoot = () => {
           </div>
           {showMore && (
             <div className="button-images-div">
-              {list.length >= LIMIT && (
+              {list.length > LIMIT && (
                 <button onClick={loadMore} className="images-loadmore-button">
                   {' '}
                   Load More{' '}
