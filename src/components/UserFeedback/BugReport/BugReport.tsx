@@ -78,7 +78,7 @@ const BugReport = () => {
       )}
       {showMore && (
         <div>
-          {list.length >= LIMIT && (
+          {bugList.length >= LIMIT && (
             <button onClick={loadMore} className="submit-button">
               {' '}
               Load More{' '}

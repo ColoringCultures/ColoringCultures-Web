@@ -53,7 +53,6 @@ const ImagesRoot = () => {
         })
         .then((response) => {
           setData(response.data.data);
-          console.log(response.data);
           setIsLoading(false);
         })
         .catch((err) => {
@@ -67,6 +66,10 @@ const ImagesRoot = () => {
   useEffect(() => {
     setList(filteredData.slice(0, LIMIT));
   }, [filteredData]);
+
+  useEffect(() => {
+    console.log(list.length);
+  });
 
   const LENGTH = filteredData.length;
   const [showMore, setShowMore] = useState(true);
@@ -120,7 +123,7 @@ const ImagesRoot = () => {
           </div>
           {showMore && (
             <div className="button-images-div">
-              {list.length > LIMIT && (
+              {filteredData.length > LIMIT && (
                 <button onClick={loadMore} className="images-loadmore-button">
                   {' '}
                   Load More{' '}
