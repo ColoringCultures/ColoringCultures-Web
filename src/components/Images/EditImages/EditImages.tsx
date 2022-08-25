@@ -126,9 +126,9 @@ const AddImages = () => {
                 />
               </div>
               <div className="description__details">
-                <label>Products Description</label>
+                <label>Image Description</label>
                 <textarea
-                  placeholder="Enter the product description here"
+                  placeholder="Enter the Image description here"
                   defaultValue={description}
                   onChange={(e) => setDescription(e.target.value)}
                 />

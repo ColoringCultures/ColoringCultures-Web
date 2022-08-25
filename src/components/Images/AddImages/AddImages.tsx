@@ -103,9 +103,9 @@ const AddImages = () => {
                 )}
               </div>
               <div className="description__details">
-                <label>Products Description</label>
+                <label>Image Description</label>
                 <textarea
-                  placeholder="Enter the product description here"
+                  placeholder="Enter the Image description here"
                   {...register('description')}
                 />
                 {errors.description && (
