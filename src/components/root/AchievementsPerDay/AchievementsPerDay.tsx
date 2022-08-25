@@ -1,7 +1,7 @@
 import './AchievementsPerDay.scss';
 import GradeIcon from '@mui/icons-material/Grade';
 
-const AchievementsPerDay = () => {
+const AchievementsPerDay = ({ APD }: any) => {
   return (
     <div>
       <div className="APD-root">
@@ -10,7 +10,7 @@ const AchievementsPerDay = () => {
           <p>Achievements/day</p>
         </div>
         <div className="APD-details">
-          <p className="APD-amount">940</p>
+          <p className="APD-amount">{APD}</p>
           <div className="APD-perc">
             <img src={require('../../../assets/Path 67.png')} alt="" />
             <p className="APD-perc-amount">+0.14%</p>

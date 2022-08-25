@@ -1,7 +1,7 @@
 import './FeedbacksPerDay.scss';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 
-const FeedbacksPerDay = () => {
+const FeedbacksPerDay = ({ FPD }: any) => {
   return (
     <div>
       <div className="FPD-root">
@@ -10,7 +10,7 @@ const FeedbacksPerDay = () => {
           <p>Feedbacks/day</p>
         </div>
         <div className="FPD-details">
-          <p className="FPD-amount">281</p>
+          <p className="FPD-amount">{FPD}</p>
           <div className="FPD-perc">
             <img src={require('../../../assets/Path 61.png')} alt="" />
             <p className="FPD-perc-amount">22.8%</p>
