@@ -8,23 +8,19 @@ import { url } from '../../../api';
 
 const ImagesRoot = () => {
   const [filteredData, setFilteredData] = useState<any[]>([]);
-  // const [categ, setCateg] = useState('');
   const [data, setData] = useState<any[]>([]);
-  const inputText: string = useOutletContext();
+  const [inputText, filterName]: any = useOutletContext();
 
-  // useEffect(() => {
-  //   const filteredData = data.filter((item) => {
-  //     return item.category.name === categ;
-  //   });
-  //   setFilteredData(filteredData);
-  // }, [categ, data]);
-
-  // useEffect(() => {
-  //   const filteredData = data.filter((item) => {
-  //     return item.category.name.sort();
-  //   });
-  //   setFilteredData(filteredData);
-  // }, [categ, data]);
+  useEffect(() => {
+    const filteredData = data.filter((item) => {
+      if (filterName === '') {
+        return item;
+      } else {
+        return item.category.name === filterName;
+      }
+    });
+    setFilteredData(filteredData);
+  }, [filterName, data]);
 
   useEffect(() => {
     const filteredData = data.filter((item) => {
