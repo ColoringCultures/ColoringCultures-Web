@@ -15,37 +15,19 @@ const AdsStats = ({ allow, stats }: any) => {
         <div className="status-bar">
           <p>Watched</p>
           <div className="progress-bar">
-            <ProgressBar
-              completed={60}
-              height={'15px'}
-              bgColor={'#FF6933'}
-              labelSize={'10px'}
-              animateOnRender={true}
-            />
+            <p>{stats.number_of_ads_watched}</p>
           </div>
         </div>
         <div className="status-bar">
           <p>Skipped</p>
           <div className="progress-bar">
-            <ProgressBar
-              completed={22}
-              height={'15px'}
-              bgColor={'#FF6933'}
-              labelSize={'10px'}
-              animateOnRender={true}
-            />
+            <p>{stats.number_ads_skipped}</p>
           </div>
         </div>
         <div className="status-bar">
           <p>Clicked</p>
           <div className="progress-bar">
-            <ProgressBar
-              completed={12}
-              height={'15px'}
-              bgColor={'#FF6933'}
-              labelSize={'10px'}
-              animateOnRender={true}
-            />
+            <p>{stats.number_ads_clicked}</p>
           </div>
         </div>
         <div className="status-bar">

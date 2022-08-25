@@ -14,7 +14,7 @@ const FeedbackStats = ({ stats }: any) => {
         </div>
         <div className="feedback-total">
           <p className="feedback-total-p">Total</p>
-          <p className="feedback-total-p2">3,254</p>
+          <p className="feedback-total-p2">{stats.feedbacks_past_seven_days}</p>
         </div>
       </div>
     </div>
