@@ -197,7 +197,7 @@ const AddImages = () => {
                 </div>
               </div>
               <p className="pointer-ks">
-                *When Updating the images, it is required you update both the
+                When Updating the images, it is required you update both the
                 initial and final image.
               </p>
             </section>

@@ -1,5 +1,4 @@
 import './AdsStats.scss';
-import ProgressBar from '@ramonak/react-progress-bar';
 
 const AdsStats = ({ allow, stats }: any) => {
   return (
@@ -28,18 +27,6 @@ const AdsStats = ({ allow, stats }: any) => {
           <p>Clicked</p>
           <div className="progress-bar">
             <p>{stats.number_ads_clicked}</p>
-          </div>
-        </div>
-        <div className="status-bar">
-          <p>Conversion</p>
-          <div className="progress-bar">
-            <ProgressBar
-              completed={15}
-              height={'15px'}
-              bgColor={'#FF6933'}
-              labelSize={'10px'}
-              animateOnRender={true}
-            />
           </div>
         </div>
         {allow && (

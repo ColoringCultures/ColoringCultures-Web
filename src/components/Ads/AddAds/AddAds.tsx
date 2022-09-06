@@ -43,6 +43,10 @@ const AddAds = () => {
     formData.append('time_feed', data.time_feed);
     formData.append('ad_target', data.ad_target);
     formData.append('file', data.file[0]);
+    formData.append('description', data.description);
+    formData.append('container_color', data.container_color);
+    formData.append('background_color', data.background_color);
+
     video === true
       ? formData.append('type', 'video')
       : formData.append('type', 'image');
@@ -86,7 +90,7 @@ const AddAds = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="root-ad">
             <div>
-              <div className="ads-label">
+              <div className="ads__label">
                 <label>Ad title</label>
                 <input
                   type="text"
@@ -97,7 +101,7 @@ const AddAds = () => {
                   <p className="error-message-ads">{errors.title?.message}</p>
                 )}
               </div>
-              <div className="ads-label">
+              <div className="ads__label">
                 <label>Link to be redirected to</label>
                 <input
                   type="text"
@@ -110,7 +114,7 @@ const AddAds = () => {
                   </p>
                 )}
               </div>
-              <div className="ads-label">
+              <div className="ads__label">
                 <label>Watch time</label>
                 <input
                   type="text"
@@ -123,9 +127,48 @@ const AddAds = () => {
                   </p>
                 )}
               </div>
+              <div className="ads__label">
+                <label>Description</label>
+                <input
+                  type="text"
+                  placeholder="Enter a description"
+                  {...register('description')}
+                />
+                {errors.description && (
+                  <p className="error-message-ads">
+                    {errors.description?.message}
+                  </p>
+                )}
+              </div>
             </div>
             <div className="ads-div-2">
-              <div className="ads-label">
+              <div className="ads__label">
+                <label>Background Color</label>
+                <input
+                  type="text"
+                  placeholder="Enter the background color"
+                  {...register('background_color')}
+                />
+                {errors.background_color && (
+                  <p className="error-message-ads">
+                    {errors.background_color?.message}
+                  </p>
+                )}
+              </div>
+              <div className="ads__label">
+                <label>Container Color</label>
+                <input
+                  type="text"
+                  placeholder="Enter the container color"
+                  {...register('container_color')}
+                />
+                {errors.container_color && (
+                  <p className="error-message-ads">
+                    {errors.container_color?.message}
+                  </p>
+                )}
+              </div>
+              <div className="ads__label">
                 <label>People to be reached</label>
                 <input
                   type="text"
@@ -171,7 +214,7 @@ const AddAds = () => {
             </div>
           </div>
           {errMessage && <p className="err-message-ads">{errMessage}</p>}
-          <button className="ad-button" type="submit" disabled={isLoading}>
+          <button className="ad__button" type="submit" disabled={isLoading}>
             Create Ad
           </button>
         </form>

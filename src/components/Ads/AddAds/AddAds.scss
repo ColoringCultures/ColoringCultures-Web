@@ -36,7 +36,7 @@
   }
 }
 
-.ad-button {
+.ad__button {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -82,7 +82,7 @@
   }
 }
 
-.ads-label {
+.ads__label {
   padding-bottom: 35px;
   display: flex;
   flex-direction: column;
@@ -94,6 +94,9 @@
 }
 
 .error-message-ads {
-  color: red;
-  font-size: 14px;
+  color: rgba(255, 61, 0, 1);
+  font-size: 12px;
+  background: rgba(255, 61, 0, 0.15);
+  padding: 0.75rem;
+  border-radius: 12px;
 }

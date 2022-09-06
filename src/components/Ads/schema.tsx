@@ -15,6 +15,9 @@ export const schema = yup.object().shape({
     .integer()
     .typeError('Target must be a number')
     .required('Target is required'),
+  description: yup.string().required('Description is required'),
+  container_color: yup.string().required('Color is required'),
+  background_color: yup.string().required('Background color is required'),
   file: yup
     .mixed()
     .test('required', 'You need to provide a file', (value) => {
