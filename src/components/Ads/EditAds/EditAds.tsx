@@ -26,6 +26,9 @@ const EditAds = () => {
   const [newImage, setNewImage] = useState('');
   const [newVideo, setNewVideo] = useState(false);
   const [display, setDisplay] = useState(true);
+  const [description, setDescription] = useState('');
+  const [backgroundColor, setBackgroundColor] = useState('');
+  const [containerColor, setContainerColor] = useState('');
 
   const [file, setFile] = useState('');
   const [video, setVideo] = useState(false);
@@ -60,6 +63,9 @@ const EditAds = () => {
           setWatchTime(response.data.data.time_feed);
           setPeopleToBeReached(response.data.data.ad_target);
           setAdFile(response.data.data.file);
+          setDescription(response.data.data.description);
+          setContainerColor(response.data.data.container_color);
+          setBackgroundColor(response.data.data.background_color);
           setLoading(false);
         })
         .catch((err) => {
@@ -90,6 +96,9 @@ const EditAds = () => {
     formData.append('redirect_url', link);
     formData.append('time_feed', watchTime);
     formData.append('ad_target', peopleToBeReached);
+    formData.append('description', description);
+    formData.append('container_color', containerColor);
+    formData.append('background_color', backgroundColor);
     file ? formData.append('file', file) : formData.append('file', adFile);
     video ? formData.append('type', 'video') : formData.append('type', 'image');
 
@@ -145,8 +154,35 @@ const EditAds = () => {
                   onChange={(event) => setWatchTime(event.target.value)}
                 />
               </div>
+              <div className="column-edit-root">
+                <label>Description</label>
+                <input
+                  type="text"
+                  placeholder="Enter a description"
+                  defaultValue={description}
+                  onChange={(event) => setDescription(event.target.value)}
+                />
+              </div>
             </div>
             <div className="edit-root-2">
+              <div className="column-edit">
+                <label>Background Color</label>
+                <input
+                  type="text"
+                  placeholder="Enter the background color"
+                  defaultValue={backgroundColor}
+                  onChange={(event) => setBackgroundColor(event.target.value)}
+                />
+              </div>
+              <div className="column-edit">
+                <label>Container Color</label>
+                <input
+                  type="text"
+                  placeholder="Enter the container color"
+                  defaultValue={containerColor}
+                  onChange={(event) => setContainerColor(event.target.value)}
+                />
+              </div>
               <div className="column-edit">
                 <label>People to be reached</label>
                 <input

@@ -126,9 +126,9 @@ const AddImages = () => {
                 />
               </div>
               <div className="description__details">
-                <label>Products Description</label>
+                <label>Image Description</label>
                 <textarea
-                  placeholder="Enter the product description here"
+                  placeholder="Enter the Image description here"
                   defaultValue={description}
                   onChange={(e) => setDescription(e.target.value)}
                 />
@@ -197,7 +197,7 @@ const AddImages = () => {
                 </div>
               </div>
               <p className="pointer-ks">
-                *When Updating the images, it is required you update both the
+                When Updating the images, it is required you update both the
                 initial and final image.
               </p>
             </section>

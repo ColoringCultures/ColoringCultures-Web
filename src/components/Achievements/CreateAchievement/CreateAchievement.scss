@@ -17,6 +17,10 @@
         flex-direction: column;
         margin-bottom: 32px;
 
+        .testing:focus {
+          border: 2px solid red;
+        }
+
         input {
           border-radius: 5px;
           width: calc(100vw - 880px);
@@ -138,8 +142,11 @@
 }
 
 .create-error-message {
-  color: red;
-  font-size: 14px;
+  color: rgba(255, 61, 0, 1);
+  font-size: 12px;
+  background: rgba(255, 61, 0, 0.15);
+  padding: 0.75rem;
+  border-radius: 12px;
 }
 
 .edit-vv {
@@ -147,4 +154,12 @@
   justify-content: center;
   align-items: center;
   margin-top: 15px;
+}
+
+.testing {
+  input {
+    &:focus {
+      border: 2px solid red;
+    }
+  }
 }

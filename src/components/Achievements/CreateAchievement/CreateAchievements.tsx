@@ -94,12 +94,13 @@ const CreateAchievement = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="create-root">
             <div className="create-root-div1">
-              <div className="create-input-text">
+              <div className={'create-input-text'}>
                 <label htmlFor="Achievement Name">Achievement Name</label>
                 <input
                   type="text"
                   placeholder="Enter a number here"
                   {...register('name')}
+                  className="testing"
                 />
                 {errors.name && (
                   <p className="create-error-message">{errors.name?.message}</p>

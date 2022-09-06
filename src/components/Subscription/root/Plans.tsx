@@ -40,7 +40,7 @@ const Plans = () => {
   }, [data]);
 
   return (
-    <div>
+    <div style={{ marginBottom: '25px' }}>
       {isLoading ? (
         <Loader />
       ) : (
