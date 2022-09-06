@@ -14,7 +14,7 @@ const RootAds = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const navigate = useNavigate();
   const [errMessage, setErrMessage] = useState('');
-  const LIMIT = 4;
+  const LIMIT = 8;
 
   useEffect(() => {
     const fetchData = async () => {
