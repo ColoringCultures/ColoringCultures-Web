@@ -199,8 +199,11 @@
 }
 
 .images-error {
-  font-size: 14px;
-  color: red;
+  color: rgba(255, 61, 0, 1);
+  font-size: 12px;
+  background: rgba(255, 61, 0, 0.15);
+  padding: 0.75rem;
+  border-radius: 12px;
 }
 
 .image-buttons {
