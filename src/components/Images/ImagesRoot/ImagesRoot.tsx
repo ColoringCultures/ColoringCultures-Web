@@ -63,10 +63,6 @@ const ImagesRoot = () => {
     setList(filteredData.slice(0, LIMIT));
   }, [filteredData]);
 
-  useEffect(() => {
-    console.log(list.length);
-  });
-
   const LENGTH = filteredData.length;
   const [showMore, setShowMore] = useState(true);
   const [list, setList] = useState<any[]>([]);

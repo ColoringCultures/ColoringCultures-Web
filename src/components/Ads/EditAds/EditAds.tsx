@@ -101,6 +101,7 @@ const EditAds = () => {
     formData.append('background_color', backgroundColor);
     file ? formData.append('file', file) : formData.append('file', adFile);
     video ? formData.append('type', 'video') : formData.append('type', 'image');
+    console.log(Object.fromEntries(formData));
 
     await axios
       .put(`${url}/advertisements/${id}/`, formData, {

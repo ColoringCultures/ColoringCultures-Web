@@ -171,7 +171,7 @@ const EditAchievement = () => {
                   <p className="create-error-message">{errors.task?.message}</p>
                 )}
               </div>
-              <div className="create-input-text-criteria">
+              {/* <div className="create-input-text-criteria">
                 <label htmlFor="Criteria">Criteria</label>
                 <input
                   type="text"
@@ -179,11 +179,24 @@ const EditAchievement = () => {
                   defaultValue={criteria}
                   onChange={(e) => setcriteria(e.target.value)}
                 />
-                {errors.criteria && (
-                  <p className="create-error-message">
-                    {errors.criteria?.message}
-                  </p>
-                )}
+              </div> */}
+              <div className="create-input-text-criteria">
+                <label htmlFor="Criteria">Level 1 Criteria</label>
+                <input type="text" placeholder="Enter a number" />
+              </div>
+              <div className="create-input-text-criteria">
+                <label htmlFor="Criteria">Level 2 Criteria</label>
+                <input
+                  type="text"
+                  placeholder="Enter number of colored images"
+                />
+              </div>
+              <div className="create-input-text-criteria">
+                <label htmlFor="Criteria">Level 3 Criteria</label>
+                <input
+                  type="text"
+                  placeholder="Enter number of colored images"
+                />
               </div>
             </div>
             <div className="create-root-div2">

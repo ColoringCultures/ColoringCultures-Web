@@ -25,7 +25,6 @@ const Home = () => {
           },
         })
         .then((response) => {
-          console.log(response);
           setAchievements(response.data.data.achivements.achivements_per_day);
           setFeedback(response.data.data.feedback.feedbacks_per_day);
           setVisitors(response.data.data.visitors.total_vistors_day);
@@ -33,7 +32,6 @@ const Home = () => {
     };
     fetchData();
   }, [token]);
-
 
   return (
     <div className="dash-home">
