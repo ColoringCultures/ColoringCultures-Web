@@ -71,14 +71,11 @@ const CreateAchievement = () => {
     const formData = new FormData();
     formData.append('name', data.name);
     formData.append('description', data.description);
-    formData.append('criteria', data.criteria); 
+    formData.append('criteria', data.criteria);
     formData.append('icon_image', data.icon_image[0]);
     formData.append('colored_icon_image', data.colored_icon_image[0]);
     formData.append('dark_icon_image', data.dark_icon_image[0]);
-    // formData.append('taks', JSON.stringify(arr));
-    // for(let i = 0; i < arr.length; i++) {
-    //   formData.append('tasks', arr[i])
-    // }
+    formData.append('tasks', JSON.stringify(arr));
 
     console.log(Object.fromEntries(formData));
     console.log(JSON.stringify(arr));
