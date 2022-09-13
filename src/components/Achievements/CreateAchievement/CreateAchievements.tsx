@@ -46,15 +46,39 @@ const CreateAchievement = () => {
   });
 
   const onSubmit = async (data: any) => {
+    const arr = [
+      {
+        level: 1,
+        criteria: {
+          colored_images: data.criteria1,
+        },
+      },
+      {
+        level: 2,
+        criteria: {
+          colored_images: data.criteria2,
+        },
+      },
+      {
+        level: 3,
+        criteria: {
+          colored_images: data.criteria3,
+        },
+      },
+    ];
     setLoading(true);
     setAchName(data.name);
     const formData = new FormData();
     formData.append('name', data.name);
-    formData.append('task', data.task);
+    formData.append('description', data.description);
     formData.append('criteria', data.criteria);
     formData.append('icon_image', data.icon_image[0]);
     formData.append('colored_icon_image', data.colored_icon_image[0]);
     formData.append('dark_icon_image', data.dark_icon_image[0]);
+    formData.append('tasks', JSON.stringify(arr));
+
+    console.log(Object.fromEntries(formData));
+    console.log(JSON.stringify(arr));
 
     await axios
       .post(`${url}/achievements/`, formData, {
@@ -63,6 +87,7 @@ const CreateAchievement = () => {
         },
       })
       .then((response) => {
+        console.log(response);
         setLoading(false);
         if (response.data.message === 'OK') {
           setModalOpen(true);
@@ -111,22 +136,50 @@ const CreateAchievement = () => {
                 <input
                   type="text"
                   placeholder="Enter text"
-                  {...register('task')}
+                  {...register('description')}
                 />
-                {errors.task && (
-                  <p className="create-error-message">{errors.task?.message}</p>
+                {errors.description && (
+                  <p className="create-error-message">
+                    {errors.description?.message}
+                  </p>
                 )}
               </div>
               <div className="create-input-text-criteria">
-                <label htmlFor="Criteria">Criteria</label>
+                <label htmlFor="Criteria">Level 1 Criteria</label>
                 <input
                   type="text"
                   placeholder="Enter a number"
-                  {...register('criteria')}
+                  {...register('criteria1')}
                 />
-                {errors.criteria && (
+                {errors.criteria1 && (
                   <p className="create-error-message">
-                    {errors.criteria?.message}
+                    {errors.criteria1?.message}
+                  </p>
+                )}
+              </div>
+              <div className="create-input-text-criteria">
+                <label htmlFor="Criteria">Level 2 Criteria</label>
+                <input
+                  type="text"
+                  placeholder="Enter number of colored images"
+                  {...register('criteria2')}
+                />
+                {errors.criteria2 && (
+                  <p className="create-error-message">
+                    {errors.criteria2?.message}
+                  </p>
+                )}
+              </div>
+              <div className="create-input-text-criteria">
+                <label htmlFor="Criteria">Level 3 Criteria</label>
+                <input
+                  type="text"
+                  placeholder="Enter number of colored images"
+                  {...register('criteria3')}
+                />
+                {errors.criteria3 && (
+                  <p className="create-error-message">
+                    {errors.criteria3?.message}
                   </p>
                 )}
               </div>

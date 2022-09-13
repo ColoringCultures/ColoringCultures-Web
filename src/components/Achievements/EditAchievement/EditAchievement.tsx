@@ -22,6 +22,9 @@ const EditAchievement = () => {
   const [isLoading, setLoading] = useState(true);
   const [isDeleted, setDeleted] = useState(false);
   const [errMessage, setErrMessage] = useState('');
+  const [level1, setLevel1] = useState('');
+  const [level2, setLevel2] = useState('');
+  const [level3, setLevel3] = useState('');
 
   const { id } = useParams();
 
@@ -64,12 +67,15 @@ const EditAchievement = () => {
         })
         .then((response) => {
           setName(response.data.data.name);
-          setDescription(response.data.data.task);
+          setDescription(response.data.data.description);
           setcriteria(response.data.data.criteria);
           setLoading(false);
           setdImage(response.data.data.dark_icon_image);
           setcImage(response.data.data.colored_icon_image);
           setlImage(response.data.data.icon_image);
+          setLevel1(response.data.data.tasks[0].criteria.colored_images);
+          setLevel2(response.data.data.tasks[1].criteria.colored_images);
+          setLevel3(response.data.data.tasks[2].criteria.colored_images);
         })
         .catch((err) => {
           setErrMessage(err.message);
@@ -89,15 +95,36 @@ const EditAchievement = () => {
   });
 
   const onSubmit = async () => {
+    const arr = [
+      {
+        level: 1,
+        criteria: {
+          colored_images: level1,
+        },
+      },
+      {
+        level: 2,
+        criteria: {
+          colored_images: level2,
+        },
+      },
+      {
+        level: 3,
+        criteria: {
+          colored_images: level3,
+        },
+      },
+    ];
     setLoading(true);
     const formData = new FormData();
     formData.append('name', name);
-    formData.append('task', description);
+    formData.append('description', description);
     formData.append('criteria', criteria);
     formData.append('icon_image', lImage);
     formData.append('dark_icon_image', dImage);
     formData.append('colored_icon_image', cImage);
     formData.append('new_image', newImage);
+    formData.append('tasks', JSON.stringify(arr));
 
     await axios
       .put(`${url}/achievements/${id}/`, formData, {
@@ -172,18 +199,37 @@ const EditAchievement = () => {
                 )}
               </div>
               <div className="create-input-text-criteria">
-                <label htmlFor="Criteria">Criteria</label>
+                <label htmlFor="Criteria">Level 1 Criteria</label>
                 <input
                   type="text"
                   placeholder="Enter a number"
-                  defaultValue={criteria}
-                  onChange={(e) => setcriteria(e.target.value)}
+                  defaultValue={level1}
+                  onChange={(e) => {
+                    setLevel1(e.target.value);
+                  }}
                 />
-                {errors.criteria && (
-                  <p className="create-error-message">
-                    {errors.criteria?.message}
-                  </p>
-                )}
+              </div>
+              <div className="create-input-text-criteria">
+                <label htmlFor="Criteria">Level 2 Criteria</label>
+                <input
+                  type="text"
+                  placeholder="Enter number of colored images"
+                  defaultValue={level2}
+                  onChange={(e) => {
+                    setLevel2(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="create-input-text-criteria">
+                <label htmlFor="Criteria">Level 3 Criteria</label>
+                <input
+                  type="text"
+                  placeholder="Enter number of colored images"
+                  defaultValue={level3}
+                  onChange={(e) => {
+                    setLevel3(e.target.value);
+                  }}
+                />
               </div>
             </div>
             <div className="create-root-div2">
