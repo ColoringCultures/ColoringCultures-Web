@@ -68,7 +68,7 @@
   align-self: center;
   display: grid;
   margin: 10.4px 30px 0 30px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
   grid-auto-rows: 1fr;
   gap: 0px 0px;
   padding-bottom: 15px;
