@@ -1,19 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Coloring Cultures",
+  "name": "The admin dashboard for Coloring Cultures LLC",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "coloringcultures.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "ColoringCulture1.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "ColoringCulture2.png",
       "type": "image/png",
       "sizes": "512x512"
     }
