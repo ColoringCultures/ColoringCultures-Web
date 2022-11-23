@@ -65,10 +65,70 @@
           @media (min-width: 768px) and (max-width: 992px) {
             width: 100%;
           }
+        }
+      }
 
-          // &:focus {
-          //   padding-left: 10px;
-          // }
+      .fieldArray {
+        margin-bottom: 20px;
+        .clickButton {
+          font-size: 12px;
+          background-color: #bd5112;
+          color: #f0f3f8;
+          border-radius: 4px;
+          border: 1px solid #707070;
+          cursor: pointer;
+          &:hover {
+            background-color: #dd5e14;
+          }
+        }
+
+        .arrayInputs {
+          display: flex;
+          gap: 15px;
+          align-items: center;
+          .arrayInputs__level {
+            .level {
+              padding-top: 5px;
+              min-width: 70px;
+            }
+          }
+          input {
+            border-radius: 5px;
+            width: 50%;
+            height: 48px;
+            min-width: 225px;
+            background-color: #f0f3f8;
+            border: none;
+            margin-top: 12px;
+            padding-left: 10px;
+            font-size: 13px;
+
+            &::placeholder {
+              color: #aaaab7;
+              font-size: 13px;
+            }
+            @media (min-width: 768px) and (max-width: 992px) {
+              width: 100%;
+            }
+          }
+          .arrayInserts {
+            display: flex;
+            gap: 5px;
+            padding-top: 5px;
+            .add {
+              border-radius: 50%;
+              border: 1px solid #717070;
+              cursor: pointer;
+              background-color: #bd5112;
+              color: #ffff;
+            }
+            .minus {
+              border-radius: 50%;
+              border: 1px solid #4a4a4a;
+              background-color: red;
+              cursor: pointer;
+            }
+          }
         }
       }
     }
@@ -154,12 +214,4 @@
   justify-content: center;
   align-items: center;
   margin-top: 15px;
-}
-
-.testing {
-  input {
-    &:focus {
-      border: 2px solid red;
-    }
-  }
 }
