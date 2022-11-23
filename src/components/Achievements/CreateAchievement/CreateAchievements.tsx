@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './CreateAchievement.scss';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from '../achievementSchema';
-import { useForm } from 'react-hook-form';
+import { useFieldArray, useForm } from 'react-hook-form';
 import axios from 'axios';
 import { UserContext } from '../../../UserContext';
 import Loader from '../../../Loader/Loader';
@@ -40,32 +40,19 @@ const CreateAchievement = () => {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'tasks',
+  });
+
   const onSubmit = async (data: any) => {
-    const arr = [
-      {
-        level: 1,
-        criteria: {
-          colored_images: data.criteria1,
-        },
-      },
-      {
-        level: 2,
-        criteria: {
-          colored_images: data.criteria2,
-        },
-      },
-      {
-        level: 3,
-        criteria: {
-          colored_images: data.criteria3,
-        },
-      },
-    ];
+    console.log(data);
     setLoading(true);
     setAchName(data.name);
     const formData = new FormData();
@@ -75,10 +62,8 @@ const CreateAchievement = () => {
     formData.append('icon_image', data.icon_image[0]);
     formData.append('colored_icon_image', data.colored_icon_image[0]);
     formData.append('dark_icon_image', data.dark_icon_image[0]);
-    formData.append('tasks', JSON.stringify(arr));
 
     console.log(Object.fromEntries(formData));
-    console.log(JSON.stringify(arr));
 
     await axios
       .post(`${url}/achievements/`, formData, {
@@ -87,7 +72,6 @@ const CreateAchievement = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         setLoading(false);
         if (response.data.message === 'OK') {
           setModalOpen(true);
@@ -112,101 +96,112 @@ const CreateAchievement = () => {
   });
 
   return (
-    <div className="root-create">
+    <div className='root-create'>
       {isLoading ? (
         <Loader />
       ) : (
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="create-root">
-            <div className="create-root-div1">
+          <div className='create-root'>
+            <div className='create-root-div1'>
               <div className={'create-input-text'}>
-                <label htmlFor="Achievement Name">Achievement Name</label>
+                <label htmlFor='Achievement Name'>Achievement Name</label>
                 <input
-                  type="text"
-                  placeholder="Enter a number here"
+                  type='text'
+                  placeholder='Enter a number here'
                   {...register('name')}
-                  className="testing"
+                  className='testing'
                 />
                 {errors.name && (
-                  <p className="create-error-message">{errors.name?.message}</p>
+                  <p className='create-error-message'>{errors.name?.message}</p>
                 )}
               </div>
-              <div className="create-input-text">
-                <label htmlFor="Description">Description</label>
+              <div className='create-input-text'>
+                <label htmlFor='Description'>Description</label>
                 <input
-                  type="text"
-                  placeholder="Enter text"
+                  type='text'
+                  placeholder='Enter text'
                   {...register('description')}
                 />
                 {errors.description && (
-                  <p className="create-error-message">
+                  <p className='create-error-message'>
                     {errors.description?.message}
                   </p>
                 )}
               </div>
-              <div className="create-input-text-criteria">
-                <label htmlFor="Criteria">Level 1 Criteria</label>
-                <input
-                  type="text"
-                  placeholder="Enter a number"
-                  {...register('criteria1')}
-                />
-                {errors.criteria1 && (
-                  <p className="create-error-message">
-                    {errors.criteria1?.message}
-                  </p>
+              <div className='fieldArray'>
+                {fields.length === 0 && (
+                  <button
+                    onClick={() => {
+                      append({ criteria: '' });
+                    }}
+                    className='clickButton'
+                  >
+                    Click to Create Levels
+                  </button>
                 )}
-              </div>
-              <div className="create-input-text-criteria">
-                <label htmlFor="Criteria">Level 2 Criteria</label>
-                <input
-                  type="text"
-                  placeholder="Enter number of colored images"
-                  {...register('criteria2')}
-                />
-                {errors.criteria2 && (
-                  <p className="create-error-message">
-                    {errors.criteria2?.message}
-                  </p>
-                )}
-              </div>
-              <div className="create-input-text-criteria">
-                <label htmlFor="Criteria">Level 3 Criteria</label>
-                <input
-                  type="text"
-                  placeholder="Enter number of colored images"
-                  {...register('criteria3')}
-                />
-                {errors.criteria3 && (
-                  <p className="create-error-message">
-                    {errors.criteria3?.message}
-                  </p>
-                )}
+                <>
+                  {fields.map((field, index) => (
+                    <React.Fragment key={field.id}>
+                      <div className='arrayInputs'>
+                        <div className='arrayInputs__level'>
+                          <div className='level'>Level {index + 1}</div>
+                        </div>
+                        <input
+                          type='text'
+                          placeholder='Enter number of colored images'
+                          {...register(`tasks.${index}.criteria`)}
+                        />
+                        <div className='arrayInserts'>
+                          <button
+                            type='button'
+                            className='add'
+                            onClick={() => {
+                              append({ criteria: '' });
+                            }}
+                          >
+                            +
+                          </button>
+                          <button
+                            type='button'
+                            className='minus'
+                            onClick={() => remove(index)}
+                          >
+                            -
+                          </button>
+                        </div>
+                      </div>
+                      {errors.tasks?.[index]?.criteria && (
+                        <p className='create-error-message'>
+                          {errors.tasks?.[index]?.criteria.message}
+                        </p>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </>
               </div>
             </div>
-
-            <div className="create-root-div2">
-              <div className="file-root">
-                <label htmlFor="">
+            <div className='create-root-div2'>
+              <div className='file-root'>
+                <label htmlFor=''>
                   {' '}
                   Upload initial and final images. (SVG)
                 </label>
-                <div className="major-files">
-                  <div className="shade-mode">
+                <div className='major-files'>
+                  <div className='shade-mode'>
                     <label>
                       Dark-mode
-                      <label className="file-label-create">
+                      <label className='file-label-create'>
                         <span>Choose a file</span>
                         <input
                           type={'file'}
-                          placeholder="Choose a file"
-                          accept=".svg"
+                          placeholder='Choose a file'
+                          accept='.svg'
                           onInput={displaydMode}
                           {...register('dark_icon_image')}
                         />
                       </label>
                       {errors.dark_icon_image && (
-                        <p className="create-error-message">
+                        <p className='create-error-message'>
                           {errors.dark_icon_image?.message}
                         </p>
                       )}
@@ -215,25 +210,25 @@ const CreateAchievement = () => {
                       <img
                         style={{ width: '150px', height: ' 168px' }}
                         src={dMode}
-                        alt=""
+                        alt=''
                       />
                     )}
                   </div>
-                  <div className="shade-mode">
+                  <div className='shade-mode'>
                     <label>
                       Light-mode
-                      <label className="file-label-create">
+                      <label className='file-label-create'>
                         <span>Choose a file</span>
                         <input
                           type={'file'}
-                          placeholder="Choose a file"
-                          accept=".svg"
+                          placeholder='Choose a file'
+                          accept='.svg'
                           onInput={displaylMode}
                           {...register('icon_image')}
                         />
                       </label>
                       {errors.icon_image && (
-                        <p className="create-error-message">
+                        <p className='create-error-message'>
                           {errors.icon_image?.message}
                         </p>
                       )}
@@ -242,25 +237,25 @@ const CreateAchievement = () => {
                       <img
                         style={{ width: '150px', height: ' 168px' }}
                         src={lMode}
-                        alt=""
+                        alt=''
                       />
                     )}
                   </div>
-                  <div className="shade-mode">
+                  <div className='shade-mode'>
                     <label>
                       Colored
-                      <label className="file-label-create">
+                      <label className='file-label-create'>
                         <span>Choose a file</span>
                         <input
                           type={'file'}
-                          placeholder="Choose a file"
-                          accept=".svg"
+                          placeholder='Choose a file'
+                          accept='.svg'
                           onInput={displayColored}
                           {...register('colored_icon_image')}
                         />
                       </label>
                       {errors.colored_icon_image && (
-                        <p className="create-error-message">
+                        <p className='create-error-message'>
                           {errors.colored_icon_image?.message}
                         </p>
                       )}
@@ -269,7 +264,7 @@ const CreateAchievement = () => {
                       <img
                         style={{ width: '150px', height: '168px' }}
                         src={colored}
-                        alt=""
+                        alt=''
                       />
                     )}
                   </div>
@@ -277,11 +272,11 @@ const CreateAchievement = () => {
               </div>
             </div>
           </div>
-          {errMessage && <p className="err-message-ach">{errMessage}</p>}
+          {errMessage && <p className='err-message-ach'>{errMessage}</p>}
           <div>
             <button
-              className="create-button-ach"
-              type="submit"
+              className='create-button-ach'
+              type='submit'
               disabled={isLoading}
             >
               Create
